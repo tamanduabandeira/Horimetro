@@ -12,7 +12,8 @@ void main(void)
 {
     while(1)
     {
-        void ;
+        void;
         
-    }
+        void;
+    }    
 }
