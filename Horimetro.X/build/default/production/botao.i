@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "botao.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,35 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-
-
-
-# 1 "./config.h" 1
-
-
-
-
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-# 8 "main.c" 2
-
+# 1 "botao.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2519,89 +2491,89 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
-
-# 1 "./lcd.h" 1
+# 1 "botao.c" 2
 
 
 
-void lcd_init( void );
-void lcd_clr( void );
-void lcd_print( unsigned char lin, unsigned char col, const char * str );
-void lcd_num( unsigned char lin, unsigned char col,
-                    int num, unsigned char tam );
-# 10 "main.c" 2
-
-# 1 "./timers.h" 1
 
 
-
-void T0_init( void );
-void T0_int( void );
-void T0_start( unsigned int c );
-void T0_pause( void );
-void T0_play( void );
-unsigned int T0_status( void );
-
-void T1_init(void);
-void T1_int( void );
-void T1_start( unsigned int c );
-void T1_pause( void );
-void T1_play( void );
-unsigned int T1_status( void );
-
-void T2_init(void);
-void T2_int( void );
-void T2_start( unsigned int c );
-void T2_pause( void );
-void T2_play( void );
-unsigned int T2_status( void );
-# 11 "main.c" 2
-
-# 1 "./tempo.h" 1
-
-
-
-extern char min, seg, hor, dia;
-
-void tempo (void);
-# 12 "main.c" 2
-
-# 1 "./botao.h" 1
-
-
-
-void botao_init( void );
-char b0( void );
-char b0_bordaSubida( void );
-char b0_bordaDescida( void );
-char b0_borda( void );
-char b1( void );
-char b1_bordaSubida( void );
-char b1_bordaDescida( void );
-char b1_borda( void );
-# 13 "main.c" 2
-
-
-
-void main (void)
+void botao_init( void )
 {
-    lcd_init();
-    T0_init();
-    botao_init();
+    TRISDbits.TRISD0 = 1;
+    TRISDbits.TRISD1 = 1;
+}
 
-    lcd_print(0,0,"T1:  :  :   ");
-    T0_start(1000);
 
-    while( 1 )
-    {
-        if( b0() )
-            T0_play();
-        else
-            T0_pause();
-        tempo();
-        lcd_num(0, 3, hor, 2);
-        lcd_num(0, 6, min, 2);
-        lcd_num(0, 9, seg, 2);
-    }
+
+
+char b0( void )
+{
+    return( PORTDbits.RD0 );
+}
+
+char b0Anterior=0;
+char b0_bordaSubida( void )
+{
+
+
+    char aux;
+    aux = PORTDbits.RD0 && !b0Anterior;
+    b0Anterior = PORTDbits.RD0;
+    return( aux );
+}
+char b0_bordaDescida( void )
+{
+
+
+    char aux;
+    aux = !PORTDbits.RD0 && b0Anterior;
+    b0Anterior = PORTDbits.RD0;
+    return( aux );
+}
+char b0_borda( void )
+{
+
+
+    char aux;
+    aux = (PORTDbits.RD0 && !b0Anterior) || (!PORTDbits.RD0 && b0Anterior);
+    b0Anterior = PORTDbits.RD0;
+    return( aux );
+}
+
+
+
+
+
+char b1( void )
+{
+   return( PORTDbits.RD1 );
+}
+
+char b1Anterior=0;
+char b1_bordaSubida( void )
+{
+
+
+    char aux;
+    aux = PORTDbits.RD1 && !b1Anterior;
+    b1Anterior = PORTDbits.RD1;
+    return( aux );
+}
+char b1_bordaDescida( void )
+{
+
+
+    char aux;
+    aux = !PORTDbits.RD1 && b1Anterior;
+    b1Anterior = PORTDbits.RD1;
+    return( aux );
+}
+char b1_borda( void )
+{
+
+
+    char aux;
+    aux = (PORTDbits.RD1 && !b1Anterior) || (!PORTDbits.RD1 && b1Anterior);
+    b1Anterior = PORTDbits.RD1;
+    return( aux );
 }

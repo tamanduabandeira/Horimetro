@@ -1,64 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"4 ./lcd.h
-[; ;./lcd.h: 4: void lcd_init( void );
-[v _lcd_init `(v ~T0 @X0 0 ef ]
-"4 ./timers.h
-[; ;./timers.h: 4: void T0_init( void );
-[v _T0_init `(v ~T0 @X0 0 ef ]
-"4 ./botao.h
-[; ;./botao.h: 4: void botao_init( void );
-[v _botao_init `(v ~T0 @X0 0 ef ]
-"6 ./lcd.h
-[; ;./lcd.h: 6: void lcd_print( unsigned char lin, unsigned char col, const char * str );
-[v _lcd_print `(v ~T0 @X0 0 ef3`uc`uc`*Cuc ]
-"6 ./timers.h
+"9 ./timers.h
+[; ;./timers.h: 9: unsigned int T0_status( void );
+[v _T0_status `(ui ~T0 @X0 0 ef ]
+"6
 [; ;./timers.h: 6: void T0_start( unsigned int c );
 [v _T0_start `(v ~T0 @X0 0 ef1`ui ]
-"5 ./botao.h
-[; ;./botao.h: 5: char b0( void );
-[v _b0 `(uc ~T0 @X0 0 ef ]
-"8 ./timers.h
-[; ;./timers.h: 8: void T0_play( void );
-[v _T0_play `(v ~T0 @X0 0 ef ]
-"7
-[; ;./timers.h: 7: void T0_pause( void );
-[v _T0_pause `(v ~T0 @X0 0 ef ]
-"6 ./tempo.h
-[; ;./tempo.h: 6: void tempo (void);
-[v _tempo `(v ~T0 @X0 0 ef ]
-"7 ./lcd.h
-[; ;./lcd.h: 7: void lcd_num( unsigned char lin, unsigned char col,
-[v _lcd_num `(v ~T0 @X0 0 ef4`uc`uc`i`uc ]
-"4 ./tempo.h
-[; ;./tempo.h: 4: extern char min, seg, hor, dia;
-[v _hor `uc ~T0 @X0 0 e ]
-[v _min `uc ~T0 @X0 0 e ]
-[v _seg `uc ~T0 @X0 0 e ]
-"5 ./config.h
-[p x FOSC = INTRC_NOCLKOUT ]
-"6
-[p x WDTE = OFF ]
-"7
-[p x PWRTE = OFF ]
-"8
-[p x MCLRE = OFF ]
-"9
-[p x CP = OFF ]
-"10
-[p x CPD = OFF ]
-"11
-[p x BOREN = OFF ]
-"12
-[p x IESO = OFF ]
-"13
-[p x FCMEN = OFF ]
-"14
-[p x LVP = OFF ]
-"17
-[p x BOR4V = BOR40V ]
-"18
-[p x WRT = OFF ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -293,70 +239,88 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-[v $root$_main `(v ~T0 @X0 0 e ]
-"16 main.c
-[; ;main.c: 16: void main (void)
-[v _main `(v ~T0 @X0 1 ef ]
-"17
-[; ;main.c: 17: {
+"13 tempo.c
+[; ;tempo.c: 13: char min = 0, seg = 0, hor = 0, dia = 0;
+[v _min `uc ~T0 @X0 1 e ]
+[i _min
+-> -> 0 `i `uc
+]
+[v _seg `uc ~T0 @X0 1 e ]
+[i _seg
+-> -> 0 `i `uc
+]
+[v _hor `uc ~T0 @X0 1 e ]
+[i _hor
+-> -> 0 `i `uc
+]
+[v _dia `uc ~T0 @X0 1 e ]
+[i _dia
+-> -> 0 `i `uc
+]
+"15
+[; ;tempo.c: 15: void tempo (void)
+[v _tempo `(v ~T0 @X0 1 ef ]
+"16
+[; ;tempo.c: 16: {
 {
-[e :U _main ]
+[e :U _tempo ]
 [f ]
+"17
+[; ;tempo.c: 17:     if( T0_status() == 0 )
+[e $ ! == ( _T0_status ..  -> -> 0 `i `ui 139  ]
 "18
-[; ;main.c: 18:     lcd_init();
-[e ( _lcd_init ..  ]
-"19
-[; ;main.c: 19:     T0_init();
-[e ( _T0_init ..  ]
-"20
-[; ;main.c: 20:     botao_init();
-[e ( _botao_init ..  ]
-"22
-[; ;main.c: 22:     lcd_print(0,0,"T1:  :  :   ");
-[e ( _lcd_print (3 , , -> -> 0 `i `uc -> -> 0 `i `uc :s 1C ]
-"23
-[; ;main.c: 23:     T0_start(1000);
-[e ( _T0_start (1 -> -> 1000 `i `ui ]
-"25
-[; ;main.c: 25:     while( 1 )
-[e :U 140 ]
-"26
-[; ;main.c: 26:     {
+[; ;tempo.c: 18:     {
 {
+"19
+[; ;tempo.c: 19:         T0_start(1000);
+[e ( _T0_start (1 -> -> 1000 `i `ui ]
+"20
+[; ;tempo.c: 20:         seg = ++seg % 60;
+[e = _seg -> % -> =+ _seg -> -> 1 `i `uc `i -> 60 `i `uc ]
+"21
+[; ;tempo.c: 21:         if( seg == 0 )
+[e $ ! == -> _seg `i -> 0 `i 140  ]
+"22
+[; ;tempo.c: 22:         {
+{
+"23
+[; ;tempo.c: 23:            min= ++min % 60;
+[e = _min -> % -> =+ _min -> -> 1 `i `uc `i -> 60 `i `uc ]
+"24
+[; ;tempo.c: 24:            if( min == 0)
+[e $ ! == -> _min `i -> 0 `i 141  ]
+"25
+[; ;tempo.c: 25:           {
+{
+"26
+[; ;tempo.c: 26:               hor = ++hor %24;
+[e = _hor -> % -> =+ _hor -> -> 1 `i `uc `i -> 24 `i `uc ]
 "27
-[; ;main.c: 27:         if( b0() )
-[e $ ! != -> ( _b0 ..  `i -> 0 `i 142  ]
+[; ;tempo.c: 27:               if(hor == 0)
+[e $ ! == -> _hor `i -> 0 `i 142  ]
 "28
-[; ;main.c: 28:             T0_play();
-[e ( _T0_play ..  ]
-[e $U 143  ]
+[; ;tempo.c: 28:               {
+{
 "29
-[; ;main.c: 29:         else
-[e :U 142 ]
+[; ;tempo.c: 29:                   dia = ++dia;
+[e = _dia =+ _dia -> -> 1 `i `uc ]
 "30
-[; ;main.c: 30:             T0_pause();
-[e ( _T0_pause ..  ]
-[e :U 143 ]
+[; ;tempo.c: 30:               }
+}
+[e :U 142 ]
 "31
-[; ;main.c: 31:         tempo();
-[e ( _tempo ..  ]
+[; ;tempo.c: 31:           }
+}
+[e :U 141 ]
 "32
-[; ;main.c: 32:         lcd_num(0, 3, hor, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 3 `i `uc -> _hor `i -> -> 2 `i `uc ]
+[; ;tempo.c: 32:         }
+}
+[e :U 140 ]
 "33
-[; ;main.c: 33:         lcd_num(0, 6, min, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 6 `i `uc -> _min `i -> -> 2 `i `uc ]
-"34
-[; ;main.c: 34:         lcd_num(0, 9, seg, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 9 `i `uc -> _seg `i -> -> 2 `i `uc ]
-"35
-[; ;main.c: 35:     }
+[; ;tempo.c: 33:     }
 }
 [e :U 139 ]
-[e $U 140  ]
-[e :U 141 ]
-"36
-[; ;main.c: 36: }
+"34
+[; ;tempo.c: 34: }
 [e :UE 138 ]
 }
-[a 1C 84 49 58 32 32 58 32 32 58 32 32 32 0 ]

@@ -8,6 +8,8 @@
       <itemPath>delay.h</itemPath>
       <itemPath>timers.h</itemPath>
       <itemPath>lcd.h</itemPath>
+      <itemPath>tempo.h</itemPath>
+      <itemPath>botao.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,6 +23,8 @@
       <itemPath>interrupt.c</itemPath>
       <itemPath>delay.c</itemPath>
       <itemPath>lcd.c</itemPath>
+      <itemPath>tempo.c</itemPath>
+      <itemPath>botao.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

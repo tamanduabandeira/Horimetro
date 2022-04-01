@@ -1,64 +1,26 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"4 ./lcd.h
-[; ;./lcd.h: 4: void lcd_init( void );
-[v _lcd_init `(v ~T0 @X0 0 ef ]
-"4 ./timers.h
-[; ;./timers.h: 4: void T0_init( void );
-[v _T0_init `(v ~T0 @X0 0 ef ]
-"4 ./botao.h
-[; ;./botao.h: 4: void botao_init( void );
-[v _botao_init `(v ~T0 @X0 0 ef ]
-"6 ./lcd.h
-[; ;./lcd.h: 6: void lcd_print( unsigned char lin, unsigned char col, const char * str );
-[v _lcd_print `(v ~T0 @X0 0 ef3`uc`uc`*Cuc ]
-"6 ./timers.h
-[; ;./timers.h: 6: void T0_start( unsigned int c );
-[v _T0_start `(v ~T0 @X0 0 ef1`ui ]
-"5 ./botao.h
-[; ;./botao.h: 5: char b0( void );
-[v _b0 `(uc ~T0 @X0 0 ef ]
-"8 ./timers.h
-[; ;./timers.h: 8: void T0_play( void );
-[v _T0_play `(v ~T0 @X0 0 ef ]
-"7
-[; ;./timers.h: 7: void T0_pause( void );
-[v _T0_pause `(v ~T0 @X0 0 ef ]
-"6 ./tempo.h
-[; ;./tempo.h: 6: void tempo (void);
-[v _tempo `(v ~T0 @X0 0 ef ]
-"7 ./lcd.h
-[; ;./lcd.h: 7: void lcd_num( unsigned char lin, unsigned char col,
-[v _lcd_num `(v ~T0 @X0 0 ef4`uc`uc`i`uc ]
-"4 ./tempo.h
-[; ;./tempo.h: 4: extern char min, seg, hor, dia;
-[v _hor `uc ~T0 @X0 0 e ]
-[v _min `uc ~T0 @X0 0 e ]
-[v _seg `uc ~T0 @X0 0 e ]
-"5 ./config.h
-[p x FOSC = INTRC_NOCLKOUT ]
-"6
-[p x WDTE = OFF ]
-"7
-[p x PWRTE = OFF ]
-"8
-[p x MCLRE = OFF ]
-"9
-[p x CP = OFF ]
-"10
-[p x CPD = OFF ]
-"11
-[p x BOREN = OFF ]
-"12
-[p x IESO = OFF ]
-"13
-[p x FCMEN = OFF ]
-"14
-[p x LVP = OFF ]
-"17
-[p x BOR4V = BOR40V ]
-"18
-[p x WRT = OFF ]
+"1608 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1608:     struct {
+[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S59 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"1607
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1607: typedef union {
+[u S58 `S59 1 ]
+[n S58 . . ]
+"1619
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1619: extern volatile TRISDbits_t TRISDbits __attribute__((address(0x088)));
+[v _TRISDbits `VS58 ~T0 @X0 0 e@136 ]
+"358
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 358:     struct {
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"357
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 357: typedef union {
+[u S11 `S12 1 ]
+[n S11 . . ]
+"369
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 369: extern volatile PORTDbits_t PORTDbits __attribute__((address(0x008)));
+[v _PORTDbits `VS11 ~T0 @X0 0 e@8 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -293,70 +255,215 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-[v $root$_main `(v ~T0 @X0 0 e ]
-"16 main.c
-[; ;main.c: 16: void main (void)
-[v _main `(v ~T0 @X0 1 ef ]
-"17
-[; ;main.c: 17: {
+"6 botao.c
+[; ;botao.c: 6: void botao_init( void )
+[v _botao_init `(v ~T0 @X0 1 ef ]
+"7
+[; ;botao.c: 7: {
 {
-[e :U _main ]
+[e :U _botao_init ]
 [f ]
-"18
-[; ;main.c: 18:     lcd_init();
-[e ( _lcd_init ..  ]
-"19
-[; ;main.c: 19:     T0_init();
-[e ( _T0_init ..  ]
-"20
-[; ;main.c: 20:     botao_init();
-[e ( _botao_init ..  ]
-"22
-[; ;main.c: 22:     lcd_print(0,0,"T1:  :  :   ");
-[e ( _lcd_print (3 , , -> -> 0 `i `uc -> -> 0 `i `uc :s 1C ]
-"23
-[; ;main.c: 23:     T0_start(1000);
-[e ( _T0_start (1 -> -> 1000 `i `ui ]
-"25
-[; ;main.c: 25:     while( 1 )
-[e :U 140 ]
-"26
-[; ;main.c: 26:     {
-{
-"27
-[; ;main.c: 27:         if( b0() )
-[e $ ! != -> ( _b0 ..  `i -> 0 `i 142  ]
-"28
-[; ;main.c: 28:             T0_play();
-[e ( _T0_play ..  ]
-[e $U 143  ]
-"29
-[; ;main.c: 29:         else
-[e :U 142 ]
-"30
-[; ;main.c: 30:             T0_pause();
-[e ( _T0_pause ..  ]
-[e :U 143 ]
-"31
-[; ;main.c: 31:         tempo();
-[e ( _tempo ..  ]
-"32
-[; ;main.c: 32:         lcd_num(0, 3, hor, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 3 `i `uc -> _hor `i -> -> 2 `i `uc ]
-"33
-[; ;main.c: 33:         lcd_num(0, 6, min, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 6 `i `uc -> _min `i -> -> 2 `i `uc ]
-"34
-[; ;main.c: 34:         lcd_num(0, 9, seg, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 9 `i `uc -> _seg `i -> -> 2 `i `uc ]
-"35
-[; ;main.c: 35:     }
-}
-[e :U 139 ]
-[e $U 140  ]
-[e :U 141 ]
-"36
-[; ;main.c: 36: }
+"8
+[; ;botao.c: 8:     TRISDbits.TRISD0 = 1;
+[e = . . _TRISDbits 0 0 -> -> 1 `i `uc ]
+"9
+[; ;botao.c: 9:     TRISDbits.TRISD1 = 1;
+[e = . . _TRISDbits 0 1 -> -> 1 `i `uc ]
+"10
+[; ;botao.c: 10: }
 [e :UE 138 ]
 }
-[a 1C 84 49 58 32 32 58 32 32 58 32 32 32 0 ]
+"15
+[; ;botao.c: 15: char b0( void )
+[v _b0 `(uc ~T0 @X0 1 ef ]
+"16
+[; ;botao.c: 16: {
+{
+[e :U _b0 ]
+[f ]
+"17
+[; ;botao.c: 17:     return( PORTDbits.RD0 );
+[e ) -> . . _PORTDbits 0 0 `uc ]
+[e $UE 139  ]
+"18
+[; ;botao.c: 18: }
+[e :UE 139 ]
+}
+"20
+[; ;botao.c: 20: char b0Anterior=0;
+[v _b0Anterior `uc ~T0 @X0 1 e ]
+[i _b0Anterior
+-> -> 0 `i `uc
+]
+"21
+[; ;botao.c: 21: char b0_bordaSubida( void )
+[v _b0_bordaSubida `(uc ~T0 @X0 1 ef ]
+"22
+[; ;botao.c: 22: {
+{
+[e :U _b0_bordaSubida ]
+[f ]
+"25
+[; ;botao.c: 25:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"26
+[; ;botao.c: 26:     aux = PORTDbits.RD0 && !b0Anterior;
+[e = _aux -> -> && != -> . . _PORTDbits 0 0 `i -> 0 `i ! != -> _b0Anterior `i -> 0 `i `i `uc ]
+"27
+[; ;botao.c: 27:     b0Anterior = PORTDbits.RD0;
+[e = _b0Anterior -> . . _PORTDbits 0 0 `uc ]
+"28
+[; ;botao.c: 28:     return( aux );
+[e ) _aux ]
+[e $UE 140  ]
+"29
+[; ;botao.c: 29: }
+[e :UE 140 ]
+}
+"30
+[; ;botao.c: 30: char b0_bordaDescida( void )
+[v _b0_bordaDescida `(uc ~T0 @X0 1 ef ]
+"31
+[; ;botao.c: 31: {
+{
+[e :U _b0_bordaDescida ]
+[f ]
+"34
+[; ;botao.c: 34:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"35
+[; ;botao.c: 35:     aux = !PORTDbits.RD0 && b0Anterior;
+[e = _aux -> -> && ! != -> . . _PORTDbits 0 0 `i -> 0 `i != -> _b0Anterior `i -> 0 `i `i `uc ]
+"36
+[; ;botao.c: 36:     b0Anterior = PORTDbits.RD0;
+[e = _b0Anterior -> . . _PORTDbits 0 0 `uc ]
+"37
+[; ;botao.c: 37:     return( aux );
+[e ) _aux ]
+[e $UE 141  ]
+"38
+[; ;botao.c: 38: }
+[e :UE 141 ]
+}
+"39
+[; ;botao.c: 39: char b0_borda( void )
+[v _b0_borda `(uc ~T0 @X0 1 ef ]
+"40
+[; ;botao.c: 40: {
+{
+[e :U _b0_borda ]
+[f ]
+"43
+[; ;botao.c: 43:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"44
+[; ;botao.c: 44:     aux = (PORTDbits.RD0 && !b0Anterior) || (!PORTDbits.RD0 && b0Anterior);
+[e = _aux -> -> || && != -> . . _PORTDbits 0 0 `i -> 0 `i ! != -> _b0Anterior `i -> 0 `i && ! != -> . . _PORTDbits 0 0 `i -> 0 `i != -> _b0Anterior `i -> 0 `i `i `uc ]
+"45
+[; ;botao.c: 45:     b0Anterior = PORTDbits.RD0;
+[e = _b0Anterior -> . . _PORTDbits 0 0 `uc ]
+"46
+[; ;botao.c: 46:     return( aux );
+[e ) _aux ]
+[e $UE 142  ]
+"47
+[; ;botao.c: 47: }
+[e :UE 142 ]
+}
+"53
+[; ;botao.c: 53: char b1( void )
+[v _b1 `(uc ~T0 @X0 1 ef ]
+"54
+[; ;botao.c: 54: {
+{
+[e :U _b1 ]
+[f ]
+"55
+[; ;botao.c: 55:    return( PORTDbits.RD1 );
+[e ) -> . . _PORTDbits 0 1 `uc ]
+[e $UE 143  ]
+"56
+[; ;botao.c: 56: }
+[e :UE 143 ]
+}
+"58
+[; ;botao.c: 58: char b1Anterior=0;
+[v _b1Anterior `uc ~T0 @X0 1 e ]
+[i _b1Anterior
+-> -> 0 `i `uc
+]
+"59
+[; ;botao.c: 59: char b1_bordaSubida( void )
+[v _b1_bordaSubida `(uc ~T0 @X0 1 ef ]
+"60
+[; ;botao.c: 60: {
+{
+[e :U _b1_bordaSubida ]
+[f ]
+"63
+[; ;botao.c: 63:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"64
+[; ;botao.c: 64:     aux = PORTDbits.RD1 && !b1Anterior;
+[e = _aux -> -> && != -> . . _PORTDbits 0 1 `i -> 0 `i ! != -> _b1Anterior `i -> 0 `i `i `uc ]
+"65
+[; ;botao.c: 65:     b1Anterior = PORTDbits.RD1;
+[e = _b1Anterior -> . . _PORTDbits 0 1 `uc ]
+"66
+[; ;botao.c: 66:     return( aux );
+[e ) _aux ]
+[e $UE 144  ]
+"67
+[; ;botao.c: 67: }
+[e :UE 144 ]
+}
+"68
+[; ;botao.c: 68: char b1_bordaDescida( void )
+[v _b1_bordaDescida `(uc ~T0 @X0 1 ef ]
+"69
+[; ;botao.c: 69: {
+{
+[e :U _b1_bordaDescida ]
+[f ]
+"72
+[; ;botao.c: 72:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"73
+[; ;botao.c: 73:     aux = !PORTDbits.RD1 && b1Anterior;
+[e = _aux -> -> && ! != -> . . _PORTDbits 0 1 `i -> 0 `i != -> _b1Anterior `i -> 0 `i `i `uc ]
+"74
+[; ;botao.c: 74:     b1Anterior = PORTDbits.RD1;
+[e = _b1Anterior -> . . _PORTDbits 0 1 `uc ]
+"75
+[; ;botao.c: 75:     return( aux );
+[e ) _aux ]
+[e $UE 145  ]
+"76
+[; ;botao.c: 76: }
+[e :UE 145 ]
+}
+"77
+[; ;botao.c: 77: char b1_borda( void )
+[v _b1_borda `(uc ~T0 @X0 1 ef ]
+"78
+[; ;botao.c: 78: {
+{
+[e :U _b1_borda ]
+[f ]
+"81
+[; ;botao.c: 81:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"82
+[; ;botao.c: 82:     aux = (PORTDbits.RD1 && !b1Anterior) || (!PORTDbits.RD1 && b1Anterior);
+[e = _aux -> -> || && != -> . . _PORTDbits 0 1 `i -> 0 `i ! != -> _b1Anterior `i -> 0 `i && ! != -> . . _PORTDbits 0 1 `i -> 0 `i != -> _b1Anterior `i -> 0 `i `i `uc ]
+"83
+[; ;botao.c: 83:     b1Anterior = PORTDbits.RD1;
+[e = _b1Anterior -> . . _PORTDbits 0 1 `uc ]
+"84
+[; ;botao.c: 84:     return( aux );
+[e ) _aux ]
+[e $UE 146  ]
+"85
+[; ;botao.c: 85: }
+[e :UE 146 ]
+}

@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "tempo.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
+# 1 "tempo.c" 2
 
 
 
@@ -14,26 +14,6 @@
 
 
 
-# 1 "./config.h" 1
-
-
-
-
-#pragma config FOSC = INTRC_NOCLKOUT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = OFF
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-#pragma config LVP = OFF
-
-
-#pragma config BOR4V = BOR40V
-#pragma config WRT = OFF
-# 8 "main.c" 2
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
@@ -2519,18 +2499,16 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
+# 9 "tempo.c" 2
 
-# 1 "./lcd.h" 1
+# 1 "./tempo.h" 1
 
 
 
-void lcd_init( void );
-void lcd_clr( void );
-void lcd_print( unsigned char lin, unsigned char col, const char * str );
-void lcd_num( unsigned char lin, unsigned char col,
-                    int num, unsigned char tam );
-# 10 "main.c" 2
+extern char min, seg, hor, dia;
+
+void tempo (void);
+# 10 "tempo.c" 2
 
 # 1 "./timers.h" 1
 
@@ -2556,52 +2534,28 @@ void T2_start( unsigned int c );
 void T2_pause( void );
 void T2_play( void );
 unsigned int T2_status( void );
-# 11 "main.c" 2
-
-# 1 "./tempo.h" 1
+# 11 "tempo.c" 2
 
 
+char min = 0, seg = 0, hor = 0, dia = 0;
 
-extern char min, seg, hor, dia;
-
-void tempo (void);
-# 12 "main.c" 2
-
-# 1 "./botao.h" 1
-
-
-
-void botao_init( void );
-char b0( void );
-char b0_bordaSubida( void );
-char b0_bordaDescida( void );
-char b0_borda( void );
-char b1( void );
-char b1_bordaSubida( void );
-char b1_bordaDescida( void );
-char b1_borda( void );
-# 13 "main.c" 2
-
-
-
-void main (void)
+void tempo (void)
 {
-    lcd_init();
-    T0_init();
-    botao_init();
-
-    lcd_print(0,0,"T1:  :  :   ");
-    T0_start(1000);
-
-    while( 1 )
+    if( T0_status() == 0 )
     {
-        if( b0() )
-            T0_play();
-        else
-            T0_pause();
-        tempo();
-        lcd_num(0, 3, hor, 2);
-        lcd_num(0, 6, min, 2);
-        lcd_num(0, 9, seg, 2);
+        T0_start(1000);
+        seg = ++seg % 60;
+        if( seg == 0 )
+        {
+           min= ++min % 60;
+           if( min == 0)
+          {
+              hor = ++hor %24;
+              if(hor == 0)
+              {
+                  dia = ++dia;
+              }
+          }
+        }
     }
 }
