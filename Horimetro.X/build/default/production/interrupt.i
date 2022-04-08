@@ -2493,8 +2493,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 3 "interrupt.c" 2
-
+# 4 "interrupt.c" 2
 # 1 "./timers.h" 1
 
 
@@ -2519,8 +2518,7 @@ void T2_start( unsigned int c );
 void T2_pause( void );
 void T2_play( void );
 unsigned int T2_status( void );
-# 4 "interrupt.c" 2
-
+# 5 "interrupt.c" 2
 
 
 void __attribute__((picinterrupt(""))) isr(void)

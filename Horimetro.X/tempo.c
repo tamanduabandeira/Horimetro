@@ -10,25 +10,37 @@
 #include "tempo.h"
 #include "timers.h"
 
-char min = 0, seg = 0, hor = 0, dia = 0;
-
-void tempo (void)
+void temporizar( struct temporizadorT * t )
 {
-    if( T0_status() == 0 )
+    if( t->hab )
     {
-        T0_start(1000);
-        seg = ++seg % 60;
-        if( seg == 0 )
+        t->seg = ++t->seg % 60;
+        if( t->seg == 0 )
         {
-           min= ++min % 60;
-           if( min == 0)
-          {
-              hor = ++hor %24;
-              if(hor == 0)
-              {
-                  dia = ++dia;
-              }
-          } 
+            t->min = ++t->min % 60;
+            if( t->min == 0 )
+            {
+                t->hor = ++t->hor % 24;
+                if(t->hor == 0)
+                {
+                    t->dia++;
+                }
+            } 
         }
     }
+}
+
+
+void habTemporizador( struct temporizadorT * t, unsigned char h )
+{
+    t->hab = h;
+}
+
+void resetTemporizador( struct temporizadorT * t )
+{
+    t->hab = 0;
+    t->seg = 0;
+    t->min = 0;
+    t->hor = 0;
+    t->dia = 0;
 }

@@ -201,7 +201,8 @@ void lcd_num(  unsigned char lin, unsigned char col,
 
     while( tam > (size+sinal) && tam > 1 )
     {
-        lcd_dataReg(' ');
+//        lcd_dataReg(' ');
+        lcd_dataReg('0');
         --tam;
     }  
 

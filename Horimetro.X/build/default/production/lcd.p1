@@ -631,48 +631,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 "203
 [; ;lcd.c: 203:     {
 {
-"204
-[; ;lcd.c: 204:         lcd_dataReg(' ');
-[e ( _lcd_dataReg (1 -> -> 32 `ui `uc ]
 "205
-[; ;lcd.c: 205:         --tam;
-[e =- _tam -> -> 1 `i `uc ]
+[; ;lcd.c: 205:         lcd_dataReg('0');
+[e ( _lcd_dataReg (1 -> -> 48 `ui `uc ]
 "206
-[; ;lcd.c: 206:     }
+[; ;lcd.c: 206:         --tam;
+[e =- _tam -> -> 1 `i `uc ]
+"207
+[; ;lcd.c: 207:     }
 }
 [e :U 159 ]
 "202
 [; ;lcd.c: 202:     while( tam > (size+sinal) && tam > 1 )
 [e $ && > -> _tam `i + -> _size `i -> _sinal `i > -> _tam `i -> 1 `i 160  ]
 [e :U 161 ]
-"208
-[; ;lcd.c: 208:     if( sinal )
-[e $ ! != -> _sinal `i -> 0 `i 162  ]
 "209
-[; ;lcd.c: 209:         lcd_dataReg('-');
+[; ;lcd.c: 209:     if( sinal )
+[e $ ! != -> _sinal `i -> 0 `i 162  ]
+"210
+[; ;lcd.c: 210:         lcd_dataReg('-');
 [e ( _lcd_dataReg (1 -> -> 45 `ui `uc ]
 [e :U 162 ]
-"211
-[; ;lcd.c: 211:     do
-[e :U 165 ]
 "212
-[; ;lcd.c: 212:     {
-{
+[; ;lcd.c: 212:     do
+[e :U 165 ]
 "213
-[; ;lcd.c: 213:         lcd_dataReg( (unsigned char)(num / div) + '0' );
-[e ( _lcd_dataReg (1 -> + -> -> / _num _div `uc `ui -> 48 `ui `uc ]
+[; ;lcd.c: 213:     {
+{
 "214
-[; ;lcd.c: 214:         num = num % div;
-[e = _num % _num _div ]
+[; ;lcd.c: 214:         lcd_dataReg( (unsigned char)(num / div) + '0' );
+[e ( _lcd_dataReg (1 -> + -> -> / _num _div `uc `ui -> 48 `ui `uc ]
 "215
-[; ;lcd.c: 215:         div/=10;
-[e =/ _div -> 10 `i ]
+[; ;lcd.c: 215:         num = num % div;
+[e = _num % _num _div ]
 "216
-[; ;lcd.c: 216:     }
+[; ;lcd.c: 216:         div/=10;
+[e =/ _div -> 10 `i ]
+"217
+[; ;lcd.c: 217:     }
 }
 [e $ >= _div -> 1 `i 165  ]
 [e :U 164 ]
-"218
-[; ;lcd.c: 218: }
+"219
+[; ;lcd.c: 219: }
 [e :UE 152 ]
 }
