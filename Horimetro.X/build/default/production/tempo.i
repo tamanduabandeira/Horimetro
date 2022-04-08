@@ -2499,17 +2499,24 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "tempo.c" 2
-
+# 10 "tempo.c" 2
 # 1 "./tempo.h" 1
 
 
 
-extern char min, seg, hor, dia;
+struct temporizadorT
+{
+    char hab;
+    char seg;
+    char min;
+    char hor;
+    int dia;
+};
 
-void tempo (void);
-# 10 "tempo.c" 2
-
+void temporizar( struct temporizadorT * t );
+void habTemporizador( struct temporizadorT * t, unsigned char h );
+void resetTemporizador( struct temporizadorT * t );
+# 11 "tempo.c" 2
 # 1 "./timers.h" 1
 
 
@@ -2534,28 +2541,39 @@ void T2_start( unsigned int c );
 void T2_pause( void );
 void T2_play( void );
 unsigned int T2_status( void );
-# 11 "tempo.c" 2
+# 12 "tempo.c" 2
 
-
-char min = 0, seg = 0, hor = 0, dia = 0;
-
-void tempo (void)
+void temporizar( struct temporizadorT * t )
 {
-    if( T0_status() == 0 )
+    if( t->hab )
     {
-        T0_start(1000);
-        seg = ++seg % 60;
-        if( seg == 0 )
+        t->seg = ++t->seg % 60;
+        if( t->seg == 0 )
         {
-           min= ++min % 60;
-           if( min == 0)
-          {
-              hor = ++hor %24;
-              if(hor == 0)
-              {
-                  dia = ++dia;
-              }
-          }
+            t->min = ++t->min % 60;
+            if( t->min == 0 )
+            {
+                t->hor = ++t->hor % 24;
+                if(t->hor == 0)
+                {
+                    t->dia++;
+                }
+            }
         }
     }
+}
+
+
+void habTemporizador( struct temporizadorT * t, unsigned char h )
+{
+    t->hab = h;
+}
+
+void resetTemporizador( struct temporizadorT * t )
+{
+    t->hab = 0;
+    t->seg = 0;
+    t->min = 0;
+    t->hor = 0;
+    t->dia = 0;
 }

@@ -33,8 +33,7 @@
 
 #pragma config BOR4V = BOR40V
 #pragma config WRT = OFF
-# 8 "main.c" 2
-
+# 9 "main.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2519,8 +2518,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 9 "main.c" 2
-
+# 10 "main.c" 2
 # 1 "./lcd.h" 1
 
 
@@ -2530,8 +2528,7 @@ void lcd_clr( void );
 void lcd_print( unsigned char lin, unsigned char col, const char * str );
 void lcd_num( unsigned char lin, unsigned char col,
                     int num, unsigned char tam );
-# 10 "main.c" 2
-
+# 11 "main.c" 2
 # 1 "./timers.h" 1
 
 
@@ -2556,17 +2553,24 @@ void T2_start( unsigned int c );
 void T2_pause( void );
 void T2_play( void );
 unsigned int T2_status( void );
-# 11 "main.c" 2
-
+# 12 "main.c" 2
 # 1 "./tempo.h" 1
 
 
 
-extern char min, seg, hor, dia;
+struct temporizadorT
+{
+    char hab;
+    char seg;
+    char min;
+    char hor;
+    int dia;
+};
 
-void tempo (void);
-# 12 "main.c" 2
-
+void temporizar( struct temporizadorT * t );
+void habTemporizador( struct temporizadorT * t, unsigned char h );
+void resetTemporizador( struct temporizadorT * t );
+# 13 "main.c" 2
 # 1 "./botao.h" 1
 
 
@@ -2580,9 +2584,9 @@ char b1( void );
 char b1_bordaSubida( void );
 char b1_bordaDescida( void );
 char b1_borda( void );
-# 13 "main.c" 2
+# 14 "main.c" 2
 
-
+struct temporizadorT tempo[4];
 
 void main (void)
 {
@@ -2590,18 +2594,40 @@ void main (void)
     T0_init();
     botao_init();
 
-    lcd_print(0,0,"T1:  :  :   ");
+    lcd_print(0,0,"00:00      00:00");
+    lcd_print(1,0,"00:00      00:00");
     T0_start(1000);
+    resetTemporizador( &tempo[0] );
+    resetTemporizador( &tempo[1] );
+    resetTemporizador( &tempo[2] );
+    resetTemporizador( &tempo[3] );
 
     while( 1 )
     {
-        if( b0() )
-            T0_play();
-        else
-            T0_pause();
-        tempo();
-        lcd_num(0, 3, hor, 2);
-        lcd_num(0, 6, min, 2);
-        lcd_num(0, 9, seg, 2);
+        habTemporizador( &tempo[0], b0() );
+        habTemporizador( &tempo[1], b1() );
+
+        if( T0_status() == 0 )
+        {
+            T0_start(1000);
+
+            temporizar( &tempo[0] );
+            temporizar( &tempo[1] );
+            temporizar( &tempo[2] );
+            temporizar( &tempo[3] );
+
+            lcd_num(0, 0, tempo[0].hor, 2);
+            lcd_num(0, 3, tempo[0].min, 2);
+
+            lcd_num(0, 11, tempo[1].min, 2);
+            lcd_num(0, 14, tempo[1].seg, 2);
+
+            lcd_num(1, 0, tempo[2].min, 2);
+            lcd_num(1, 3, tempo[2].seg, 2);
+
+            lcd_num(1, 11, tempo[3].min, 2);
+            lcd_num(1, 14, tempo[3].seg, 2);
+
+        }
     }
 }

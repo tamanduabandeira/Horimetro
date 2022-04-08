@@ -1,8 +1,17 @@
 #ifndef TEMPO_H
 #define TEMPO_H
 
-extern char min, seg, hor, dia;
+struct temporizadorT
+{
+    char hab;
+    char seg;
+    char min;
+    char hor;
+    int  dia;
+};
 
-void tempo (void);
+void temporizar( struct temporizadorT * t );
+void habTemporizador( struct temporizadorT * t, unsigned char h );
+void resetTemporizador( struct temporizadorT * t );
 
 #endif
