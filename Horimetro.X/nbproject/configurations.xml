@@ -4,6 +4,12 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>config.h</itemPath>
+      <itemPath>delay.h</itemPath>
+      <itemPath>timers.h</itemPath>
+      <itemPath>lcd.h</itemPath>
+      <itemPath>tempo.h</itemPath>
+      <itemPath>botao.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -13,6 +19,12 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
+      <itemPath>timers.c</itemPath>
+      <itemPath>interrupt.c</itemPath>
+      <itemPath>delay.c</itemPath>
+      <itemPath>lcd.c</itemPath>
+      <itemPath>tempo.c</itemPath>
+      <itemPath>botao.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -20,6 +32,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
