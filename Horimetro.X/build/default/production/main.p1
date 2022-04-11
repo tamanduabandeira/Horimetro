@@ -4,6 +4,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [s S138 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
 [n S138 temporizadorT hab seg min hor dia ]
 [p mainexit ]
+"3387 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "4 ./lcd.h
 [; ;./lcd.h: 4: void lcd_init( void );
 [v _lcd_init `(v ~T0 @X0 0 ef ]
@@ -31,6 +34,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9
 [; ;./botao.h: 9: char b1( void );
 [v _b1 `(uc ~T0 @X0 0 ef ]
+"13
+[; ;./botao.h: 13: char b2( void );
+[v _b2 `(uc ~T0 @X0 0 ef ]
+"17
+[; ;./botao.h: 17: char b3( void );
+[v _b3 `(uc ~T0 @X0 0 ef ]
 "9 ./timers.h
 [; ;./timers.h: 9: unsigned int T0_status( void );
 [v _T0_status `(ui ~T0 @X0 0 ef ]
@@ -311,104 +320,113 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "19
-[; ;main.c: 19:     lcd_init();
-[e ( _lcd_init ..  ]
+[; ;main.c: 19:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
 "20
-[; ;main.c: 20:     T0_init();
-[e ( _T0_init ..  ]
+[; ;main.c: 20:     lcd_init();
+[e ( _lcd_init ..  ]
 "21
-[; ;main.c: 21:     botao_init();
+[; ;main.c: 21:     T0_init();
+[e ( _T0_init ..  ]
+"22
+[; ;main.c: 22:     botao_init();
 [e ( _botao_init ..  ]
-"23
-[; ;main.c: 23:     lcd_print(0,0,"00:00      00:00");
-[e ( _lcd_print (3 , , -> -> 0 `i `uc -> -> 0 `i `uc :s 1C ]
 "24
-[; ;main.c: 24:     lcd_print(1,0,"00:00      00:00");
-[e ( _lcd_print (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 2C ]
+[; ;main.c: 24:     lcd_print(0,0,"00:00      00:00");
+[e ( _lcd_print (3 , , -> -> 0 `i `uc -> -> 0 `i `uc :s 1C ]
 "25
-[; ;main.c: 25:     T0_start(1000);
-[e ( _T0_start (1 -> -> 1000 `i `ui ]
-"26
-[; ;main.c: 26:     resetTemporizador( &tempo[0] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
+[; ;main.c: 25:     lcd_print(1,0,"00:00      00:00");
+[e ( _lcd_print (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 2C ]
 "27
-[; ;main.c: 27:     resetTemporizador( &tempo[1] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"28
-[; ;main.c: 28:     resetTemporizador( &tempo[2] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"29
-[; ;main.c: 29:     resetTemporizador( &tempo[3] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"31
-[; ;main.c: 31:     while( 1 )
-[e :U 141 ]
-"32
-[; ;main.c: 32:     {
-{
-"33
-[; ;main.c: 33:         habTemporizador( &tempo[0], b0() );
-[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b0 ..  `uc ]
-"34
-[; ;main.c: 34:         habTemporizador( &tempo[1], b1() );
-[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b1 ..  `uc ]
-"36
-[; ;main.c: 36:         if( T0_status() == 0 )
-[e $ ! == ( _T0_status ..  -> -> 0 `i `ui 143  ]
-"37
-[; ;main.c: 37:         {
-{
-"38
-[; ;main.c: 38:             T0_start(1000);
+[; ;main.c: 27:     T0_start(1000);
 [e ( _T0_start (1 -> -> 1000 `i `ui ]
+"28
+[; ;main.c: 28:     resetTemporizador( &tempo[0] );
+[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
+"29
+[; ;main.c: 29:     resetTemporizador( &tempo[1] );
+[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
+"30
+[; ;main.c: 30:     resetTemporizador( &tempo[2] );
+[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
+"31
+[; ;main.c: 31:     resetTemporizador( &tempo[3] );
+[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
+"33
+[; ;main.c: 33:     while( 1 )
+[e :U 141 ]
+"34
+[; ;main.c: 34:     {
+{
+"35
+[; ;main.c: 35:         habTemporizador( &tempo[0], b0() );
+[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b0 ..  `uc ]
+"36
+[; ;main.c: 36:         habTemporizador( &tempo[1], b1() );
+[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b1 ..  `uc ]
+"37
+[; ;main.c: 37:         habTemporizador( &tempo[2], b2() );
+[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b2 ..  `uc ]
+"38
+[; ;main.c: 38:         habTemporizador( &tempo[3], b3() );
+[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b3 ..  `uc ]
 "40
-[; ;main.c: 40:             temporizar( &tempo[0] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
+[; ;main.c: 40:         if( T0_status() == 0 )
+[e $ ! == ( _T0_status ..  -> -> 0 `i `ui 143  ]
 "41
-[; ;main.c: 41:             temporizar( &tempo[1] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
+[; ;main.c: 41:         {
+{
 "42
-[; ;main.c: 42:             temporizar( &tempo[2] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"43
-[; ;main.c: 43:             temporizar( &tempo[3] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
+[; ;main.c: 42:             T0_start(1000);
+[e ( _T0_start (1 -> -> 1000 `i `ui ]
+"44
+[; ;main.c: 44:             temporizar( &tempo[0] );
+[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
 "45
-[; ;main.c: 45:             lcd_num(0, 0, tempo[0].hor, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 3 `i -> -> 2 `i `uc ]
+[; ;main.c: 45:             temporizar( &tempo[1] );
+[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
 "46
-[; ;main.c: 46:             lcd_num(0, 3, tempo[0].min, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 3 `i `uc -> . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
-"48
-[; ;main.c: 48:             lcd_num(0, 11, tempo[1].min, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 11 `i `uc -> . *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
+[; ;main.c: 46:             temporizar( &tempo[2] );
+[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
+"47
+[; ;main.c: 47:             temporizar( &tempo[3] );
+[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
 "49
-[; ;main.c: 49:             lcd_num(0, 14, tempo[1].seg, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 14 `i `uc -> . *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux 1 `i -> -> 2 `i `uc ]
-"51
-[; ;main.c: 51:             lcd_num(1, 0, tempo[2].min, 2);
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> . *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
+[; ;main.c: 49:             lcd_num(0, 0, tempo[0].hor, 2);
+[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 3 `i -> -> 2 `i `uc ]
+"50
+[; ;main.c: 50:             lcd_num(0, 3, tempo[0].min, 2);
+[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 3 `i `uc -> . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
 "52
-[; ;main.c: 52:             lcd_num(1, 3, tempo[2].seg, 2);
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 3 `i `uc -> . *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux 1 `i -> -> 2 `i `uc ]
-"54
-[; ;main.c: 54:             lcd_num(1, 11, tempo[3].min, 2);
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 11 `i `uc -> . *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
+[; ;main.c: 52:             lcd_num(0, 11, tempo[1].min, 2);
+[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 11 `i `uc -> . *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
+"53
+[; ;main.c: 53:             lcd_num(0, 14, tempo[1].seg, 2);
+[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 14 `i `uc -> . *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux 1 `i -> -> 2 `i `uc ]
 "55
-[; ;main.c: 55:             lcd_num(1, 14, tempo[3].seg, 2);
+[; ;main.c: 55:             lcd_num(1, 0, tempo[2].min, 2);
+[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> . *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
+"56
+[; ;main.c: 56:             lcd_num(1, 3, tempo[2].seg, 2);
+[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 3 `i `uc -> . *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux 1 `i -> -> 2 `i `uc ]
+"58
+[; ;main.c: 58:             lcd_num(1, 11, tempo[3].min, 2);
+[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 11 `i `uc -> . *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
+"59
+[; ;main.c: 59:             lcd_num(1, 14, tempo[3].seg, 2);
 [e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 14 `i `uc -> . *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux 1 `i -> -> 2 `i `uc ]
-"57
-[; ;main.c: 57:         }
+"61
+[; ;main.c: 61:         }
 }
 [e :U 143 ]
-"58
-[; ;main.c: 58:     }
+"62
+[; ;main.c: 62:     }
 }
 [e :U 140 ]
 [e $U 141  ]
 [e :U 142 ]
-"59
-[; ;main.c: 59: }
+"63
+[; ;main.c: 63: }
 [e :UE 139 ]
 }
 [a 1C 48 48 58 48 48 32 32 32 32 32 32 48 48 58 48 48 0 ]
