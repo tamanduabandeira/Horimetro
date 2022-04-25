@@ -2496,10 +2496,15 @@ extern __bank0 __bit __timeout;
 
 
 
+
+
+
 void botao_init( void )
 {
     TRISDbits.TRISD0 = 1;
     TRISDbits.TRISD1 = 1;
+    TRISAbits.TRISA2 = 1;
+    TRISAbits.TRISA3 = 1;
 }
 
 
@@ -2574,5 +2579,73 @@ char b1_borda( void )
     char aux;
     aux = (PORTDbits.RD1 && !b1Anterior) || (!PORTDbits.RD1 && b1Anterior);
     b1Anterior = PORTDbits.RD1;
+    return( aux );
+}
+
+char b2( void )
+{
+    return( PORTAbits.RA2 );
+}
+
+char b2Anterior=0;
+char b2_bordaSubida( void )
+{
+
+
+    char aux;
+    aux = PORTAbits.RA2 && !b2Anterior;
+    b2Anterior = PORTAbits.RA2;
+    return( aux );
+}
+char b2_bordaDescida( void )
+{
+
+
+    char aux;
+    aux = !PORTAbits.RA2 && b2Anterior;
+    b2Anterior = PORTAbits.RA2;
+    return( aux );
+}
+char b2_borda( void )
+{
+
+
+    char aux;
+    aux = (PORTAbits.RA2 && !b2Anterior) || (!PORTAbits.RA2 && b2Anterior);
+    b2Anterior = PORTAbits.RA2;
+    return( aux );
+}
+
+char b3( void )
+{
+    return( PORTAbits.RA3 );
+}
+
+char b3Anterior=0;
+char b3_bordaSubida( void )
+{
+
+
+    char aux;
+    aux = PORTAbits.RA3 && !b3Anterior;
+    b3Anterior = PORTAbits.RA3;
+    return( aux );
+}
+char b3_bordaDescida( void )
+{
+
+
+    char aux;
+    aux = !PORTAbits.RA3 && b3Anterior;
+    b3Anterior = PORTAbits.RA3;
+    return( aux );
+}
+char b3_borda( void )
+{
+
+
+    char aux;
+    aux = (PORTAbits.RA3 && !b3Anterior) || (!PORTAbits.RA3 && b3Anterior);
+    b3Anterior = PORTAbits.RA3;
     return( aux );
 }

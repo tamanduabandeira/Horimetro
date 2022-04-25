@@ -4,7 +4,9 @@
 
 //****************** Interface com PORTs/Pinos
 #define LCD_BUS( x )    PORTD = ((PORTD & 0x0F)|(x<<4))
-#define LCD_EN          PORTDbits.RD3
+//#define LCD_EN          PORTDbits.RD3 
+//#define LCD_RS          PORTDbits.RD2
+#define LCD_EN          PORTDbits.RD3 
 #define LCD_RS          PORTDbits.RD2
 #define LCD_ROWS        2
 #define LCD_COLS        16

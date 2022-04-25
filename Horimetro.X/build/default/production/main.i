@@ -2584,18 +2584,28 @@ char b1( void );
 char b1_bordaSubida( void );
 char b1_bordaDescida( void );
 char b1_borda( void );
+char b2( void );
+char b2_bordaSubida( void );
+char b2_bordaDescida( void );
+char b2_borda( void );
+char b3( void );
+char b3_bordaSubida( void );
+char b3_bordaDescida( void );
+char b3_borda( void );
 # 14 "main.c" 2
 
 struct temporizadorT tempo[4];
 
 void main (void)
 {
+    ANSEL = 0;
     lcd_init();
     T0_init();
     botao_init();
 
     lcd_print(0,0,"00:00      00:00");
     lcd_print(1,0,"00:00      00:00");
+
     T0_start(1000);
     resetTemporizador( &tempo[0] );
     resetTemporizador( &tempo[1] );
@@ -2606,6 +2616,8 @@ void main (void)
     {
         habTemporizador( &tempo[0], b0() );
         habTemporizador( &tempo[1], b1() );
+        habTemporizador( &tempo[2], b2() );
+        habTemporizador( &tempo[3], b3() );
 
         if( T0_status() == 0 )
         {
