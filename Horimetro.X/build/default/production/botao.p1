@@ -1,5 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1422 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+"1608 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1608:     struct {
+[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S59 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"1607
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1607: typedef union {
+[u S58 `S59 1 ]
+[n S58 . . ]
+"1619
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1619: extern volatile TRISDbits_t TRISDbits __attribute__((address(0x088)));
+[v _TRISDbits `VS58 ~T0 @X0 0 e@136 ]
+"1422
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1422:     struct {
 [s S53 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S53 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
@@ -10,6 +21,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1433
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1433: extern volatile TRISAbits_t TRISAbits __attribute__((address(0x085)));
 [v _TRISAbits `VS52 ~T0 @X0 0 e@133 ]
+"358
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 358:     struct {
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"357
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 357: typedef union {
+[u S11 `S12 1 ]
+[n S11 . . ]
+"369
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 369: extern volatile PORTDbits_t PORTDbits __attribute__((address(0x008)));
+[v _PORTDbits `VS11 ~T0 @X0 0 e@8 ]
 "172
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 172:     struct {
 [s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -264,11 +286,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _botao_init ]
 [f ]
 "11
-[; ;botao.c: 11:     TRISAbits.TRISA0 = 1;
-[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
+[; ;botao.c: 11:     TRISDbits.TRISD0 = 1;
+[e = . . _TRISDbits 0 0 -> -> 1 `i `uc ]
 "12
-[; ;botao.c: 12:     TRISAbits.TRISA1 = 1;
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;botao.c: 12:     TRISDbits.TRISD1 = 1;
+[e = . . _TRISDbits 0 1 -> -> 1 `i `uc ]
 "13
 [; ;botao.c: 13:     TRISAbits.TRISA2 = 1;
 [e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
@@ -288,8 +310,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _b0 ]
 [f ]
 "22
-[; ;botao.c: 22:     return( PORTAbits.RA0 );
-[e ) -> . . _PORTAbits 0 0 `uc ]
+[; ;botao.c: 22:     return( PORTDbits.RD0 );
+[e ) -> . . _PORTDbits 0 0 `uc ]
 [e $UE 139  ]
 "23
 [; ;botao.c: 23: }
@@ -313,11 +335,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;botao.c: 30:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
 "31
-[; ;botao.c: 31:     aux = PORTAbits.RA0 && !b0Anterior;
-[e = _aux -> -> && != -> . . _PORTAbits 0 0 `i -> 0 `i ! != -> _b0Anterior `i -> 0 `i `i `uc ]
+[; ;botao.c: 31:     aux = PORTDbits.RD0 && !b0Anterior;
+[e = _aux -> -> && != -> . . _PORTDbits 0 0 `i -> 0 `i ! != -> _b0Anterior `i -> 0 `i `i `uc ]
 "32
-[; ;botao.c: 32:     b0Anterior = PORTAbits.RA0;
-[e = _b0Anterior -> . . _PORTAbits 0 0 `uc ]
+[; ;botao.c: 32:     b0Anterior = PORTDbits.RD0;
+[e = _b0Anterior -> . . _PORTDbits 0 0 `uc ]
 "33
 [; ;botao.c: 33:     return( aux );
 [e ) _aux ]
@@ -338,11 +360,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;botao.c: 39:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
 "40
-[; ;botao.c: 40:     aux = !PORTAbits.RA0 && b0Anterior;
-[e = _aux -> -> && ! != -> . . _PORTAbits 0 0 `i -> 0 `i != -> _b0Anterior `i -> 0 `i `i `uc ]
+[; ;botao.c: 40:     aux = !PORTDbits.RD0 && b0Anterior;
+[e = _aux -> -> && ! != -> . . _PORTDbits 0 0 `i -> 0 `i != -> _b0Anterior `i -> 0 `i `i `uc ]
 "41
-[; ;botao.c: 41:     b0Anterior = PORTAbits.RA0;
-[e = _b0Anterior -> . . _PORTAbits 0 0 `uc ]
+[; ;botao.c: 41:     b0Anterior = PORTDbits.RD0;
+[e = _b0Anterior -> . . _PORTDbits 0 0 `uc ]
 "42
 [; ;botao.c: 42:     return( aux );
 [e ) _aux ]
@@ -363,11 +385,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;botao.c: 48:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
 "49
-[; ;botao.c: 49:     aux = (PORTAbits.RA0 && !b0Anterior) || (!PORTAbits.RA0 && b0Anterior);
-[e = _aux -> -> || && != -> . . _PORTAbits 0 0 `i -> 0 `i ! != -> _b0Anterior `i -> 0 `i && ! != -> . . _PORTAbits 0 0 `i -> 0 `i != -> _b0Anterior `i -> 0 `i `i `uc ]
+[; ;botao.c: 49:     aux = (PORTDbits.RD0 && !b0Anterior) || (!PORTDbits.RD0 && b0Anterior);
+[e = _aux -> -> || && != -> . . _PORTDbits 0 0 `i -> 0 `i ! != -> _b0Anterior `i -> 0 `i && ! != -> . . _PORTDbits 0 0 `i -> 0 `i != -> _b0Anterior `i -> 0 `i `i `uc ]
 "50
-[; ;botao.c: 50:     b0Anterior = PORTAbits.RA0;
-[e = _b0Anterior -> . . _PORTAbits 0 0 `uc ]
+[; ;botao.c: 50:     b0Anterior = PORTDbits.RD0;
+[e = _b0Anterior -> . . _PORTDbits 0 0 `uc ]
 "51
 [; ;botao.c: 51:     return( aux );
 [e ) _aux ]
@@ -385,8 +407,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _b1 ]
 [f ]
 "60
-[; ;botao.c: 60:    return( PORTAbits.RA1 );
-[e ) -> . . _PORTAbits 0 1 `uc ]
+[; ;botao.c: 60:    return( PORTDbits.RD1 );
+[e ) -> . . _PORTDbits 0 1 `uc ]
 [e $UE 143  ]
 "61
 [; ;botao.c: 61: }
@@ -410,11 +432,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;botao.c: 68:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
 "69
-[; ;botao.c: 69:     aux = PORTAbits.RA1 && !b1Anterior;
-[e = _aux -> -> && != -> . . _PORTAbits 0 1 `i -> 0 `i ! != -> _b1Anterior `i -> 0 `i `i `uc ]
+[; ;botao.c: 69:     aux = PORTDbits.RD1 && !b1Anterior;
+[e = _aux -> -> && != -> . . _PORTDbits 0 1 `i -> 0 `i ! != -> _b1Anterior `i -> 0 `i `i `uc ]
 "70
-[; ;botao.c: 70:     b1Anterior = PORTAbits.RA1;
-[e = _b1Anterior -> . . _PORTAbits 0 1 `uc ]
+[; ;botao.c: 70:     b1Anterior = PORTDbits.RD1;
+[e = _b1Anterior -> . . _PORTDbits 0 1 `uc ]
 "71
 [; ;botao.c: 71:     return( aux );
 [e ) _aux ]
@@ -435,11 +457,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;botao.c: 77:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
 "78
-[; ;botao.c: 78:     aux = !PORTAbits.RA1 && b1Anterior;
-[e = _aux -> -> && ! != -> . . _PORTAbits 0 1 `i -> 0 `i != -> _b1Anterior `i -> 0 `i `i `uc ]
+[; ;botao.c: 78:     aux = !PORTDbits.RD1 && b1Anterior;
+[e = _aux -> -> && ! != -> . . _PORTDbits 0 1 `i -> 0 `i != -> _b1Anterior `i -> 0 `i `i `uc ]
 "79
-[; ;botao.c: 79:     b1Anterior = PORTAbits.RA1;
-[e = _b1Anterior -> . . _PORTAbits 0 1 `uc ]
+[; ;botao.c: 79:     b1Anterior = PORTDbits.RD1;
+[e = _b1Anterior -> . . _PORTDbits 0 1 `uc ]
 "80
 [; ;botao.c: 80:     return( aux );
 [e ) _aux ]
@@ -460,11 +482,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;botao.c: 86:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
 "87
-[; ;botao.c: 87:     aux = (PORTAbits.RA1 && !b1Anterior) || (!PORTAbits.RA1 && b1Anterior);
-[e = _aux -> -> || && != -> . . _PORTAbits 0 1 `i -> 0 `i ! != -> _b1Anterior `i -> 0 `i && ! != -> . . _PORTAbits 0 1 `i -> 0 `i != -> _b1Anterior `i -> 0 `i `i `uc ]
+[; ;botao.c: 87:     aux = (PORTDbits.RD1 && !b1Anterior) || (!PORTDbits.RD1 && b1Anterior);
+[e = _aux -> -> || && != -> . . _PORTDbits 0 1 `i -> 0 `i ! != -> _b1Anterior `i -> 0 `i && ! != -> . . _PORTDbits 0 1 `i -> 0 `i != -> _b1Anterior `i -> 0 `i `i `uc ]
 "88
-[; ;botao.c: 88:     b1Anterior = PORTAbits.RA1;
-[e = _b1Anterior -> . . _PORTAbits 0 1 `uc ]
+[; ;botao.c: 88:     b1Anterior = PORTDbits.RD1;
+[e = _b1Anterior -> . . _PORTDbits 0 1 `uc ]
 "89
 [; ;botao.c: 89:     return( aux );
 [e ) _aux ]

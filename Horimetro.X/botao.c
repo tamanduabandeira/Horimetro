@@ -1,15 +1,15 @@
 #include <xc.h>
 
-#define B0      PORTAbits.RA0
-#define B1      PORTAbits.RA1
+#define B0      PORTDbits.RD0
+#define B1      PORTDbits.RD1
 #define B2      PORTAbits.RA2
 #define B3      PORTAbits.RA3
 
 
 void botao_init( void )
 {
-    TRISAbits.TRISA0 = 1;
-    TRISAbits.TRISA1 = 1;
+    TRISDbits.TRISD0 = 1;
+    TRISDbits.TRISD1 = 1;
     TRISAbits.TRISA2 = 1;
     TRISAbits.TRISA3 = 1;
 }

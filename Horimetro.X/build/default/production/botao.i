@@ -2501,8 +2501,8 @@ extern __bank0 __bit __timeout;
 
 void botao_init( void )
 {
-    TRISAbits.TRISA0 = 1;
-    TRISAbits.TRISA1 = 1;
+    TRISDbits.TRISD0 = 1;
+    TRISDbits.TRISD1 = 1;
     TRISAbits.TRISA2 = 1;
     TRISAbits.TRISA3 = 1;
 }
@@ -2512,7 +2512,7 @@ void botao_init( void )
 
 char b0( void )
 {
-    return( PORTAbits.RA0 );
+    return( PORTDbits.RD0 );
 }
 
 char b0Anterior=0;
@@ -2521,8 +2521,8 @@ char b0_bordaSubida( void )
 
 
     char aux;
-    aux = PORTAbits.RA0 && !b0Anterior;
-    b0Anterior = PORTAbits.RA0;
+    aux = PORTDbits.RD0 && !b0Anterior;
+    b0Anterior = PORTDbits.RD0;
     return( aux );
 }
 char b0_bordaDescida( void )
@@ -2530,8 +2530,8 @@ char b0_bordaDescida( void )
 
 
     char aux;
-    aux = !PORTAbits.RA0 && b0Anterior;
-    b0Anterior = PORTAbits.RA0;
+    aux = !PORTDbits.RD0 && b0Anterior;
+    b0Anterior = PORTDbits.RD0;
     return( aux );
 }
 char b0_borda( void )
@@ -2539,8 +2539,8 @@ char b0_borda( void )
 
 
     char aux;
-    aux = (PORTAbits.RA0 && !b0Anterior) || (!PORTAbits.RA0 && b0Anterior);
-    b0Anterior = PORTAbits.RA0;
+    aux = (PORTDbits.RD0 && !b0Anterior) || (!PORTDbits.RD0 && b0Anterior);
+    b0Anterior = PORTDbits.RD0;
     return( aux );
 }
 
@@ -2550,7 +2550,7 @@ char b0_borda( void )
 
 char b1( void )
 {
-   return( PORTAbits.RA1 );
+   return( PORTDbits.RD1 );
 }
 
 char b1Anterior=0;
@@ -2559,8 +2559,8 @@ char b1_bordaSubida( void )
 
 
     char aux;
-    aux = PORTAbits.RA1 && !b1Anterior;
-    b1Anterior = PORTAbits.RA1;
+    aux = PORTDbits.RD1 && !b1Anterior;
+    b1Anterior = PORTDbits.RD1;
     return( aux );
 }
 char b1_bordaDescida( void )
@@ -2568,8 +2568,8 @@ char b1_bordaDescida( void )
 
 
     char aux;
-    aux = !PORTAbits.RA1 && b1Anterior;
-    b1Anterior = PORTAbits.RA1;
+    aux = !PORTDbits.RD1 && b1Anterior;
+    b1Anterior = PORTDbits.RD1;
     return( aux );
 }
 char b1_borda( void )
@@ -2577,8 +2577,8 @@ char b1_borda( void )
 
 
     char aux;
-    aux = (PORTAbits.RA1 && !b1Anterior) || (!PORTAbits.RA1 && b1Anterior);
-    b1Anterior = PORTAbits.RA1;
+    aux = (PORTDbits.RD1 && !b1Anterior) || (!PORTDbits.RD1 && b1Anterior);
+    b1Anterior = PORTDbits.RD1;
     return( aux );
 }
 
