@@ -1,84 +1,42 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"5 ./tempo.h
-[; ;./tempo.h: 5: {
-[s S138 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
-[n S138 temporizadorT hab seg min hor dia ]
-[p mainexit ]
-"3387 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
-[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
-"4 ./lcd.h
-[; ;./lcd.h: 4: void lcd_init( void );
-[v _lcd_init `(v ~T0 @X0 0 ef ]
-"4 ./timers.h
-[; ;./timers.h: 4: void T0_init( void );
-[v _T0_init `(v ~T0 @X0 0 ef ]
-"4 ./botao.h
-[; ;./botao.h: 4: void botao_init( void );
-[v _botao_init `(v ~T0 @X0 0 ef ]
-"6 ./lcd.h
-[; ;./lcd.h: 6: void lcd_print( unsigned char lin, unsigned char col, const char * str );
-[v _lcd_print `(v ~T0 @X0 0 ef3`uc`uc`*Cuc ]
-"6 ./timers.h
-[; ;./timers.h: 6: void T0_start( unsigned int c );
-[v _T0_start `(v ~T0 @X0 0 ef1`ui ]
-"15 ./tempo.h
-[; ;./tempo.h: 15: void resetTemporizador( struct temporizadorT * t );
-[v _resetTemporizador `(v ~T0 @X0 0 ef1`*S138 ]
-"4 ./eeprom.h
-[; ;./eeprom.h: 4: char EEPROM_read( unsigned char addr );
-[v _EEPROM_read `(uc ~T0 @X0 0 ef1`uc ]
-"14 ./tempo.h
-[; ;./tempo.h: 14: void habTemporizador( struct temporizadorT * t, unsigned char h );
-[v _habTemporizador `(v ~T0 @X0 0 ef2`*S138`uc ]
-"5 ./botao.h
-[; ;./botao.h: 5: char b0( void );
-[v _b0 `(uc ~T0 @X0 0 ef ]
-"9
-[; ;./botao.h: 9: char b1( void );
-[v _b1 `(uc ~T0 @X0 0 ef ]
-"13
-[; ;./botao.h: 13: char b2( void );
-[v _b2 `(uc ~T0 @X0 0 ef ]
-"17
-[; ;./botao.h: 17: char b3( void );
-[v _b3 `(uc ~T0 @X0 0 ef ]
-"9 ./timers.h
-[; ;./timers.h: 9: unsigned int T0_status( void );
-[v _T0_status `(ui ~T0 @X0 0 ef ]
-"13 ./tempo.h
-[; ;./tempo.h: 13: void temporizar( struct temporizadorT * t );
-[v _temporizar `(v ~T0 @X0 0 ef1`*S138 ]
-"7 ./lcd.h
-[; ;./lcd.h: 7: void lcd_num( unsigned char lin, unsigned char col,
-[v _lcd_num `(v ~T0 @X0 0 ef4`uc`uc`i`uc ]
-"5 ./eeprom.h
-[; ;./eeprom.h: 5: void EEPROM_write( unsigned char addr, unsigned char data );
-[v _EEPROM_write `(v ~T0 @X0 0 ef2`uc`uc ]
-"5 ./config.h
-[p x FOSC = INTRC_NOCLKOUT ]
-"6
-[p x WDTE = OFF ]
-"7
-[p x PWRTE = OFF ]
-"8
-[p x MCLRE = OFF ]
-"9
-[p x CP = OFF ]
-"10
-[p x CPD = OFF ]
-"11
-[p x BOREN = OFF ]
-"12
-[p x IESO = OFF ]
-"13
-[p x FCMEN = OFF ]
-"14
-[p x LVP = OFF ]
-"17
-[p x BOR4V = BOR40V ]
-"18
-[p x WRT = OFF ]
+"3271 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3271: extern volatile unsigned char EEADRH __attribute__((address(0x10F)));
+[v _EEADRH `Vuc ~T0 @X0 0 e@271 ]
+"3257
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3257: extern volatile unsigned char EEADR __attribute__((address(0x10D)));
+[v _EEADR `Vuc ~T0 @X0 0 e@269 ]
+"3505
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3505:     struct {
+[s S137 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S137 . RD WR WREN WRERR . EEPGD ]
+"3504
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3504: typedef union {
+[u S136 `S137 1 ]
+[n S136 . . ]
+"3514
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3514: extern volatile EECON1bits_t EECON1bits __attribute__((address(0x18C)));
+[v _EECON1bits `VS136 ~T0 @X0 0 e@396 ]
+"3250
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3250: extern volatile unsigned char EEDAT __attribute__((address(0x10C)));
+[v _EEDAT `Vuc ~T0 @X0 0 e@268 ]
+"465
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 465:     struct {
+[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
+"475
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 475:     struct {
+[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S17 . . TMR0IF . TMR0IE ]
+"464
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 464: typedef union {
+[u S15 `S16 1 `S17 1 ]
+[n S15 . . . ]
+"482
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
+"3544
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3544: extern volatile unsigned char EECON2 __attribute__((address(0x18D)));
+[v _EECON2 `Vuc ~T0 @X0 0 e@397 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -313,133 +271,95 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"18 main.c
-[; ;main.c: 18: struct temporizadorT tempo[4];
-[v _tempo `S138 ~T0 @X0 -> 4 `i e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"20
-[; ;main.c: 20: void main (void)
-[v _main `(v ~T0 @X0 1 ef ]
-"21
-[; ;main.c: 21: {
+"3 eeprom.c
+[; ;eeprom.c: 3: char EEPROM_read( unsigned char addr )
+[v _EEPROM_read `(uc ~T0 @X0 1 ef1`uc ]
+"4
+[; ;eeprom.c: 4: {
 {
-[e :U _main ]
+[e :U _EEPROM_read ]
+"3
+[; ;eeprom.c: 3: char EEPROM_read( unsigned char addr )
+[v _addr `uc ~T0 @X0 1 r1 ]
+"4
+[; ;eeprom.c: 4: {
 [f ]
-"25
-[; ;main.c: 25:     ANSEL = 1;
-[e = _ANSEL -> -> 1 `i `uc ]
-"26
-[; ;main.c: 26:     lcd_init();
-[e ( _lcd_init ..  ]
-"27
-[; ;main.c: 27:     T0_init();
-[e ( _T0_init ..  ]
-"28
-[; ;main.c: 28:     botao_init();
-[e ( _botao_init ..  ]
-"31
-[; ;main.c: 31:     lcd_print(0,0,"00:00      00:00");
-[e ( _lcd_print (3 , , -> -> 0 `i `uc -> -> 0 `i `uc :s 1C ]
-"32
-[; ;main.c: 32:     lcd_print(1,0,"00:00      00:00");
-[e ( _lcd_print (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 2C ]
-"34
-[; ;main.c: 34:     T0_start(1000);
-[e ( _T0_start (1 -> -> 1000 `i `ui ]
-"35
-[; ;main.c: 35:     resetTemporizador( &tempo[0] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"36
-[; ;main.c: 36:     resetTemporizador( &tempo[1] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"37
-[; ;main.c: 37:     resetTemporizador( &tempo[2] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"38
-[; ;main.c: 38:     resetTemporizador( &tempo[3] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"41
-[; ;main.c: 41:     tempo[0].min = EEPROM_read( 0 );
-[e = . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 ( _EEPROM_read (1 -> -> 0 `i `uc ]
-"52
-[; ;main.c: 52:     while( 1 )
+"5
+[; ;eeprom.c: 5:     EEADRH = 0;
+[e = _EEADRH -> -> 0 `i `uc ]
+"6
+[; ;eeprom.c: 6:     EEADR = addr;
+[e = _EEADR _addr ]
+"7
+[; ;eeprom.c: 7:     EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
+"8
+[; ;eeprom.c: 8:     EECON1bits.RD = 1;
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+"9
+[; ;eeprom.c: 9:     return( EEDAT );
+[e ) -> _EEDAT `uc ]
+[e $UE 138  ]
+"10
+[; ;eeprom.c: 10: }
+[e :UE 138 ]
+}
+"12
+[; ;eeprom.c: 12: void EEPROM_write( unsigned char addr, unsigned char data )
+[v _EEPROM_write `(v ~T0 @X0 1 ef2`uc`uc ]
+"13
+[; ;eeprom.c: 13: {
+{
+[e :U _EEPROM_write ]
+"12
+[; ;eeprom.c: 12: void EEPROM_write( unsigned char addr, unsigned char data )
+[v _addr `uc ~T0 @X0 1 r1 ]
+[v _data `uc ~T0 @X0 1 r2 ]
+"13
+[; ;eeprom.c: 13: {
+[f ]
+"14
+[; ;eeprom.c: 14:     INTCONbits.GIE = 0;
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+"15
+[; ;eeprom.c: 15:     EEADR = addr;
+[e = _EEADR _addr ]
+"16
+[; ;eeprom.c: 16:     EEDAT = data;
+[e = _EEDAT _data ]
+"17
+[; ;eeprom.c: 17:     EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
+"18
+[; ;eeprom.c: 18:     EECON1bits.WREN = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"19
+[; ;eeprom.c: 19:     EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"20
+[; ;eeprom.c: 20:     EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"21
+[; ;eeprom.c: 21:     EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"22
+[; ;eeprom.c: 22:     while( EECON1bits.WR )
+[e $U 140  ]
 [e :U 141 ]
-"53
-[; ;main.c: 53:     {
-{
-"54
-[; ;main.c: 54:         habTemporizador( &tempo[0], b0() );
-[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b0 ..  `uc ]
-"55
-[; ;main.c: 55:         habTemporizador( &tempo[1], b1() );
-[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b1 ..  `uc ]
-"56
-[; ;main.c: 56:         habTemporizador( &tempo[2], b2() );
-[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b2 ..  `uc ]
-"57
-[; ;main.c: 57:         habTemporizador( &tempo[3], b3() );
-[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b3 ..  `uc ]
-"59
-[; ;main.c: 59:         if( T0_status() == 0 )
-[e $ ! == ( _T0_status ..  -> -> 0 `i `ui 143  ]
-"60
-[; ;main.c: 60:         {
-{
-"61
-[; ;main.c: 61:             T0_start(1000);
-[e ( _T0_start (1 -> -> 1000 `i `ui ]
-"63
-[; ;main.c: 63:             temporizar( &tempo[0] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"64
-[; ;main.c: 64:             temporizar( &tempo[1] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"65
-[; ;main.c: 65:             temporizar( &tempo[2] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"66
-[; ;main.c: 66:             temporizar( &tempo[3] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"68
-[; ;main.c: 68:             lcd_num(0, 0, tempo[0].hor, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 3 `i -> -> 2 `i `uc ]
-"69
-[; ;main.c: 69:             lcd_num(0, 3, tempo[0].min, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 3 `i `uc -> . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
-"70
-[; ;main.c: 70:             EEPROM_write(0, tempo[0].min );
-[e ( _EEPROM_write (2 , -> -> 0 `i `uc -> . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `uc ]
-"72
-[; ;main.c: 72:             lcd_num(0, 11, tempo[1].min, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 11 `i `uc -> . *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
-"73
-[; ;main.c: 73:             lcd_num(0, 14, tempo[1].seg, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 14 `i `uc -> . *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux 1 `i -> -> 2 `i `uc ]
-"75
-[; ;main.c: 75:             lcd_num(1, 0, tempo[2].min, 2);
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> . *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
-"76
-[; ;main.c: 76:             lcd_num(1, 3, tempo[2].seg, 2);
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 3 `i `uc -> . *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux 1 `i -> -> 2 `i `uc ]
-"78
-[; ;main.c: 78:             lcd_num(1, 11, tempo[3].min, 2);
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 11 `i `uc -> . *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
-"79
-[; ;main.c: 79:             lcd_num(1, 14, tempo[3].seg, 2);
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 14 `i `uc -> . *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux 1 `i -> -> 2 `i `uc ]
-"81
-[; ;main.c: 81:         }
-}
-[e :U 143 ]
-"82
-[; ;main.c: 82:     }
-}
+"23
+[; ;eeprom.c: 23:         ;
 [e :U 140 ]
-[e $U 141  ]
+"22
+[; ;eeprom.c: 22:     while( EECON1bits.WR )
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 141  ]
 [e :U 142 ]
-"83
-[; ;main.c: 83: }
+"24
+[; ;eeprom.c: 24:     EECON1bits.WREN = 0;
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+"25
+[; ;eeprom.c: 25:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"26
+[; ;eeprom.c: 26: }
 [e :UE 139 ]
 }
-[a 1C 48 48 58 48 48 32 32 32 32 32 32 48 48 58 48 48 0 ]
-[a 2C 48 48 58 48 48 32 32 32 32 32 32 48 48 58 48 48 0 ]
