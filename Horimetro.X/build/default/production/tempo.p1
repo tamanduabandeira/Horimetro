@@ -237,125 +237,125 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"13 tempo.c
-[; ;tempo.c: 13: void temporizar( struct temporizadorT * t )
+"14 tempo.c
+[; ;tempo.c: 14: void temporizar( struct temporizadorT * t )
 [v _temporizar `(v ~T0 @X0 1 ef1`*S138 ]
-"14
-[; ;tempo.c: 14: {
+"15
+[; ;tempo.c: 15: {
 {
 [e :U _temporizar ]
-"13
-[; ;tempo.c: 13: void temporizar( struct temporizadorT * t )
-[v _t `*S138 ~T0 @X0 1 r1 ]
 "14
-[; ;tempo.c: 14: {
-[f ]
+[; ;tempo.c: 14: void temporizar( struct temporizadorT * t )
+[v _t `*S138 ~T0 @X0 1 r1 ]
 "15
-[; ;tempo.c: 15:     if( t->hab )
-[e $ ! != -> . *U _t 0 `i -> 0 `i 140  ]
+[; ;tempo.c: 15: {
+[f ]
 "16
-[; ;tempo.c: 16:     {
-{
+[; ;tempo.c: 16:     if( t->hab )
+[e $ ! != -> . *U _t 0 `i -> 0 `i 140  ]
 "17
-[; ;tempo.c: 17:         t->seg = ++t->seg % 60;
-[e = . *U _t 1 -> % -> =+ . *U _t 1 -> -> 1 `i `uc `i -> 60 `i `uc ]
+[; ;tempo.c: 17:     {
+{
 "18
-[; ;tempo.c: 18:         if( t->seg == 0 )
-[e $ ! == -> . *U _t 1 `i -> 0 `i 141  ]
+[; ;tempo.c: 18:         t->seg = ++t->seg % 60;
+[e = . *U _t 1 -> % -> =+ . *U _t 1 -> -> 1 `i `uc `i -> 60 `i `uc ]
 "19
-[; ;tempo.c: 19:         {
-{
+[; ;tempo.c: 19:         if( t->seg == 0 )
+[e $ ! == -> . *U _t 1 `i -> 0 `i 141  ]
 "20
-[; ;tempo.c: 20:             t->min = ++t->min % 60;
-[e = . *U _t 2 -> % -> =+ . *U _t 2 -> -> 1 `i `uc `i -> 60 `i `uc ]
+[; ;tempo.c: 20:         {
+{
 "21
-[; ;tempo.c: 21:             if( t->min == 0 )
-[e $ ! == -> . *U _t 2 `i -> 0 `i 142  ]
+[; ;tempo.c: 21:             t->min = ++t->min % 60;
+[e = . *U _t 2 -> % -> =+ . *U _t 2 -> -> 1 `i `uc `i -> 60 `i `uc ]
 "22
-[; ;tempo.c: 22:             {
-{
+[; ;tempo.c: 22:             if( t->min == 0 )
+[e $ ! == -> . *U _t 2 `i -> 0 `i 142  ]
 "23
-[; ;tempo.c: 23:                 t->hor = ++t->hor % 24;
-[e = . *U _t 3 -> % -> =+ . *U _t 3 -> -> 1 `i `uc `i -> 24 `i `uc ]
-"24
-[; ;tempo.c: 24:                 if(t->hor == 0)
-[e $ ! == -> . *U _t 3 `i -> 0 `i 143  ]
-"25
-[; ;tempo.c: 25:                 {
+[; ;tempo.c: 23:             {
 {
+"24
+[; ;tempo.c: 24:                 t->hor = ++t->hor % 24;
+[e = . *U _t 3 -> % -> =+ . *U _t 3 -> -> 1 `i `uc `i -> 24 `i `uc ]
 "26
-[; ;tempo.c: 26:                     t->dia++;
-[e ++ . *U _t 4 -> 1 `i ]
+[; ;tempo.c: 26:                 if(t->hor == 0)
+[e $ ! == -> . *U _t 3 `i -> 0 `i 143  ]
 "27
-[; ;tempo.c: 27:                 }
+[; ;tempo.c: 27:                 {
+{
+"28
+[; ;tempo.c: 28:                     t->dia++;
+[e ++ . *U _t 4 -> 1 `i ]
+"29
+[; ;tempo.c: 29:                 }
 }
 [e :U 143 ]
-"28
-[; ;tempo.c: 28:             }
+"30
+[; ;tempo.c: 30:             }
 }
 [e :U 142 ]
-"29
-[; ;tempo.c: 29:         }
+"31
+[; ;tempo.c: 31:         }
 }
 [e :U 141 ]
-"30
-[; ;tempo.c: 30:     }
+"32
+[; ;tempo.c: 32:     }
 }
 [e :U 140 ]
-"31
-[; ;tempo.c: 31: }
+"33
+[; ;tempo.c: 33: }
 [e :UE 139 ]
 }
-"34
-[; ;tempo.c: 34: void habTemporizador( struct temporizadorT * t, unsigned char h )
+"36
+[; ;tempo.c: 36: void habTemporizador( struct temporizadorT * t, unsigned char h )
 [v _habTemporizador `(v ~T0 @X0 1 ef2`*S138`uc ]
-"35
-[; ;tempo.c: 35: {
+"37
+[; ;tempo.c: 37: {
 {
 [e :U _habTemporizador ]
-"34
-[; ;tempo.c: 34: void habTemporizador( struct temporizadorT * t, unsigned char h )
+"36
+[; ;tempo.c: 36: void habTemporizador( struct temporizadorT * t, unsigned char h )
 [v _t `*S138 ~T0 @X0 1 r1 ]
 [v _h `uc ~T0 @X0 1 r2 ]
-"35
-[; ;tempo.c: 35: {
-[f ]
-"36
-[; ;tempo.c: 36:     t->hab = h;
-[e = . *U _t 0 -> _h `uc ]
 "37
-[; ;tempo.c: 37: }
+[; ;tempo.c: 37: {
+[f ]
+"38
+[; ;tempo.c: 38:     t->hab = h;
+[e = . *U _t 0 -> _h `uc ]
+"39
+[; ;tempo.c: 39: }
 [e :UE 144 ]
 }
-"39
-[; ;tempo.c: 39: void resetTemporizador( struct temporizadorT * t )
+"41
+[; ;tempo.c: 41: void resetTemporizador( struct temporizadorT * t )
 [v _resetTemporizador `(v ~T0 @X0 1 ef1`*S138 ]
-"40
-[; ;tempo.c: 40: {
+"42
+[; ;tempo.c: 42: {
 {
 [e :U _resetTemporizador ]
-"39
-[; ;tempo.c: 39: void resetTemporizador( struct temporizadorT * t )
-[v _t `*S138 ~T0 @X0 1 r1 ]
-"40
-[; ;tempo.c: 40: {
-[f ]
 "41
-[; ;tempo.c: 41:     t->hab = 0;
-[e = . *U _t 0 -> -> 0 `i `uc ]
+[; ;tempo.c: 41: void resetTemporizador( struct temporizadorT * t )
+[v _t `*S138 ~T0 @X0 1 r1 ]
 "42
-[; ;tempo.c: 42:     t->seg = 0;
-[e = . *U _t 1 -> -> 0 `i `uc ]
+[; ;tempo.c: 42: {
+[f ]
 "43
-[; ;tempo.c: 43:     t->min = 0;
-[e = . *U _t 2 -> -> 0 `i `uc ]
+[; ;tempo.c: 43:     t->hab = 0;
+[e = . *U _t 0 -> -> 0 `i `uc ]
 "44
-[; ;tempo.c: 44:     t->hor = 0;
-[e = . *U _t 3 -> -> 0 `i `uc ]
+[; ;tempo.c: 44:     t->seg = 0;
+[e = . *U _t 1 -> -> 0 `i `uc ]
 "45
-[; ;tempo.c: 45:     t->dia = 0;
-[e = . *U _t 4 -> 0 `i ]
+[; ;tempo.c: 45:     t->min = 0;
+[e = . *U _t 2 -> -> 0 `i `uc ]
 "46
-[; ;tempo.c: 46: }
+[; ;tempo.c: 46:     t->hor = 0;
+[e = . *U _t 3 -> -> 0 `i `uc ]
+"47
+[; ;tempo.c: 47:     t->dia = 0;
+[e = . *U _t 4 -> 0 `i ]
+"48
+[; ;tempo.c: 48: }
 [e :UE 145 ]
 }

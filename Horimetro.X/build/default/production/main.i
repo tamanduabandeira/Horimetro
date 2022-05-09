@@ -2593,15 +2593,34 @@ char b3_bordaSubida( void );
 char b3_bordaDescida( void );
 char b3_borda( void );
 # 14 "main.c" 2
+# 1 "./teclado.h" 1
+
+
+
+void teclado_init( void );
+unsigned char teclado( void );
+# 15 "main.c" 2
+# 1 "./eeprom.h" 1
+
+
+
+char EEPROM_read( unsigned char addr );
+void EEPROM_write( unsigned char addr, unsigned char data );
+# 16 "main.c" 2
+
 
 struct temporizadorT tempo[4];
 
 void main (void)
 {
-    ANSEL = 0;
+
+
+
+    ANSEL = 1;
     lcd_init();
     T0_init();
     botao_init();
+
 
     lcd_print(0,0,"00:00      00:00");
     lcd_print(1,0,"00:00      00:00");
@@ -2612,6 +2631,9 @@ void main (void)
     resetTemporizador( &tempo[2] );
     resetTemporizador( &tempo[3] );
 
+
+    tempo[0].min = EEPROM_read( 0 );
+# 52 "main.c"
     while( 1 )
     {
         habTemporizador( &tempo[0], b0() );
@@ -2630,6 +2652,7 @@ void main (void)
 
             lcd_num(0, 0, tempo[0].hor, 2);
             lcd_num(0, 3, tempo[0].min, 2);
+            EEPROM_write(0, tempo[0].min );
 
             lcd_num(0, 11, tempo[1].min, 2);
             lcd_num(0, 14, tempo[1].seg, 2);

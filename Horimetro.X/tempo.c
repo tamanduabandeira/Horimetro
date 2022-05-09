@@ -9,6 +9,7 @@
 #include <xc.h>
 #include "tempo.h"
 #include "timers.h"
+#include "eeprom.h"
 
 void temporizar( struct temporizadorT * t )
 {
@@ -21,6 +22,7 @@ void temporizar( struct temporizadorT * t )
             if( t->min == 0 )
             {
                 t->hor = ++t->hor % 24;
+                
                 if(t->hor == 0)
                 {
                     t->dia++;

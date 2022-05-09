@@ -1,84 +1,40 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"5 ./tempo.h
-[; ;./tempo.h: 5: {
-[s S138 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
-[n S138 temporizadorT hab seg min hor dia ]
-[p mainexit ]
-"3387 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
-[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
-"4 ./lcd.h
-[; ;./lcd.h: 4: void lcd_init( void );
-[v _lcd_init `(v ~T0 @X0 0 ef ]
-"4 ./timers.h
-[; ;./timers.h: 4: void T0_init( void );
-[v _T0_init `(v ~T0 @X0 0 ef ]
+"3449 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3449: extern volatile unsigned char ANSELH __attribute__((address(0x189)));
+[v _ANSELH `Vuc ~T0 @X0 0 e@393 ]
+"1478
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"1352
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1352:     struct {
+[s S50 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S50 . PS PSA T0SE T0CS INTEDG nRBPU ]
+"1360
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1360:     struct {
+[s S51 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S51 . PS0 PS1 PS2 ]
+"1351
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1351: typedef union {
+[u S49 `S50 1 `S51 1 ]
+[n S49 . . . ]
+"1366
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1366: extern volatile OPTION_REGbits_t OPTION_REGbits __attribute__((address(0x081)));
+[v _OPTION_REGbits `VS49 ~T0 @X0 0 e@129 ]
+"2346
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 2346: extern volatile unsigned char WPUB __attribute__((address(0x095)));
+[v _WPUB `Vuc ~T0 @X0 0 e@149 ]
+"228
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "4 ./botao.h
 [; ;./botao.h: 4: void botao_init( void );
 [v _botao_init `(v ~T0 @X0 0 ef ]
-"6 ./lcd.h
-[; ;./lcd.h: 6: void lcd_print( unsigned char lin, unsigned char col, const char * str );
-[v _lcd_print `(v ~T0 @X0 0 ef3`uc`uc`*Cuc ]
-"6 ./timers.h
-[; ;./timers.h: 6: void T0_start( unsigned int c );
-[v _T0_start `(v ~T0 @X0 0 ef1`ui ]
-"15 ./tempo.h
-[; ;./tempo.h: 15: void resetTemporizador( struct temporizadorT * t );
-[v _resetTemporizador `(v ~T0 @X0 0 ef1`*S138 ]
-"4 ./eeprom.h
-[; ;./eeprom.h: 4: char EEPROM_read( unsigned char addr );
-[v _EEPROM_read `(uc ~T0 @X0 0 ef1`uc ]
-"14 ./tempo.h
-[; ;./tempo.h: 14: void habTemporizador( struct temporizadorT * t, unsigned char h );
-[v _habTemporizador `(v ~T0 @X0 0 ef2`*S138`uc ]
-"5 ./botao.h
-[; ;./botao.h: 5: char b0( void );
-[v _b0 `(uc ~T0 @X0 0 ef ]
-"9
-[; ;./botao.h: 9: char b1( void );
-[v _b1 `(uc ~T0 @X0 0 ef ]
-"13
-[; ;./botao.h: 13: char b2( void );
-[v _b2 `(uc ~T0 @X0 0 ef ]
-"17
-[; ;./botao.h: 17: char b3( void );
-[v _b3 `(uc ~T0 @X0 0 ef ]
-"9 ./timers.h
-[; ;./timers.h: 9: unsigned int T0_status( void );
-[v _T0_status `(ui ~T0 @X0 0 ef ]
-"13 ./tempo.h
-[; ;./tempo.h: 13: void temporizar( struct temporizadorT * t );
-[v _temporizar `(v ~T0 @X0 0 ef1`*S138 ]
-"7 ./lcd.h
-[; ;./lcd.h: 7: void lcd_num( unsigned char lin, unsigned char col,
-[v _lcd_num `(v ~T0 @X0 0 ef4`uc`uc`i`uc ]
-"5 ./eeprom.h
-[; ;./eeprom.h: 5: void EEPROM_write( unsigned char addr, unsigned char data );
-[v _EEPROM_write `(v ~T0 @X0 0 ef2`uc`uc ]
-"5 ./config.h
-[p x FOSC = INTRC_NOCLKOUT ]
-"6
-[p x WDTE = OFF ]
 "7
-[p x PWRTE = OFF ]
-"8
-[p x MCLRE = OFF ]
-"9
-[p x CP = OFF ]
-"10
-[p x CPD = OFF ]
+[; ;./botao.h: 7: char b0_bordaDescida( void );
+[v _b0_bordaDescida `(uc ~T0 @X0 0 ef ]
 "11
-[p x BOREN = OFF ]
-"12
-[p x IESO = OFF ]
-"13
-[p x FCMEN = OFF ]
-"14
-[p x LVP = OFF ]
-"17
-[p x BOR4V = BOR40V ]
-"18
-[p x WRT = OFF ]
+[; ;./botao.h: 11: char b1_bordaDescida( void );
+[v _b1_bordaDescida `(uc ~T0 @X0 0 ef ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -313,133 +269,177 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"18 main.c
-[; ;main.c: 18: struct temporizadorT tempo[4];
-[v _tempo `S138 ~T0 @X0 -> 4 `i e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"20
-[; ;main.c: 20: void main (void)
-[v _main `(v ~T0 @X0 1 ef ]
-"21
-[; ;main.c: 21: {
+"10 teclado.c
+[; ;teclado.c: 10: void teclado_init( void )
+[v _teclado_init `(v ~T0 @X0 1 ef ]
+"11
+[; ;teclado.c: 11: {
 {
-[e :U _main ]
+[e :U _teclado_init ]
 [f ]
-"25
-[; ;main.c: 25:     ANSEL = 1;
-[e = _ANSEL -> -> 1 `i `uc ]
-"26
-[; ;main.c: 26:     lcd_init();
-[e ( _lcd_init ..  ]
-"27
-[; ;main.c: 27:     T0_init();
-[e ( _T0_init ..  ]
-"28
-[; ;main.c: 28:     botao_init();
+"12
+[; ;teclado.c: 12:     ANSELH = 0x00;
+[e = _ANSELH -> -> 0 `i `uc ]
+"13
+[; ;teclado.c: 13:     TRISB = 0xF0;
+[e = _TRISB -> -> 240 `i `uc ]
+"14
+[; ;teclado.c: 14:     OPTION_REGbits.nRBPU = 0;
+[e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
+"15
+[; ;teclado.c: 15:     WPUB = 0xF0;
+[e = _WPUB -> -> 240 `i `uc ]
+"16
+[; ;teclado.c: 16:     PORTB = 0xFF;
+[e = _PORTB -> -> 255 `i `uc ]
+"17
+[; ;teclado.c: 17:     botao_init();
 [e ( _botao_init ..  ]
-"31
-[; ;main.c: 31:     lcd_print(0,0,"00:00      00:00");
-[e ( _lcd_print (3 , , -> -> 0 `i `uc -> -> 0 `i `uc :s 1C ]
-"32
-[; ;main.c: 32:     lcd_print(1,0,"00:00      00:00");
-[e ( _lcd_print (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 2C ]
-"34
-[; ;main.c: 34:     T0_start(1000);
-[e ( _T0_start (1 -> -> 1000 `i `ui ]
-"35
-[; ;main.c: 35:     resetTemporizador( &tempo[0] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"36
-[; ;main.c: 36:     resetTemporizador( &tempo[1] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"37
-[; ;main.c: 37:     resetTemporizador( &tempo[2] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"38
-[; ;main.c: 38:     resetTemporizador( &tempo[3] );
-[e ( _resetTemporizador (1 &U *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"41
-[; ;main.c: 41:     tempo[0].min = EEPROM_read( 0 );
-[e = . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 ( _EEPROM_read (1 -> -> 0 `i `uc ]
-"52
-[; ;main.c: 52:     while( 1 )
-[e :U 141 ]
-"53
-[; ;main.c: 53:     {
-{
-"54
-[; ;main.c: 54:         habTemporizador( &tempo[0], b0() );
-[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b0 ..  `uc ]
-"55
-[; ;main.c: 55:         habTemporizador( &tempo[1], b1() );
-[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b1 ..  `uc ]
-"56
-[; ;main.c: 56:         habTemporizador( &tempo[2], b2() );
-[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b2 ..  `uc ]
-"57
-[; ;main.c: 57:         habTemporizador( &tempo[3], b3() );
-[e ( _habTemporizador (2 , &U *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux -> ( _b3 ..  `uc ]
-"59
-[; ;main.c: 59:         if( T0_status() == 0 )
-[e $ ! == ( _T0_status ..  -> -> 0 `i `ui 143  ]
-"60
-[; ;main.c: 60:         {
-{
-"61
-[; ;main.c: 61:             T0_start(1000);
-[e ( _T0_start (1 -> -> 1000 `i `ui ]
-"63
-[; ;main.c: 63:             temporizar( &tempo[0] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"64
-[; ;main.c: 64:             temporizar( &tempo[1] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"65
-[; ;main.c: 65:             temporizar( &tempo[2] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"66
-[; ;main.c: 66:             temporizar( &tempo[3] );
-[e ( _temporizar (1 &U *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux ]
-"68
-[; ;main.c: 68:             lcd_num(0, 0, tempo[0].hor, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 3 `i -> -> 2 `i `uc ]
-"69
-[; ;main.c: 69:             lcd_num(0, 3, tempo[0].min, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 3 `i `uc -> . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
-"70
-[; ;main.c: 70:             EEPROM_write(0, tempo[0].min );
-[e ( _EEPROM_write (2 , -> -> 0 `i `uc -> . *U + &U _tempo * -> -> -> 0 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `uc ]
-"72
-[; ;main.c: 72:             lcd_num(0, 11, tempo[1].min, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 11 `i `uc -> . *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
-"73
-[; ;main.c: 73:             lcd_num(0, 14, tempo[1].seg, 2);
-[e ( _lcd_num (4 , , , -> -> 0 `i `uc -> -> 14 `i `uc -> . *U + &U _tempo * -> -> -> 1 `i `ui `ux -> -> # *U &U _tempo `ui `ux 1 `i -> -> 2 `i `uc ]
-"75
-[; ;main.c: 75:             lcd_num(1, 0, tempo[2].min, 2);
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 0 `i `uc -> . *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
-"76
-[; ;main.c: 76:             lcd_num(1, 3, tempo[2].seg, 2);
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 3 `i `uc -> . *U + &U _tempo * -> -> -> 2 `i `ui `ux -> -> # *U &U _tempo `ui `ux 1 `i -> -> 2 `i `uc ]
-"78
-[; ;main.c: 78:             lcd_num(1, 11, tempo[3].min, 2);
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 11 `i `uc -> . *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux 2 `i -> -> 2 `i `uc ]
-"79
-[; ;main.c: 79:             lcd_num(1, 14, tempo[3].seg, 2);
-[e ( _lcd_num (4 , , , -> -> 1 `i `uc -> -> 14 `i `uc -> . *U + &U _tempo * -> -> -> 3 `i `ui `ux -> -> # *U &U _tempo `ui `ux 1 `i -> -> 2 `i `uc ]
-"81
-[; ;main.c: 81:         }
+"18
+[; ;teclado.c: 18: }
+[e :UE 138 ]
 }
-[e :U 143 ]
-"82
-[; ;main.c: 82:     }
-}
-[e :U 140 ]
+[v F1285 `Cuc ~T0 @X0 -> 4 `i t ]
+"20
+[; ;teclado.c: 20: const char tecladoMatriz[4][4] = { {'1','2','3','A'},
+[v _tecladoMatriz `F1285 ~T0 @X0 -> 4 `i e ]
+[i _tecladoMatriz
+:U ..
+:U ..
+-> -> 49 `ui `uc
+-> -> 50 `ui `uc
+-> -> 51 `ui `uc
+-> -> 65 `ui `uc
+..
+:U ..
+-> -> 52 `ui `uc
+-> -> 53 `ui `uc
+-> -> 54 `ui `uc
+-> -> 66 `ui `uc
+..
+:U ..
+-> -> 55 `ui `uc
+-> -> 56 `ui `uc
+-> -> 57 `ui `uc
+-> -> 67 `ui `uc
+..
+:U ..
+-> -> 94 `ui `uc
+-> -> 118 `ui `uc
+-> -> 60 `ui `uc
+-> -> 62 `ui `uc
+..
+..
+]
+"25
+[; ;teclado.c: 25: char teclado( void )
+[v _teclado `(uc ~T0 @X0 1 ef ]
+"26
+[; ;teclado.c: 26: {
+{
+[e :U _teclado ]
+[f ]
+"27
+[; ;teclado.c: 27:     char aux = 0;
+[v _aux `uc ~T0 @X0 1 a ]
+[e = _aux -> -> 0 `i `uc ]
+"28
+[; ;teclado.c: 28:     char l,c;
+[v _l `uc ~T0 @X0 1 a ]
+[v _c `uc ~T0 @X0 1 a ]
+"30
+[; ;teclado.c: 30:     for( l=0; l<4; l++ )
+{
+[e = _l -> -> 0 `i `uc ]
+[e $ < -> _l `i -> 4 `i 140  ]
 [e $U 141  ]
-[e :U 142 ]
-"83
-[; ;main.c: 83: }
+[e :U 140 ]
+"31
+[; ;teclado.c: 31:     {
+{
+"32
+[; ;teclado.c: 32:         PORTB = (char)~(0x01 << l);
+[e = _PORTB -> -> ~ << -> 1 `i -> _l `i `uc `uc ]
+"33
+[; ;teclado.c: 33:         for( c=0; c<4; c++ )
+{
+[e = _c -> -> 0 `i `uc ]
+[e $ < -> _c `i -> 4 `i 143  ]
+[e $U 144  ]
+[e :U 143 ]
+"34
+[; ;teclado.c: 34:         {
+{
+"35
+[; ;teclado.c: 35:             if( (~PORTB) & (0x10<<c) )
+[e $ ! != & ~ -> _PORTB `i << -> 16 `i -> _c `i -> 0 `i 146  ]
+"36
+[; ;teclado.c: 36:             {
+{
+"37
+[; ;teclado.c: 37:                 aux = tecladoMatriz[l][c];
+[e = _aux *U + &U *U + &U _tecladoMatriz * -> _l `ux -> * -> # *U &U *U &U _tecladoMatriz `ui -> -> 4 `i `ui `ux * -> _c `ux -> -> # *U &U *U + &U _tecladoMatriz * -> _l `ux -> * -> # *U &U *U &U _tecladoMatriz `ui -> -> 4 `i `ui `ux `ui `ux ]
+"38
+[; ;teclado.c: 38:             }
+}
+[e :U 146 ]
+"39
+[; ;teclado.c: 39:         }
+}
+[e ++ _c -> -> 1 `i `uc ]
+[e $ < -> _c `i -> 4 `i 143  ]
+[e :U 144 ]
+}
+"40
+[; ;teclado.c: 40:     }
+}
+[e ++ _l -> -> 1 `i `uc ]
+[e $ < -> _l `i -> 4 `i 140  ]
+[e :U 141 ]
+}
+"41
+[; ;teclado.c: 41:     if ( aux == 0 )
+[e $ ! == -> _aux `i -> 0 `i 147  ]
+"42
+[; ;teclado.c: 42:     {
+{
+"43
+[; ;teclado.c: 43:         if( b0_bordaDescida() )
+[e $ ! != -> ( _b0_bordaDescida ..  `i -> 0 `i 148  ]
+"44
+[; ;teclado.c: 44:         {
+{
+"45
+[; ;teclado.c: 45:             aux = '^';
+[e = _aux -> -> 94 `ui `uc ]
+"46
+[; ;teclado.c: 46:         }
+}
+[e $U 149  ]
+"47
+[; ;teclado.c: 47:         else if ( b1_bordaDescida() )
+[e :U 148 ]
+[e $ ! != -> ( _b1_bordaDescida ..  `i -> 0 `i 150  ]
+"48
+[; ;teclado.c: 48:         {
+{
+"49
+[; ;teclado.c: 49:             aux = 'v';
+[e = _aux -> -> 118 `ui `uc ]
+"50
+[; ;teclado.c: 50:         }
+}
+[e :U 150 ]
+[e :U 149 ]
+"51
+[; ;teclado.c: 51:     }
+}
+[e :U 147 ]
+"52
+[; ;teclado.c: 52:     return( aux );
+[e ) _aux ]
+[e $UE 139  ]
+"53
+[; ;teclado.c: 53: }
 [e :UE 139 ]
 }
-[a 1C 48 48 58 48 48 32 32 32 32 32 32 48 48 58 48 48 0 ]
-[a 2C 48 48 58 48 48 32 32 32 32 32 32 48 48 58 48 48 0 ]

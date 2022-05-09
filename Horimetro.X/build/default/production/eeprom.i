@@ -1,4 +1,4 @@
-# 1 "botao.c"
+# 1 "eeprom.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "botao.c" 2
+# 1 "eeprom.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2491,161 +2491,29 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 2 "botao.c" 2
+# 2 "eeprom.c" 2
 
-
-
-
-
-
-
-void botao_init( void )
+char EEPROM_read( unsigned char addr )
 {
-    TRISAbits.TRISA0= 1;
-    TRISAbits.TRISA1 = 1;
-    TRISAbits.TRISA2 = 1;
-    TRISAbits.TRISA3 = 1;
+    EEADRH = 0;
+    EEADR = addr;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.RD = 1;
+    return( EEDAT );
 }
 
-
-
-
-char b0( void )
+void EEPROM_write( unsigned char addr, unsigned char data )
 {
-    return( !PORTAbits.RA0 );
-}
-
-char b0Anterior=1;
-char b0_bordaSubida( void )
-{
-
-
-    char aux;
-    aux = !PORTAbits.RA0 && !b0Anterior;
-    b0Anterior = !PORTAbits.RA0;
-    return( aux );
-}
-char b0_bordaDescida( void )
-{
-
-
-    char aux;
-    aux = !!PORTAbits.RA0 && b0Anterior;
-    b0Anterior = !PORTAbits.RA0;
-    return( aux );
-}
-char b0_borda( void )
-{
-
-
-    char aux;
-    aux = (!PORTAbits.RA0 && !b0Anterior) || (!!PORTAbits.RA0 && b0Anterior);
-    b0Anterior = !PORTAbits.RA0;
-    return( aux );
-}
-
-
-
-
-
-char b1( void )
-{
-   return( !PORTAbits.RA1 );
-}
-
-char b1Anterior=1;
-char b1_bordaSubida( void )
-{
-
-
-    char aux;
-    aux = !PORTAbits.RA1 && !b1Anterior;
-    b1Anterior = !PORTAbits.RA1;
-    return( aux );
-}
-char b1_bordaDescida( void )
-{
-
-
-    char aux;
-    aux = !!PORTAbits.RA1 && b1Anterior;
-    b1Anterior = !PORTAbits.RA1;
-    return( aux );
-}
-char b1_borda( void )
-{
-
-
-    char aux;
-    aux = (!PORTAbits.RA1 && !b1Anterior) || (!!PORTAbits.RA1 && b1Anterior);
-    b1Anterior = !PORTAbits.RA1;
-    return( aux );
-}
-
-char b2( void )
-{
-    return( !PORTAbits.RA2 );
-}
-
-char b2Anterior=0;
-char b2_bordaSubida( void )
-{
-
-
-    char aux;
-    aux = !PORTAbits.RA2 && !b2Anterior;
-    b2Anterior = !PORTAbits.RA2;
-    return( aux );
-}
-char b2_bordaDescida( void )
-{
-
-
-    char aux;
-    aux = !!PORTAbits.RA2 && b2Anterior;
-    b2Anterior = !PORTAbits.RA2;
-    return( aux );
-}
-char b2_borda( void )
-{
-
-
-    char aux;
-    aux = (!PORTAbits.RA2 && !b2Anterior) || (!!PORTAbits.RA2 && b2Anterior);
-    b2Anterior = !PORTAbits.RA2;
-    return( aux );
-}
-
-char b3( void )
-{
-    return( !PORTAbits.RA3 );
-}
-
-char b3Anterior=0;
-char b3_bordaSubida( void )
-{
-
-
-    char aux;
-    aux = !PORTAbits.RA3 && !b3Anterior;
-    b3Anterior = !PORTAbits.RA3;
-    return( aux );
-}
-char b3_bordaDescida( void )
-{
-
-
-    char aux;
-    aux = !!PORTAbits.RA3 && b3Anterior;
-    b3Anterior = !PORTAbits.RA3;
-    return( aux );
-}
-char b3_borda( void )
-{
-
-
-    char aux;
-    aux = (!PORTAbits.RA3 && !b3Anterior) || (!!PORTAbits.RA3 && b3Anterior);
-    b3Anterior = !PORTAbits.RA3;
-    return( aux );
+    INTCONbits.GIE = 0;
+    EEADR = addr;
+    EEDAT = data;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.WREN = 1;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+    while( EECON1bits.WR )
+        ;
+    EECON1bits.WREN = 0;
+    INTCONbits.GIE = 1;
 }

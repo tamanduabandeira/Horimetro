@@ -11,15 +11,22 @@
 #include "timers.h"
 #include "tempo.h"
 #include "botao.h"
+#include "teclado.h"
+#include "eeprom.h"
+
 
 struct temporizadorT tempo[4];
 
 void main (void)
 {
-    ANSEL = 0;
+   // char teste[]= "Tecla:            ";
+   // char tecla;
+    
+    ANSEL = 1;
     lcd_init();
     T0_init();
     botao_init();
+//    teclado_init();
 
     lcd_print(0,0,"00:00      00:00");
     lcd_print(1,0,"00:00      00:00");
@@ -29,7 +36,19 @@ void main (void)
     resetTemporizador( &tempo[1] );
     resetTemporizador( &tempo[2] );
     resetTemporizador( &tempo[3] );
+    
+    //EEPROM_write(0,0);
+    tempo[0].min = EEPROM_read( 0 );
 
+    
+
+   // while (1)
+   // {
+    //    tecla = teclado();
+    //    teste [7] = tecla;
+    //    lcd_print(0,0,teste);
+   // }
+    
     while( 1 )
     {
         habTemporizador( &tempo[0], b0() );
@@ -48,7 +67,8 @@ void main (void)
         
             lcd_num(0, 0, tempo[0].hor, 2);
             lcd_num(0, 3, tempo[0].min, 2);
-
+            EEPROM_write(0, tempo[0].min );
+            
             lcd_num(0, 11, tempo[1].min, 2);
             lcd_num(0, 14, tempo[1].seg, 2);
 

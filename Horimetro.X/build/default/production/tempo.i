@@ -2542,6 +2542,13 @@ void T2_pause( void );
 void T2_play( void );
 unsigned int T2_status( void );
 # 12 "tempo.c" 2
+# 1 "./eeprom.h" 1
+
+
+
+char EEPROM_read( unsigned char addr );
+void EEPROM_write( unsigned char addr, unsigned char data );
+# 13 "tempo.c" 2
 
 void temporizar( struct temporizadorT * t )
 {
@@ -2554,6 +2561,7 @@ void temporizar( struct temporizadorT * t )
             if( t->min == 0 )
             {
                 t->hor = ++t->hor % 24;
+
                 if(t->hor == 0)
                 {
                     t->dia++;
