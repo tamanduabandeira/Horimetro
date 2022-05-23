@@ -2510,37 +2510,37 @@ void lcd_num( unsigned char lin, unsigned char col,
 
 void delay( unsigned int t );
 # 4 "lcd.c" 2
-# 58 "lcd.c"
+# 60 "lcd.c"
 void lcd_instReg( unsigned char i )
 {
-    PORTDbits.RD2 = 0;
-    PORTD = ((PORTD & 0x0F)|(i>>4<<4));
+    PORTDbits.RD4 = 0;
+    PORTD = ((PORTD & 0xF0)|(i>>4&0x0F));
 
-    PORTDbits.RD3 = 0;
+    PORTDbits.RD5 = 0;
     if( i == 0x01 || i == 0x02 )
         _delay((unsigned long)((2)*(4000000/4000.0)));
     else
         _delay((unsigned long)((40)*(4000000/4000000.0)));
-    PORTDbits.RD3 = 1;
+    PORTDbits.RD5 = 1;
 
 
     if( (i & 0xF0) == (0x20 | 0x00) )
     {
-        PORTDbits.RD2 = 0;
-        PORTD = ((PORTD & 0x0F)|(i>>4<<4));
-        PORTDbits.RD3 = 0;
+        PORTDbits.RD4 = 0;
+        PORTD = ((PORTD & 0xF0)|(i>>4&0x0F));
+        PORTDbits.RD5 = 0;
         _delay((unsigned long)((40)*(4000000/4000000.0)));
-        PORTDbits.RD3 = 1;
+        PORTDbits.RD5 = 1;
     }
 
-    PORTDbits.RD2 = 0;
-    PORTD = ((PORTD & 0x0F)|(i<<4));
-    PORTDbits.RD3 = 0;
+    PORTDbits.RD4 = 0;
+    PORTD = ((PORTD & 0xF0)|(i&0x0F));
+    PORTDbits.RD5 = 0;
     if( i == 0x01 || i == 0x02 )
         _delay((unsigned long)((2)*(4000000/4000.0)));
     else
         _delay((unsigned long)((40)*(4000000/4000000.0)));
-    PORTDbits.RD3 = 1;
+    PORTDbits.RD5 = 1;
 }
 
 
@@ -2548,17 +2548,17 @@ void lcd_instReg( unsigned char i )
 
 void lcd_dataReg( unsigned char d )
 {
-    PORTDbits.RD2 = 1;
-    PORTD = ((PORTD & 0x0F)|(d >> 4<<4));
-    PORTDbits.RD3 = 0;
+    PORTDbits.RD4 = 1;
+    PORTD = ((PORTD & 0xF0)|(d >> 4&0x0F));
+    PORTDbits.RD5 = 0;
     _delay((unsigned long)((40)*(4000000/4000000.0)));
-    PORTDbits.RD3 = 1;
+    PORTDbits.RD5 = 1;
 
-    PORTDbits.RD2 = 1;
-    PORTD = ((PORTD & 0x0F)|(d<<4));
-    PORTDbits.RD3 = 0;
+    PORTDbits.RD4 = 1;
+    PORTD = ((PORTD & 0xF0)|(d&0x0F));
+    PORTDbits.RD5 = 0;
     _delay((unsigned long)((40)*(4000000/4000000.0)));
-    PORTDbits.RD3 = 1;
+    PORTDbits.RD5 = 1;
 }
 
 
@@ -2577,15 +2577,15 @@ void lcd_lincol( unsigned char lin, unsigned char col)
 void lcd_init( void )
 {
     delay(100);
-    TRISDbits.TRISD2 = 0;
-    TRISDbits.TRISD3 = 0;
     TRISDbits.TRISD4 = 0;
     TRISDbits.TRISD5 = 0;
-    TRISDbits.TRISD6 = 0;
-    TRISDbits.TRISD7 = 0;
+    TRISDbits.TRISD0 = 0;
+    TRISDbits.TRISD1 = 0;
+    TRISDbits.TRISD2 = 0;
+    TRISDbits.TRISD3 = 0;
 
     delay(100);
-    PORTDbits.RD3 = 1;
+    PORTDbits.RD5 = 1;
     lcd_instReg( 0x20|0x00|0x08 );
     lcd_instReg( 0x08|0x04|0x00|0x00 );
     lcd_instReg( 0x01 );
@@ -2601,7 +2601,7 @@ void lcd_clr( void )
 {
     lcd_instReg(0x01);
 }
-# 156 "lcd.c"
+# 158 "lcd.c"
 void lcd_print( unsigned char lin, unsigned char col, const char * str )
 {
     char pos = col;
@@ -2614,7 +2614,7 @@ void lcd_print( unsigned char lin, unsigned char col, const char * str )
         ++pos;
     }
 }
-# 178 "lcd.c"
+# 180 "lcd.c"
 void lcd_num( unsigned char lin, unsigned char col,
                     int num, unsigned char tam )
 {

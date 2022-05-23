@@ -1,15 +1,17 @@
+
 #include <xc.h>
 
-#define B0      PORTDbits.RD0
-#define B1      PORTDbits.RD1
-#define B2      PORTAbits.RA2
-#define B3      PORTAbits.RA3
+#define B0      !PORTAbits.RA0
+#define B1      !PORTAbits.RA1
+#define B2      !PORTAbits.RA2
+#define B3      !PORTAbits.RA3
 
 
+ 
 void botao_init( void )
 {
-    TRISDbits.TRISD0 = 1;
-    TRISDbits.TRISD1 = 1;
+    TRISAbits.TRISA0=  1;
+    TRISAbits.TRISA1 = 1;
     TRISAbits.TRISA2 = 1;
     TRISAbits.TRISA3 = 1;
 }
@@ -22,7 +24,7 @@ char b0( void )
     return( B0 );
 }
 
-char b0Anterior=0;
+char b0Anterior=1;
 char b0_bordaSubida( void )
 {
     // b0: 000000000001111111111111100000000
@@ -60,7 +62,7 @@ char b1( void )
    return( B1 );
 }
 
-char b1Anterior=0;
+char b1Anterior=1;
 char b1_bordaSubida( void )
 {
     // b1: 000000000001111111111111100000000

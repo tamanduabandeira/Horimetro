@@ -3,11 +3,11 @@
 #include "delay.h"
 
 //****************** Interface com PORTs/Pinos
-#define LCD_BUS( x )    PORTD = ((PORTD & 0x0F)|(x<<4))
+#define LCD_BUS( x )    PORTD = ((PORTD & 0xF0)|(x&0x0F))
 //#define LCD_EN          PORTDbits.RD3 
 //#define LCD_RS          PORTDbits.RD2
-#define LCD_EN          PORTDbits.RD3 
-#define LCD_RS          PORTDbits.RD2
+#define LCD_EN          PORTDbits.RD5 
+#define LCD_RS          PORTDbits.RD4
 #define LCD_ROWS        2
 #define LCD_COLS        16
 
@@ -123,12 +123,12 @@ void lcd_lincol( unsigned char lin, unsigned char col)
 void lcd_init( void )
 {
     delay(100);
-    TRISDbits.TRISD2 = 0;   // RS
-    TRISDbits.TRISD3 = 0;   // EN
-    TRISDbits.TRISD4 = 0;   // R4
-    TRISDbits.TRISD5 = 0;   // D5
-    TRISDbits.TRISD6 = 0;   // D6
-    TRISDbits.TRISD7 = 0;   // D7
+    TRISDbits.TRISD4 = 0;   // RS
+    TRISDbits.TRISD5 = 0;   // EN
+    TRISDbits.TRISD0 = 0;   // R4
+    TRISDbits.TRISD1 = 0;   // D5
+    TRISDbits.TRISD2 = 0;   // D6
+    TRISDbits.TRISD3 = 0;   // D7
     
     delay(100);
     LCD_EN = 1;

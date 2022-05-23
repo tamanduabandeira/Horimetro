@@ -1,4 +1,4 @@
-# 1 "tempo.c"
+# 1 "eeprom.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "tempo.c" 2
-
-
-
-
-
-
-
-
+# 1 "eeprom.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2499,119 +2491,36 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 10 "tempo.c" 2
-# 1 "./tempo.h" 1
+# 2 "eeprom.c" 2
+# 1 "./teclado.h" 1
 
 
 
-struct temporizadorT
+void teclado_init( void );
+unsigned char teclado( void );
+# 3 "eeprom.c" 2
+
+char EEPROM_read( unsigned char addr )
 {
-    char hab;
-    char seg;
-    char min;
-    char hor;
-    int dia;
-};
-
-
-void temporizar( struct temporizadorT * t, unsigned char adrs );
-void habTemporizador( struct temporizadorT * t, unsigned char h );
-void resetTemporizador( struct temporizadorT * t );
-# 11 "tempo.c" 2
-# 1 "./timers.h" 1
-
-
-
-void T0_init( void );
-void T0_int( void );
-void T0_start( unsigned int c );
-void T0_pause( void );
-void T0_play( void );
-unsigned int T0_status( void );
-
-void T1_init(void);
-void T1_int( void );
-void T1_start( unsigned int c );
-void T1_pause( void );
-void T1_play( void );
-unsigned int T1_status( void );
-
-void T2_init(void);
-void T2_int( void );
-void T2_start( unsigned int c );
-void T2_pause( void );
-void T2_play( void );
-unsigned int T2_status( void );
-# 12 "tempo.c" 2
-# 1 "./eeprom.h" 1
-
-
-
-char EEPROM_read( unsigned char addr );
-void EEPROM_write( unsigned char addr, unsigned char data );
-# 13 "tempo.c" 2
-
-void temporizar0( struct temporizadorT * t )
-{
-    if( t->hab )
-    {
-        t->seg = ++t->seg % 60;
-        if( t->seg == 0 )
-        {
-            t->min = ++t->min % 60;
-            if( t->min == 0 )
-            {
-                t->hor = ++t->hor % 24;
-
-                if(t->hor == 0)
-                {
-                    t->dia++;
-                }
-            }
-        }
-    }
+    EEADRH = 0;
+    EEADR = addr;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.RD = 1;
+    return( EEDAT );
 }
 
-
-
-
-
-
-void temporizar( struct temporizadorT * t, unsigned char adrs )
+void EEPROM_write( unsigned char addr, unsigned char data )
 {
-    if( t->hab )
-    {
-        t->seg = ++(t->seg) % 60;
-        if( t->seg == 0 )
-        {
-            t->min = ++(t->min) % 60;
-            EEPROM_write( adrs+0, t->min );
-            if( t->min == 0 )
-            {
-                t->hor = ++(t->hor) % 24;
-                EEPROM_write( adrs+1, t->hor );
-                if(t->hor == 0)
-                {
-                    (t->dia)++;
-                    EEPROM_write( adrs+2, t->dia % 256 );
-                    EEPROM_write( adrs+3, t->dia / 256 );
-                }
-            }
-        }
-    }
-}
-
-
-void habTemporizador( struct temporizadorT * t, unsigned char h )
-{
-    t->hab = h;
-}
-
-void resetTemporizador( struct temporizadorT * t )
-{
-    t->hab = 0;
-    t->seg = 0;
-    t->min = 0;
-    t->hor = 0;
-    t->dia = 0;
+    INTCONbits.GIE = 0;
+    EEADR = addr;
+    EEDAT = data;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.WREN = 1;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+    while( EECON1bits.WR )
+        ;
+    EECON1bits.WREN = 0;
+    INTCONbits.GIE = 1;
 }

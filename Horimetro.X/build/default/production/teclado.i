@@ -1,4 +1,4 @@
-# 1 "tempo.c"
+# 1 "teclado.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "tempo.c" 2
-
-
-
-
-
-
-
-
+# 1 "teclado.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2499,119 +2491,94 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 10 "tempo.c" 2
-# 1 "./tempo.h" 1
+# 2 "teclado.c" 2
+# 1 "./botao.h" 1
 
 
 
-struct temporizadorT
+void botao_init( void );
+char b0( void );
+char b0_bordaSubida( void );
+char b0_bordaDescida( void );
+char b0_borda( void );
+char b1( void );
+char b1_bordaSubida( void );
+char b1_bordaDescida( void );
+char b1_borda( void );
+char b2( void );
+char b2_bordaSubida( void );
+char b2_bordaDescida( void );
+char b2_borda( void );
+char b3( void );
+char b3_bordaSubida( void );
+char b3_bordaDescida( void );
+char b3_borda( void );
+# 3 "teclado.c" 2
+# 1 "./delay.h" 1
+
+
+
+
+
+void delay( unsigned int t );
+# 4 "teclado.c" 2
+# 1 "./lcd.h" 1
+
+
+
+void lcd_init( void );
+void lcd_clr( void );
+void lcd_print( unsigned char lin, unsigned char col, const char * str );
+void lcd_num( unsigned char lin, unsigned char col,
+                    int num, unsigned char tam );
+# 5 "teclado.c" 2
+
+
+
+
+
+
+void teclado_init( void )
 {
-    char hab;
-    char seg;
-    char min;
-    char hor;
-    int dia;
-};
+    ANSELH = 0x00;
+    TRISB = 0xF0;
+    OPTION_REGbits.nRBPU = 0;
+    WPUB = 0xF0;
+    PORTB = 0xFF;
+    botao_init();
+}
 
+const char tecladoMatriz[4][4] = { {'1','2','3','A'},
+                                    {'4','5','6','B'},
+                                    {'7','8','9','C'},
+                                    {'*','0','#','D'} };
 
-void temporizar( struct temporizadorT * t, unsigned char adrs );
-void habTemporizador( struct temporizadorT * t, unsigned char h );
-void resetTemporizador( struct temporizadorT * t );
-# 11 "tempo.c" 2
-# 1 "./timers.h" 1
-
-
-
-void T0_init( void );
-void T0_int( void );
-void T0_start( unsigned int c );
-void T0_pause( void );
-void T0_play( void );
-unsigned int T0_status( void );
-
-void T1_init(void);
-void T1_int( void );
-void T1_start( unsigned int c );
-void T1_pause( void );
-void T1_play( void );
-unsigned int T1_status( void );
-
-void T2_init(void);
-void T2_int( void );
-void T2_start( unsigned int c );
-void T2_pause( void );
-void T2_play( void );
-unsigned int T2_status( void );
-# 12 "tempo.c" 2
-# 1 "./eeprom.h" 1
-
-
-
-char EEPROM_read( unsigned char addr );
-void EEPROM_write( unsigned char addr, unsigned char data );
-# 13 "tempo.c" 2
-
-void temporizar0( struct temporizadorT * t )
+char teclado( void )
 {
-    if( t->hab )
+    char aux = 0;
+    char l,c;
+
+    for( l=0; l<4; l++ )
     {
-        t->seg = ++t->seg % 60;
-        if( t->seg == 0 )
+        PORTB = (char)~(0x01 << l);
+        for( c=0; c<4; c++ )
         {
-            t->min = ++t->min % 60;
-            if( t->min == 0 )
+            if( (~PORTB) & (0x10<<c) )
             {
-                t->hor = ++t->hor % 24;
-
-                if(t->hor == 0)
-                {
-                    t->dia++;
-                }
+                aux = tecladoMatriz[l][c];
             }
         }
     }
-}
-
-
-
-
-
-
-void temporizar( struct temporizadorT * t, unsigned char adrs )
-{
-    if( t->hab )
+    if ( aux == 0 )
     {
-        t->seg = ++(t->seg) % 60;
-        if( t->seg == 0 )
+        if( b0_bordaDescida() )
         {
-            t->min = ++(t->min) % 60;
-            EEPROM_write( adrs+0, t->min );
-            if( t->min == 0 )
-            {
-                t->hor = ++(t->hor) % 24;
-                EEPROM_write( adrs+1, t->hor );
-                if(t->hor == 0)
-                {
-                    (t->dia)++;
-                    EEPROM_write( adrs+2, t->dia % 256 );
-                    EEPROM_write( adrs+3, t->dia / 256 );
-                }
-            }
+            aux = '*';
+        }
+        else if ( b1_bordaDescida() )
+        {
+            aux = '0';
         }
     }
-}
-
-
-void habTemporizador( struct temporizadorT * t, unsigned char h )
-{
-    t->hab = h;
-}
-
-void resetTemporizador( struct temporizadorT * t )
-{
-    t->hab = 0;
-    t->seg = 0;
-    t->min = 0;
-    t->hor = 0;
-    t->dia = 0;
+    return( aux );
 }

@@ -3,15 +3,19 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 6 ]
-"9 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\botao.c
+"11 Z:\Horimetro\Horimetro.X\botao.c
 [v _botao_init botao_init `(v  1 e 1 0 ]
-"20
+"22
 [v _b0 b0 `(uc  1 e 1 0 ]
-"58
+"37
+[v _b0_bordaDescida b0_bordaDescida `(uc  1 e 1 0 ]
+"60
 [v _b1 b1 `(uc  1 e 1 0 ]
-"92
+"75
+[v _b1_bordaDescida b1_bordaDescida `(uc  1 e 1 0 ]
+"94
 [v _b2 b2 `(uc  1 e 1 0 ]
-"126
+"128
 [v _b3 b3 `(uc  1 e 1 0 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -25,31 +29,37 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"7 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\delay.c
+"7 Z:\Horimetro\Horimetro.X\delay.c
 [v _delay delay `(v  1 e 1 0 ]
-"7 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\interrupt.c
+"4 Z:\Horimetro\Horimetro.X\eeprom.c
+[v _EEPROM_read EEPROM_read `(uc  1 e 1 0 ]
+"13
+[v _EEPROM_write EEPROM_write `(v  1 e 1 0 ]
+"7 Z:\Horimetro\Horimetro.X\interrupt.c
 [v _isr isr `II(v  1 e 1 0 ]
-"58 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\lcd.c
+"60 Z:\Horimetro\Horimetro.X\lcd.c
 [v _lcd_instReg lcd_instReg `(v  1 e 1 0 ]
-"93
+"95
 [v _lcd_dataReg lcd_dataReg `(v  1 e 1 0 ]
-"111
+"113
 [v _lcd_lincol lcd_lincol `(v  1 e 1 0 ]
-"121
+"123
 [v _lcd_init lcd_init `(v  1 e 1 0 ]
-"156
+"158
 [v _lcd_print lcd_print `(v  1 e 1 0 ]
-"178
+"180
 [v _lcd_num lcd_num `(v  1 e 1 0 ]
-"17 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\main.c
+"21 Z:\Horimetro\Horimetro.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"13 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\tempo.c
+"11 Z:\Horimetro\Horimetro.X\teclado.c
+[v _teclado_init teclado_init `(v  1 e 1 0 ]
+"40 Z:\Horimetro\Horimetro.X\tempo.c
 [v _temporizar temporizar `(v  1 e 1 0 ]
-"34
+"65
 [v _habTemporizador habTemporizador `(v  1 e 1 0 ]
-"39
+"70
 [v _resetTemporizador resetTemporizador `(v  1 e 1 0 ]
-"21 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\timers.c
+"21 Z:\Horimetro\Horimetro.X\timers.c
 [v _T0_init T0_init `(v  1 e 1 0 ]
 "33
 [v _T0_int T0_int `(v  1 e 1 0 ]
@@ -61,17 +71,17 @@
 [v _T1_int T1_int `(v  1 e 1 0 ]
 "132
 [v _T2_int T2_int `(v  1 e 1 0 ]
-"25 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\botao.c
+"27 Z:\Horimetro\Horimetro.X\botao.c
 [v _b0Anterior b0Anterior `uc  1 e 1 0 ]
-"63
+"65
 [v _b1Anterior b1Anterior `uc  1 e 1 0 ]
-"97
+"99
 [v _b2Anterior b2Anterior `uc  1 e 1 0 ]
-"131
+"133
 [v _b3Anterior b3Anterior `uc  1 e 1 0 ]
 "59 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
-[s S542 . 1 `uc 1 RA0 1 0 :1:0 
+[s S554 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -81,11 +91,13 @@
 `uc 1 RA7 1 0 :1:7 
 ]
 "183
-[u S551 . 1 `S542 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES551  1 e 1 @5 ]
+[u S563 . 1 `S554 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES563  1 e 1 @5 ]
+"228
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S381 . 1 `uc 1 RD0 1 0 :1:0 
+[s S409 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -95,9 +107,9 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "369
-[u S390 . 1 `S381 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES390  1 e 1 @8 ]
-[s S110 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S418 . 1 `S409 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES418  1 e 1 @8 ]
+[s S138 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -107,14 +119,14 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S119 . 1 `uc 1 . 1 0 :2:0 
+[s S147 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S124 . 1 `S110 1 . 1 0 `S119 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES124  1 e 1 @11 ]
-[s S337 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S152 . 1 `S138 1 . 1 0 `S147 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES152  1 e 1 @11 ]
+[s S365 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -123,13 +135,13 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S345 . 1 `S337 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES345  1 e 1 @12 ]
+[u S373 . 1 `S365 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES373  1 e 1 @12 ]
 "657
 [v _TMR1L TMR1L `VEuc  1 e 1 @14 ]
 "664
 [v _TMR1H TMR1H `VEuc  1 e 1 @15 ]
-[s S169 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S197 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -138,7 +150,7 @@
 `uc 1 T1GINV 1 0 :1:7 
 ]
 "700
-[s S177 . 1 `uc 1 . 1 0 :2:0 
+[s S205 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1INSYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
@@ -146,19 +158,19 @@
 `uc 1 . 1 0 :1:6 
 `uc 1 T1GIV 1 0 :1:7 
 ]
-[s S185 . 1 `uc 1 . 1 0 :2:0 
+[s S213 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 ]
-[u S188 . 1 `S169 1 . 1 0 `S177 1 . 1 0 `S185 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES188  1 e 1 @16 ]
+[u S216 . 1 `S197 1 . 1 0 `S205 1 . 1 0 `S213 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES216  1 e 1 @16 ]
 "765
 [v _TMR2 TMR2 `VEuc  1 e 1 @17 ]
-[s S235 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S263 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "793
-[s S239 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S267 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TOUTPS0 1 0 :1:3 
@@ -166,9 +178,9 @@
 `uc 1 TOUTPS2 1 0 :1:5 
 `uc 1 TOUTPS3 1 0 :1:6 
 ]
-[u S247 . 1 `S235 1 . 1 0 `S239 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES247  1 e 1 @18 ]
-[s S142 . 1 `uc 1 PS 1 0 :3:0 
+[u S275 . 1 `S263 1 . 1 0 `S267 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES275  1 e 1 @18 ]
+[s S170 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -176,13 +188,13 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1366
-[s S149 . 1 `uc 1 PS0 1 0 :1:0 
+[s S177 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S153 . 1 `S142 1 . 1 0 `S149 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES153  1 e 1 @129 ]
-[s S509 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S181 . 1 `S170 1 . 1 0 `S177 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES181  1 e 1 @129 ]
+[s S533 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -192,9 +204,11 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1433
-[u S518 . 1 `S509 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES518  1 e 1 @133 ]
-[s S406 . 1 `uc 1 TRISD0 1 0 :1:0 
+[u S542 . 1 `S533 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES542  1 e 1 @133 ]
+"1478
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S434 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -204,9 +218,9 @@
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "1619
-[u S415 . 1 `S406 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES415  1 e 1 @136 ]
-[s S212 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S443 . 1 `S434 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES443  1 e 1 @136 ]
+[s S240 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -215,100 +229,147 @@
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S220 . 1 `S212 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES220  1 e 1 @140 ]
+[u S248 . 1 `S240 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES248  1 e 1 @140 ]
 "2041
 [v _PR2 PR2 `VEuc  1 e 1 @146 ]
+"2346
+[v _WPUB WPUB `VEuc  1 e 1 @149 ]
+"3250
+[v _EEDAT EEDAT `VEuc  1 e 1 @268 ]
+"3257
+[v _EEADR EEADR `VEuc  1 e 1 @269 ]
+"3271
+[v _EEADRH EEADRH `VEuc  1 e 1 @271 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
+"3449
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+[s S638 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 . 1 0 :3:4 
+`uc 1 EEPGD 1 0 :1:7 
+]
+"3514
+[u S645 . 1 `S638 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES645  1 e 1 @396 ]
+"3544
+[v _EECON2 EECON2 `VEuc  1 e 1 @397 ]
 [s S22 temporizadorT 6 `uc 1 hab 1 0 `uc 1 seg 1 1 `uc 1 min 1 2 `uc 1 hor 1 3 `i 1 dia 2 4 ]
-"15 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\main.c
+"19 Z:\Horimetro\Horimetro.X\main.c
 [v _tempo tempo `[4]S22  1 e 24 0 ]
-"15 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\timers.c
+"21 Z:\Horimetro\Horimetro.X\teclado.c
+[v _tecladoMatriz tecladoMatriz `DC[4][4]uc  1 e 16 0 ]
+"15 Z:\Horimetro\Horimetro.X\timers.c
 [v _T0count T0count `ui  1 e 2 0 ]
 "16
 [v _T1count T1count `ui  1 e 2 0 ]
 "17
 [v _T2count T2count `ui  1 e 2 0 ]
-"17 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\main.c
+"21 Z:\Horimetro\Horimetro.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"63
+"41
+[v main@i i `uc  1 a 1 20 ]
+"117
 } 0
-"13 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\tempo.c
+"40 Z:\Horimetro\Horimetro.X\tempo.c
 [v _temporizar temporizar `(v  1 e 1 0 ]
 {
 [s S22 temporizadorT 6 `uc 1 hab 1 0 `uc 1 seg 1 1 `uc 1 min 1 2 `uc 1 hor 1 3 `i 1 dia 2 4 ]
 [v temporizar@t t `*.4S22  1 a 1 wreg ]
 [v temporizar@t t `*.4S22  1 a 1 wreg ]
-"15
-"13
-[v temporizar@t t `*.4S22  1 a 1 4 ]
-"31
+[v temporizar@adrs adrs `uc  1 p 1 4 ]
+"42
+"40
+[v temporizar@t t `*.4S22  1 a 1 9 ]
+"62
 } 0
-"39
+"13 Z:\Horimetro\Horimetro.X\eeprom.c
+[v _EEPROM_write EEPROM_write `(v  1 e 1 0 ]
+{
+[v EEPROM_write@addr addr `uc  1 a 1 wreg ]
+[v EEPROM_write@addr addr `uc  1 a 1 wreg ]
+[v EEPROM_write@data data `uc  1 p 1 7 ]
+"15
+[v EEPROM_write@addr addr `uc  1 a 1 8 ]
+"27
+} 0
+"11 Z:\Horimetro\Horimetro.X\teclado.c
+[v _teclado_init teclado_init `(v  1 e 1 0 ]
+{
+"19
+} 0
+"11 Z:\Horimetro\Horimetro.X\botao.c
+[v _botao_init botao_init `(v  1 e 1 0 ]
+{
+"17
+} 0
+"70 Z:\Horimetro\Horimetro.X\tempo.c
 [v _resetTemporizador resetTemporizador `(v  1 e 1 0 ]
 {
 [s S22 temporizadorT 6 `uc 1 hab 1 0 `uc 1 seg 1 1 `uc 1 min 1 2 `uc 1 hor 1 3 `i 1 dia 2 4 ]
 [v resetTemporizador@t t `*.4S22  1 a 1 wreg ]
 [v resetTemporizador@t t `*.4S22  1 a 1 wreg ]
-"41
-"39
+"72
+"70
 [v resetTemporizador@t t `*.4S22  1 a 1 2 ]
-"46
+"77
 } 0
-"156 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\lcd.c
+"158 Z:\Horimetro\Horimetro.X\lcd.c
 [v _lcd_print lcd_print `(v  1 e 1 0 ]
 {
 [v lcd_print@lin lin `uc  1 a 1 wreg ]
+"160
+[v lcd_print@pos pos `uc  1 a 1 1 ]
 "158
-[v lcd_print@pos pos `uc  1 a 1 2 ]
-"156
 [v lcd_print@lin lin `uc  1 a 1 wreg ]
-[v lcd_print@col col `uc  1 p 1 0 ]
-[v lcd_print@str str `*.24DCuc  1 p 1 1 ]
-"158
-[v lcd_print@lin lin `uc  1 a 1 3 ]
-"167
+[v lcd_print@col col `uc  1 p 1 8 ]
+[v lcd_print@str str `*.24DCuc  1 p 1 9 ]
+"160
+[v lcd_print@lin lin `uc  1 a 1 2 ]
+"169
 } 0
-"178
+"180
 [v _lcd_num lcd_num `(v  1 e 1 0 ]
 {
 [v lcd_num@lin lin `uc  1 a 1 wreg ]
-"181
-[v lcd_num@div div `i  1 a 2 14 ]
 "183
+[v lcd_num@div div `i  1 a 2 14 ]
+"185
 [v lcd_num@sinal sinal `uc  1 a 1 13 ]
-"182
+"184
 [v lcd_num@size size `uc  1 a 1 12 ]
-"178
+"180
 [v lcd_num@lin lin `uc  1 a 1 wreg ]
 [v lcd_num@col col `uc  1 p 1 4 ]
-"179
+"181
 [v lcd_num@num num `i  1 p 2 5 ]
 [v lcd_num@tam tam `uc  1 p 1 7 ]
-"185
+"187
 [v lcd_num@lin lin `uc  1 a 1 11 ]
-"219
+"221
 } 0
-"111
+"113
 [v _lcd_lincol lcd_lincol `(v  1 e 1 0 ]
 {
 [v lcd_lincol@lin lin `uc  1 a 1 wreg ]
 [v lcd_lincol@lin lin `uc  1 a 1 wreg ]
 [v lcd_lincol@col col `uc  1 p 1 5 ]
-"113
+"115
 [v lcd_lincol@lin lin `uc  1 a 1 7 ]
-"114
+"116
 } 0
-"93
+"95
 [v _lcd_dataReg lcd_dataReg `(v  1 e 1 0 ]
 {
 [v lcd_dataReg@d d `uc  1 a 1 wreg ]
 [v lcd_dataReg@d d `uc  1 a 1 wreg ]
-"95
+"97
 [v lcd_dataReg@d d `uc  1 a 1 4 ]
-"106
+"108
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
@@ -334,64 +395,59 @@
 [v ___awdiv@dividend dividend `i  1 p 2 4 ]
 "41
 } 0
-"121 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\lcd.c
+"123 Z:\Horimetro\Horimetro.X\lcd.c
 [v _lcd_init lcd_init `(v  1 e 1 0 ]
 {
-"138
+"140
 } 0
-"58
+"60
 [v _lcd_instReg lcd_instReg `(v  1 e 1 0 ]
 {
 [v lcd_instReg@i i `uc  1 a 1 wreg ]
 [v lcd_instReg@i i `uc  1 a 1 wreg ]
-"60
+"62
 [v lcd_instReg@i i `uc  1 a 1 4 ]
-"88
+"90
 } 0
-"7 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\delay.c
+"7 Z:\Horimetro\Horimetro.X\delay.c
 [v _delay delay `(v  1 e 1 0 ]
 {
 [v delay@t t `ui  1 p 2 2 ]
 "14
 } 0
-"34 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\tempo.c
+"65 Z:\Horimetro\Horimetro.X\tempo.c
 [v _habTemporizador habTemporizador `(v  1 e 1 0 ]
 {
 [s S22 temporizadorT 6 `uc 1 hab 1 0 `uc 1 seg 1 1 `uc 1 min 1 2 `uc 1 hor 1 3 `i 1 dia 2 4 ]
 [v habTemporizador@t t `*.4S22  1 a 1 wreg ]
 [v habTemporizador@t t `*.4S22  1 a 1 wreg ]
-[v habTemporizador@h h `uc  1 p 1 3 ]
-"36
-"34
-[v habTemporizador@t t `*.4S22  1 a 1 5 ]
-"37
+[v habTemporizador@h h `uc  1 p 1 2 ]
+"67
+"65
+[v habTemporizador@t t `*.4S22  1 a 1 4 ]
+"68
 } 0
-"9 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\botao.c
-[v _botao_init botao_init `(v  1 e 1 0 ]
-{
-"15
-} 0
-"126
+"128 Z:\Horimetro\Horimetro.X\botao.c
 [v _b3 b3 `(uc  1 e 1 0 ]
 {
-"129
+"131
 } 0
-"92
+"94
 [v _b2 b2 `(uc  1 e 1 0 ]
 {
-"95
+"97
 } 0
-"58
+"60
 [v _b1 b1 `(uc  1 e 1 0 ]
 {
-"61
+"63
 } 0
-"20
+"22
 [v _b0 b0 `(uc  1 e 1 0 ]
 {
-"23
+"25
 } 0
-"59 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\timers.c
+"59 Z:\Horimetro\Horimetro.X\timers.c
 [v _T0_status T0_status `(ui  1 e 2 0 ]
 {
 "62
@@ -407,12 +463,21 @@
 {
 "30
 } 0
-"7 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\interrupt.c
+"4 Z:\Horimetro\Horimetro.X\eeprom.c
+[v _EEPROM_read EEPROM_read `(uc  1 e 1 0 ]
+{
+[v EEPROM_read@addr addr `uc  1 a 1 wreg ]
+[v EEPROM_read@addr addr `uc  1 a 1 wreg ]
+"6
+[v EEPROM_read@addr addr `uc  1 a 1 2 ]
+"11
+} 0
+"7 Z:\Horimetro\Horimetro.X\interrupt.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
 "24
 } 0
-"132 C:\Users\21193459\Desktop\Horimetro\Horimetro.X\timers.c
+"132 Z:\Horimetro\Horimetro.X\timers.c
 [v _T2_int T2_int `(v  1 e 1 0 ]
 {
 "138

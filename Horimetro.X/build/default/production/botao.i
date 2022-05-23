@@ -7,6 +7,7 @@
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "botao.c" 2
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2491,7 +2492,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 2 "botao.c" 2
+# 3 "botao.c" 2
+
 
 
 
@@ -2501,8 +2503,8 @@ extern __bank0 __bit __timeout;
 
 void botao_init( void )
 {
-    TRISDbits.TRISD0 = 1;
-    TRISDbits.TRISD1 = 1;
+    TRISAbits.TRISA0= 1;
+    TRISAbits.TRISA1 = 1;
     TRISAbits.TRISA2 = 1;
     TRISAbits.TRISA3 = 1;
 }
@@ -2512,17 +2514,17 @@ void botao_init( void )
 
 char b0( void )
 {
-    return( PORTDbits.RD0 );
+    return( !PORTAbits.RA0 );
 }
 
-char b0Anterior=0;
+char b0Anterior=1;
 char b0_bordaSubida( void )
 {
 
 
     char aux;
-    aux = PORTDbits.RD0 && !b0Anterior;
-    b0Anterior = PORTDbits.RD0;
+    aux = !PORTAbits.RA0 && !b0Anterior;
+    b0Anterior = !PORTAbits.RA0;
     return( aux );
 }
 char b0_bordaDescida( void )
@@ -2530,8 +2532,8 @@ char b0_bordaDescida( void )
 
 
     char aux;
-    aux = !PORTDbits.RD0 && b0Anterior;
-    b0Anterior = PORTDbits.RD0;
+    aux = !!PORTAbits.RA0 && b0Anterior;
+    b0Anterior = !PORTAbits.RA0;
     return( aux );
 }
 char b0_borda( void )
@@ -2539,8 +2541,8 @@ char b0_borda( void )
 
 
     char aux;
-    aux = (PORTDbits.RD0 && !b0Anterior) || (!PORTDbits.RD0 && b0Anterior);
-    b0Anterior = PORTDbits.RD0;
+    aux = (!PORTAbits.RA0 && !b0Anterior) || (!!PORTAbits.RA0 && b0Anterior);
+    b0Anterior = !PORTAbits.RA0;
     return( aux );
 }
 
@@ -2550,17 +2552,17 @@ char b0_borda( void )
 
 char b1( void )
 {
-   return( PORTDbits.RD1 );
+   return( !PORTAbits.RA1 );
 }
 
-char b1Anterior=0;
+char b1Anterior=1;
 char b1_bordaSubida( void )
 {
 
 
     char aux;
-    aux = PORTDbits.RD1 && !b1Anterior;
-    b1Anterior = PORTDbits.RD1;
+    aux = !PORTAbits.RA1 && !b1Anterior;
+    b1Anterior = !PORTAbits.RA1;
     return( aux );
 }
 char b1_bordaDescida( void )
@@ -2568,8 +2570,8 @@ char b1_bordaDescida( void )
 
 
     char aux;
-    aux = !PORTDbits.RD1 && b1Anterior;
-    b1Anterior = PORTDbits.RD1;
+    aux = !!PORTAbits.RA1 && b1Anterior;
+    b1Anterior = !PORTAbits.RA1;
     return( aux );
 }
 char b1_borda( void )
@@ -2577,14 +2579,14 @@ char b1_borda( void )
 
 
     char aux;
-    aux = (PORTDbits.RD1 && !b1Anterior) || (!PORTDbits.RD1 && b1Anterior);
-    b1Anterior = PORTDbits.RD1;
+    aux = (!PORTAbits.RA1 && !b1Anterior) || (!!PORTAbits.RA1 && b1Anterior);
+    b1Anterior = !PORTAbits.RA1;
     return( aux );
 }
 
 char b2( void )
 {
-    return( PORTAbits.RA2 );
+    return( !PORTAbits.RA2 );
 }
 
 char b2Anterior=0;
@@ -2593,8 +2595,8 @@ char b2_bordaSubida( void )
 
 
     char aux;
-    aux = PORTAbits.RA2 && !b2Anterior;
-    b2Anterior = PORTAbits.RA2;
+    aux = !PORTAbits.RA2 && !b2Anterior;
+    b2Anterior = !PORTAbits.RA2;
     return( aux );
 }
 char b2_bordaDescida( void )
@@ -2602,8 +2604,8 @@ char b2_bordaDescida( void )
 
 
     char aux;
-    aux = !PORTAbits.RA2 && b2Anterior;
-    b2Anterior = PORTAbits.RA2;
+    aux = !!PORTAbits.RA2 && b2Anterior;
+    b2Anterior = !PORTAbits.RA2;
     return( aux );
 }
 char b2_borda( void )
@@ -2611,14 +2613,14 @@ char b2_borda( void )
 
 
     char aux;
-    aux = (PORTAbits.RA2 && !b2Anterior) || (!PORTAbits.RA2 && b2Anterior);
-    b2Anterior = PORTAbits.RA2;
+    aux = (!PORTAbits.RA2 && !b2Anterior) || (!!PORTAbits.RA2 && b2Anterior);
+    b2Anterior = !PORTAbits.RA2;
     return( aux );
 }
 
 char b3( void )
 {
-    return( PORTAbits.RA3 );
+    return( !PORTAbits.RA3 );
 }
 
 char b3Anterior=0;
@@ -2627,8 +2629,8 @@ char b3_bordaSubida( void )
 
 
     char aux;
-    aux = PORTAbits.RA3 && !b3Anterior;
-    b3Anterior = PORTAbits.RA3;
+    aux = !PORTAbits.RA3 && !b3Anterior;
+    b3Anterior = !PORTAbits.RA3;
     return( aux );
 }
 char b3_bordaDescida( void )
@@ -2636,8 +2638,8 @@ char b3_bordaDescida( void )
 
 
     char aux;
-    aux = !PORTAbits.RA3 && b3Anterior;
-    b3Anterior = PORTAbits.RA3;
+    aux = !!PORTAbits.RA3 && b3Anterior;
+    b3Anterior = !PORTAbits.RA3;
     return( aux );
 }
 char b3_borda( void )
@@ -2645,7 +2647,7 @@ char b3_borda( void )
 
 
     char aux;
-    aux = (PORTAbits.RA3 && !b3Anterior) || (!PORTAbits.RA3 && b3Anterior);
-    b3Anterior = PORTAbits.RA3;
+    aux = (!PORTAbits.RA3 && !b3Anterior) || (!!PORTAbits.RA3 && b3Anterior);
+    b3Anterior = !PORTAbits.RA3;
     return( aux );
 }
