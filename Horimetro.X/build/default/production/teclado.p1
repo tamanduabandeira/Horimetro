@@ -269,6 +269,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+<<<<<<< HEAD
 "11 teclado.c
 [; ;teclado.c: 11: void teclado_init( void )
 [v _teclado_init `(v ~T0 @X0 1 ef ]
@@ -303,6 +304,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21
 [; ;teclado.c: 21: const char tecladoMatriz[4][4] = { {'1','2','3','A'},
 [v _tecladoMatriz `F1296 ~T0 @X0 -> 4 `i e ]
+=======
+"10 teclado.c
+[; ;teclado.c: 10: void teclado_init( void )
+[v _teclado_init `(v ~T0 @X0 1 ef ]
+"11
+[; ;teclado.c: 11: {
+{
+[e :U _teclado_init ]
+[f ]
+"12
+[; ;teclado.c: 12:     ANSELH = 0x00;
+[e = _ANSELH -> -> 0 `i `uc ]
+"13
+[; ;teclado.c: 13:     TRISB = 0xF0;
+[e = _TRISB -> -> 240 `i `uc ]
+"14
+[; ;teclado.c: 14:     OPTION_REGbits.nRBPU = 0;
+[e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
+"15
+[; ;teclado.c: 15:     WPUB = 0xF0;
+[e = _WPUB -> -> 240 `i `uc ]
+"16
+[; ;teclado.c: 16:     PORTB = 0xFF;
+[e = _PORTB -> -> 255 `i `uc ]
+"17
+[; ;teclado.c: 17:     botao_init();
+[e ( _botao_init ..  ]
+"18
+[; ;teclado.c: 18: }
+[e :UE 138 ]
+}
+[v F1285 `Cuc ~T0 @X0 -> 4 `i t ]
+"20
+[; ;teclado.c: 20: const char tecladoMatriz[4][4] = { {'1','2','3','A'},
+[v _tecladoMatriz `F1285 ~T0 @X0 -> 4 `i e ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 [i _tecladoMatriz
 :U ..
 :U ..
@@ -324,6 +361,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 67 `ui `uc
 ..
 :U ..
+<<<<<<< HEAD
 -> -> 42 `ui `uc
 -> -> 48 `ui `uc
 -> -> 35 `ui `uc
@@ -349,11 +387,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _c `uc ~T0 @X0 1 a ]
 "31
 [; ;teclado.c: 31:     for( l=0; l<4; l++ )
+=======
+-> -> 94 `ui `uc
+-> -> 118 `ui `uc
+-> -> 60 `ui `uc
+-> -> 62 `ui `uc
+..
+..
+]
+"25
+[; ;teclado.c: 25: char teclado( void )
+[v _teclado `(uc ~T0 @X0 1 ef ]
+"26
+[; ;teclado.c: 26: {
+{
+[e :U _teclado ]
+[f ]
+"27
+[; ;teclado.c: 27:     char aux = 0;
+[v _aux `uc ~T0 @X0 1 a ]
+[e = _aux -> -> 0 `i `uc ]
+"28
+[; ;teclado.c: 28:     char l,c;
+[v _l `uc ~T0 @X0 1 a ]
+[v _c `uc ~T0 @X0 1 a ]
+"30
+[; ;teclado.c: 30:     for( l=0; l<4; l++ )
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 {
 [e = _l -> -> 0 `i `uc ]
 [e $ < -> _l `i -> 4 `i 140  ]
 [e $U 141  ]
 [e :U 140 ]
+<<<<<<< HEAD
 "32
 [; ;teclado.c: 32:     {
 {
@@ -362,11 +428,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _PORTB -> -> ~ << -> 1 `i -> _l `i `uc `uc ]
 "34
 [; ;teclado.c: 34:         for( c=0; c<4; c++ )
+=======
+"31
+[; ;teclado.c: 31:     {
+{
+"32
+[; ;teclado.c: 32:         PORTB = (char)~(0x01 << l);
+[e = _PORTB -> -> ~ << -> 1 `i -> _l `i `uc `uc ]
+"33
+[; ;teclado.c: 33:         for( c=0; c<4; c++ )
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 {
 [e = _c -> -> 0 `i `uc ]
 [e $ < -> _c `i -> 4 `i 143  ]
 [e $U 144  ]
 [e :U 143 ]
+<<<<<<< HEAD
 "35
 [; ;teclado.c: 35:         {
 {
@@ -385,18 +462,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 146 ]
 "40
 [; ;teclado.c: 40:         }
+=======
+"34
+[; ;teclado.c: 34:         {
+{
+"35
+[; ;teclado.c: 35:             if( (~PORTB) & (0x10<<c) )
+[e $ ! != & ~ -> _PORTB `i << -> 16 `i -> _c `i -> 0 `i 146  ]
+"36
+[; ;teclado.c: 36:             {
+{
+"37
+[; ;teclado.c: 37:                 aux = tecladoMatriz[l][c];
+[e = _aux *U + &U *U + &U _tecladoMatriz * -> _l `ux -> * -> # *U &U *U &U _tecladoMatriz `ui -> -> 4 `i `ui `ux * -> _c `ux -> -> # *U &U *U + &U _tecladoMatriz * -> _l `ux -> * -> # *U &U *U &U _tecladoMatriz `ui -> -> 4 `i `ui `ux `ui `ux ]
+"38
+[; ;teclado.c: 38:             }
+}
+[e :U 146 ]
+"39
+[; ;teclado.c: 39:         }
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 }
 [e ++ _c -> -> 1 `i `uc ]
 [e $ < -> _c `i -> 4 `i 143  ]
 [e :U 144 ]
 }
+<<<<<<< HEAD
 "41
 [; ;teclado.c: 41:     }
+=======
+"40
+[; ;teclado.c: 40:     }
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 }
 [e ++ _l -> -> 1 `i `uc ]
 [e $ < -> _l `i -> 4 `i 140  ]
 [e :U 141 ]
 }
+<<<<<<< HEAD
 "42
 [; ;teclado.c: 42:     if ( aux == 0 )
 [e $ ! == -> _aux `i -> 0 `i 147  ]
@@ -441,5 +544,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $UE 139  ]
 "54
 [; ;teclado.c: 54: }
+=======
+"41
+[; ;teclado.c: 41:     if ( aux == 0 )
+[e $ ! == -> _aux `i -> 0 `i 147  ]
+"42
+[; ;teclado.c: 42:     {
+{
+"43
+[; ;teclado.c: 43:         if( b0_bordaDescida() )
+[e $ ! != -> ( _b0_bordaDescida ..  `i -> 0 `i 148  ]
+"44
+[; ;teclado.c: 44:         {
+{
+"45
+[; ;teclado.c: 45:             aux = '^';
+[e = _aux -> -> 94 `ui `uc ]
+"46
+[; ;teclado.c: 46:         }
+}
+[e $U 149  ]
+"47
+[; ;teclado.c: 47:         else if ( b1_bordaDescida() )
+[e :U 148 ]
+[e $ ! != -> ( _b1_bordaDescida ..  `i -> 0 `i 150  ]
+"48
+[; ;teclado.c: 48:         {
+{
+"49
+[; ;teclado.c: 49:             aux = 'v';
+[e = _aux -> -> 118 `ui `uc ]
+"50
+[; ;teclado.c: 50:         }
+}
+[e :U 150 ]
+[e :U 149 ]
+"51
+[; ;teclado.c: 51:     }
+}
+[e :U 147 ]
+"52
+[; ;teclado.c: 52:     return( aux );
+[e ) _aux ]
+[e $UE 139  ]
+"53
+[; ;teclado.c: 53: }
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 [e :UE 139 ]
 }

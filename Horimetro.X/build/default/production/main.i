@@ -2608,6 +2608,7 @@ unsigned char teclado( void );
 char EEPROM_read( unsigned char addr );
 void EEPROM_write( unsigned char addr, unsigned char data );
 # 16 "main.c" 2
+<<<<<<< HEAD
 # 1 "./delay.h" 1
 
 
@@ -2616,6 +2617,8 @@ void EEPROM_write( unsigned char addr, unsigned char data );
 
 void delay( unsigned int t );
 # 17 "main.c" 2
+=======
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 
 struct temporizadorT tempo[4];
@@ -2625,11 +2628,16 @@ void main (void)
 
 
 
+<<<<<<< HEAD
     ANSEL = 0;
+=======
+    ANSEL = 1;
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
     lcd_init();
     T0_init();
     botao_init();
    teclado_init();
+
 
     lcd_print(0,0,"00:00      00:00");
     lcd_print(1,0,"00:00      00:00");
@@ -2640,6 +2648,7 @@ void main (void)
     resetTemporizador( &tempo[2] );
     resetTemporizador( &tempo[3] );
 
+<<<<<<< HEAD
     for( char i=0; i<64; i++ )
    {
         EEPROM_write(i,0);
@@ -2658,6 +2667,11 @@ void main (void)
     tempo[3].hor = EEPROM_read( 31 );
     tempo[3].dia = (int)EEPROM_read( 32 );
 # 68 "main.c"
+=======
+
+    tempo[0].min = EEPROM_read( 0 );
+# 52 "main.c"
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
     while( 1 )
     {
         habTemporizador( &tempo[0], b0() );
@@ -2674,6 +2688,7 @@ void main (void)
             temporizar( &tempo[2], 20 );
             temporizar( &tempo[3], 30 );
 
+<<<<<<< HEAD
             lcd_print(0,2, ":");
             lcd_print(0,5, " ");
             lcd_print(0,13, ":");
@@ -2686,6 +2701,11 @@ void main (void)
             EEPROM_write(0,tempo[0].min );
             EEPROM_write(1,tempo[0].hor );
             EEPROM_write(2,tempo[0].dia );
+=======
+            lcd_num(0, 0, tempo[0].hor, 2);
+            lcd_num(0, 3, tempo[0].min, 2);
+            EEPROM_write(0, tempo[0].min );
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
             lcd_num(0, 11, tempo[1].min, 2);
             lcd_num(0, 14, tempo[1].seg, 2);

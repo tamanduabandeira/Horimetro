@@ -263,6 +263,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _botao_init ]
 [f ]
+<<<<<<< HEAD
+=======
+"11
+[; ;botao.c: 11:     TRISAbits.TRISA0= 1;
+[e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
+"12
+[; ;botao.c: 12:     TRISAbits.TRISA1 = 1;
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "13
 [; ;botao.c: 13:     TRISAbits.TRISA0= 1;
 [e = . . _TRISAbits 0 0 -> -> 1 `i `uc ]
@@ -287,16 +296,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b0 ]
 [f ]
+<<<<<<< HEAD
 "24
 [; ;botao.c: 24:     return( !PORTAbits.RA0 );
+=======
+"22
+[; ;botao.c: 22:     return( !PORTAbits.RA0 );
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 [e ) -> -> ! != -> . . _PORTAbits 0 0 `i -> 0 `i `i `uc ]
 [e $UE 139  ]
 "25
 [; ;botao.c: 25: }
 [e :UE 139 ]
 }
+<<<<<<< HEAD
 "27
 [; ;botao.c: 27: char b0Anterior=1;
+=======
+"25
+[; ;botao.c: 25: char b0Anterior=1;
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 [v _b0Anterior `uc ~T0 @X0 1 e ]
 [i _b0Anterior
 -> -> 1 `i `uc
@@ -309,9 +328,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b0_bordaSubida ]
 [f ]
+<<<<<<< HEAD
 "32
 [; ;botao.c: 32:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"30
+[; ;botao.c: 30:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"31
+[; ;botao.c: 31:     aux = !PORTAbits.RA0 && !b0Anterior;
+[e = _aux -> -> && ! != -> . . _PORTAbits 0 0 `i -> 0 `i ! != -> _b0Anterior `i -> 0 `i `i `uc ]
+"32
+[; ;botao.c: 32:     b0Anterior = !PORTAbits.RA0;
+[e = _b0Anterior -> -> ! != -> . . _PORTAbits 0 0 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "33
 [; ;botao.c: 33:     aux = !PORTAbits.RA0 && !b0Anterior;
 [e = _aux -> -> && ! != -> . . _PORTAbits 0 0 `i -> 0 `i ! != -> _b0Anterior `i -> 0 `i `i `uc ]
@@ -334,9 +365,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b0_bordaDescida ]
 [f ]
+<<<<<<< HEAD
 "41
 [; ;botao.c: 41:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"39
+[; ;botao.c: 39:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"40
+[; ;botao.c: 40:     aux = !!PORTAbits.RA0 && b0Anterior;
+[e = _aux -> -> && ! ! != -> . . _PORTAbits 0 0 `i -> 0 `i != -> _b0Anterior `i -> 0 `i `i `uc ]
+"41
+[; ;botao.c: 41:     b0Anterior = !PORTAbits.RA0;
+[e = _b0Anterior -> -> ! != -> . . _PORTAbits 0 0 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "42
 [; ;botao.c: 42:     aux = !!PORTAbits.RA0 && b0Anterior;
 [e = _aux -> -> && ! ! != -> . . _PORTAbits 0 0 `i -> 0 `i != -> _b0Anterior `i -> 0 `i `i `uc ]
@@ -359,9 +402,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b0_borda ]
 [f ]
+<<<<<<< HEAD
 "50
 [; ;botao.c: 50:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"48
+[; ;botao.c: 48:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"49
+[; ;botao.c: 49:     aux = (!PORTAbits.RA0 && !b0Anterior) || (!!PORTAbits.RA0 && b0Anterior);
+[e = _aux -> -> || && ! != -> . . _PORTAbits 0 0 `i -> 0 `i ! != -> _b0Anterior `i -> 0 `i && ! ! != -> . . _PORTAbits 0 0 `i -> 0 `i != -> _b0Anterior `i -> 0 `i `i `uc ]
+"50
+[; ;botao.c: 50:     b0Anterior = !PORTAbits.RA0;
+[e = _b0Anterior -> -> ! != -> . . _PORTAbits 0 0 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "51
 [; ;botao.c: 51:     aux = (!PORTAbits.RA0 && !b0Anterior) || (!!PORTAbits.RA0 && b0Anterior);
 [e = _aux -> -> || && ! != -> . . _PORTAbits 0 0 `i -> 0 `i ! != -> _b0Anterior `i -> 0 `i && ! ! != -> . . _PORTAbits 0 0 `i -> 0 `i != -> _b0Anterior `i -> 0 `i `i `uc ]
@@ -384,16 +439,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b1 ]
 [f ]
+<<<<<<< HEAD
 "62
 [; ;botao.c: 62:    return( !PORTAbits.RA1 );
+=======
+"60
+[; ;botao.c: 60:    return( !PORTAbits.RA1 );
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 [e ) -> -> ! != -> . . _PORTAbits 0 1 `i -> 0 `i `i `uc ]
 [e $UE 143  ]
 "63
 [; ;botao.c: 63: }
 [e :UE 143 ]
 }
+<<<<<<< HEAD
 "65
 [; ;botao.c: 65: char b1Anterior=1;
+=======
+"63
+[; ;botao.c: 63: char b1Anterior=1;
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 [v _b1Anterior `uc ~T0 @X0 1 e ]
 [i _b1Anterior
 -> -> 1 `i `uc
@@ -406,9 +471,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b1_bordaSubida ]
 [f ]
+<<<<<<< HEAD
 "70
 [; ;botao.c: 70:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"68
+[; ;botao.c: 68:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"69
+[; ;botao.c: 69:     aux = !PORTAbits.RA1 && !b1Anterior;
+[e = _aux -> -> && ! != -> . . _PORTAbits 0 1 `i -> 0 `i ! != -> _b1Anterior `i -> 0 `i `i `uc ]
+"70
+[; ;botao.c: 70:     b1Anterior = !PORTAbits.RA1;
+[e = _b1Anterior -> -> ! != -> . . _PORTAbits 0 1 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "71
 [; ;botao.c: 71:     aux = !PORTAbits.RA1 && !b1Anterior;
 [e = _aux -> -> && ! != -> . . _PORTAbits 0 1 `i -> 0 `i ! != -> _b1Anterior `i -> 0 `i `i `uc ]
@@ -431,9 +508,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b1_bordaDescida ]
 [f ]
+<<<<<<< HEAD
 "79
 [; ;botao.c: 79:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"77
+[; ;botao.c: 77:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"78
+[; ;botao.c: 78:     aux = !!PORTAbits.RA1 && b1Anterior;
+[e = _aux -> -> && ! ! != -> . . _PORTAbits 0 1 `i -> 0 `i != -> _b1Anterior `i -> 0 `i `i `uc ]
+"79
+[; ;botao.c: 79:     b1Anterior = !PORTAbits.RA1;
+[e = _b1Anterior -> -> ! != -> . . _PORTAbits 0 1 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "80
 [; ;botao.c: 80:     aux = !!PORTAbits.RA1 && b1Anterior;
 [e = _aux -> -> && ! ! != -> . . _PORTAbits 0 1 `i -> 0 `i != -> _b1Anterior `i -> 0 `i `i `uc ]
@@ -456,9 +545,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b1_borda ]
 [f ]
+<<<<<<< HEAD
 "88
 [; ;botao.c: 88:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"86
+[; ;botao.c: 86:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"87
+[; ;botao.c: 87:     aux = (!PORTAbits.RA1 && !b1Anterior) || (!!PORTAbits.RA1 && b1Anterior);
+[e = _aux -> -> || && ! != -> . . _PORTAbits 0 1 `i -> 0 `i ! != -> _b1Anterior `i -> 0 `i && ! ! != -> . . _PORTAbits 0 1 `i -> 0 `i != -> _b1Anterior `i -> 0 `i `i `uc ]
+"88
+[; ;botao.c: 88:     b1Anterior = !PORTAbits.RA1;
+[e = _b1Anterior -> -> ! != -> . . _PORTAbits 0 1 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "89
 [; ;botao.c: 89:     aux = (!PORTAbits.RA1 && !b1Anterior) || (!!PORTAbits.RA1 && b1Anterior);
 [e = _aux -> -> || && ! != -> . . _PORTAbits 0 1 `i -> 0 `i ! != -> _b1Anterior `i -> 0 `i && ! ! != -> . . _PORTAbits 0 1 `i -> 0 `i != -> _b1Anterior `i -> 0 `i `i `uc ]
@@ -481,8 +582,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b2 ]
 [f ]
+<<<<<<< HEAD
 "96
 [; ;botao.c: 96:     return( !PORTAbits.RA2 );
+=======
+"94
+[; ;botao.c: 94:     return( !PORTAbits.RA2 );
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 [e ) -> -> ! != -> . . _PORTAbits 0 2 `i -> 0 `i `i `uc ]
 [e $UE 147  ]
 "97
@@ -503,9 +609,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b2_bordaSubida ]
 [f ]
+<<<<<<< HEAD
 "104
 [; ;botao.c: 104:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"102
+[; ;botao.c: 102:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"103
+[; ;botao.c: 103:     aux = !PORTAbits.RA2 && !b2Anterior;
+[e = _aux -> -> && ! != -> . . _PORTAbits 0 2 `i -> 0 `i ! != -> _b2Anterior `i -> 0 `i `i `uc ]
+"104
+[; ;botao.c: 104:     b2Anterior = !PORTAbits.RA2;
+[e = _b2Anterior -> -> ! != -> . . _PORTAbits 0 2 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "105
 [; ;botao.c: 105:     aux = !PORTAbits.RA2 && !b2Anterior;
 [e = _aux -> -> && ! != -> . . _PORTAbits 0 2 `i -> 0 `i ! != -> _b2Anterior `i -> 0 `i `i `uc ]
@@ -528,9 +646,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b2_bordaDescida ]
 [f ]
+<<<<<<< HEAD
 "113
 [; ;botao.c: 113:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"111
+[; ;botao.c: 111:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"112
+[; ;botao.c: 112:     aux = !!PORTAbits.RA2 && b2Anterior;
+[e = _aux -> -> && ! ! != -> . . _PORTAbits 0 2 `i -> 0 `i != -> _b2Anterior `i -> 0 `i `i `uc ]
+"113
+[; ;botao.c: 113:     b2Anterior = !PORTAbits.RA2;
+[e = _b2Anterior -> -> ! != -> . . _PORTAbits 0 2 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "114
 [; ;botao.c: 114:     aux = !!PORTAbits.RA2 && b2Anterior;
 [e = _aux -> -> && ! ! != -> . . _PORTAbits 0 2 `i -> 0 `i != -> _b2Anterior `i -> 0 `i `i `uc ]
@@ -553,9 +683,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b2_borda ]
 [f ]
+<<<<<<< HEAD
 "122
 [; ;botao.c: 122:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"120
+[; ;botao.c: 120:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"121
+[; ;botao.c: 121:     aux = (!PORTAbits.RA2 && !b2Anterior) || (!!PORTAbits.RA2 && b2Anterior);
+[e = _aux -> -> || && ! != -> . . _PORTAbits 0 2 `i -> 0 `i ! != -> _b2Anterior `i -> 0 `i && ! ! != -> . . _PORTAbits 0 2 `i -> 0 `i != -> _b2Anterior `i -> 0 `i `i `uc ]
+"122
+[; ;botao.c: 122:     b2Anterior = !PORTAbits.RA2;
+[e = _b2Anterior -> -> ! != -> . . _PORTAbits 0 2 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "123
 [; ;botao.c: 123:     aux = (!PORTAbits.RA2 && !b2Anterior) || (!!PORTAbits.RA2 && b2Anterior);
 [e = _aux -> -> || && ! != -> . . _PORTAbits 0 2 `i -> 0 `i ! != -> _b2Anterior `i -> 0 `i && ! ! != -> . . _PORTAbits 0 2 `i -> 0 `i != -> _b2Anterior `i -> 0 `i `i `uc ]
@@ -578,8 +720,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b3 ]
 [f ]
+<<<<<<< HEAD
 "130
 [; ;botao.c: 130:     return( !PORTAbits.RA3 );
+=======
+"128
+[; ;botao.c: 128:     return( !PORTAbits.RA3 );
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 [e ) -> -> ! != -> . . _PORTAbits 0 3 `i -> 0 `i `i `uc ]
 [e $UE 151  ]
 "131
@@ -600,9 +747,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b3_bordaSubida ]
 [f ]
+<<<<<<< HEAD
 "138
 [; ;botao.c: 138:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"136
+[; ;botao.c: 136:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"137
+[; ;botao.c: 137:     aux = !PORTAbits.RA3 && !b3Anterior;
+[e = _aux -> -> && ! != -> . . _PORTAbits 0 3 `i -> 0 `i ! != -> _b3Anterior `i -> 0 `i `i `uc ]
+"138
+[; ;botao.c: 138:     b3Anterior = !PORTAbits.RA3;
+[e = _b3Anterior -> -> ! != -> . . _PORTAbits 0 3 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "139
 [; ;botao.c: 139:     aux = !PORTAbits.RA3 && !b3Anterior;
 [e = _aux -> -> && ! != -> . . _PORTAbits 0 3 `i -> 0 `i ! != -> _b3Anterior `i -> 0 `i `i `uc ]
@@ -625,9 +784,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b3_bordaDescida ]
 [f ]
+<<<<<<< HEAD
 "147
 [; ;botao.c: 147:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"145
+[; ;botao.c: 145:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"146
+[; ;botao.c: 146:     aux = !!PORTAbits.RA3 && b3Anterior;
+[e = _aux -> -> && ! ! != -> . . _PORTAbits 0 3 `i -> 0 `i != -> _b3Anterior `i -> 0 `i `i `uc ]
+"147
+[; ;botao.c: 147:     b3Anterior = !PORTAbits.RA3;
+[e = _b3Anterior -> -> ! != -> . . _PORTAbits 0 3 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "148
 [; ;botao.c: 148:     aux = !!PORTAbits.RA3 && b3Anterior;
 [e = _aux -> -> && ! ! != -> . . _PORTAbits 0 3 `i -> 0 `i != -> _b3Anterior `i -> 0 `i `i `uc ]
@@ -650,9 +821,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _b3_borda ]
 [f ]
+<<<<<<< HEAD
 "156
 [; ;botao.c: 156:     char aux;
 [v _aux `uc ~T0 @X0 1 a ]
+=======
+"154
+[; ;botao.c: 154:     char aux;
+[v _aux `uc ~T0 @X0 1 a ]
+"155
+[; ;botao.c: 155:     aux = (!PORTAbits.RA3 && !b3Anterior) || (!!PORTAbits.RA3 && b3Anterior);
+[e = _aux -> -> || && ! != -> . . _PORTAbits 0 3 `i -> 0 `i ! != -> _b3Anterior `i -> 0 `i && ! ! != -> . . _PORTAbits 0 3 `i -> 0 `i != -> _b3Anterior `i -> 0 `i `i `uc ]
+"156
+[; ;botao.c: 156:     b3Anterior = !PORTAbits.RA3;
+[e = _b3Anterior -> -> ! != -> . . _PORTAbits 0 3 `i -> 0 `i `i `uc ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 "157
 [; ;botao.c: 157:     aux = (!PORTAbits.RA3 && !b3Anterior) || (!!PORTAbits.RA3 && b3Anterior);
 [e = _aux -> -> || && ! != -> . . _PORTAbits 0 3 `i -> 0 `i ! != -> _b3Anterior `i -> 0 `i && ! ! != -> . . _PORTAbits 0 3 `i -> 0 `i != -> _b3Anterior `i -> 0 `i `i `uc ]

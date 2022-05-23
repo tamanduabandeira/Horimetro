@@ -13,13 +13,17 @@
 #include "botao.h"
 #include "teclado.h"
 #include "eeprom.h"
+<<<<<<< HEAD
 #include "delay.h"
+=======
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 
 struct temporizadorT tempo[4];
 
 void main (void)
 {
+<<<<<<< HEAD
   // char teste[]= "Teste:            ";
   // char tecla = 0;
   // int num = 0; 
@@ -28,6 +32,16 @@ void main (void)
     T0_init();
     botao_init();
    teclado_init();
+=======
+   // char teste[]= "Tecla:            ";
+   // char tecla;
+    
+    ANSEL = 1;
+    lcd_init();
+    T0_init();
+    botao_init();
+//    teclado_init();
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
     lcd_print(0,0,"00:00      00:00");
     lcd_print(1,0,"00:00      00:00");
@@ -37,7 +51,11 @@ void main (void)
     resetTemporizador( &tempo[1] );
     resetTemporizador( &tempo[2] );
     resetTemporizador( &tempo[3] );
+    
+    //EEPROM_write(0,0);
+    tempo[0].min = EEPROM_read( 0 );
 
+<<<<<<< HEAD
     for( char i=0; i<64; i++ )
    {
         EEPROM_write(i,0);
@@ -64,6 +82,16 @@ void main (void)
    //     teste [7] = tecla;
    //     lcd_print(0,0,teste);
    //}
+=======
+    
+
+   // while (1)
+   // {
+    //    tecla = teclado();
+    //    teste [7] = tecla;
+    //    lcd_print(0,0,teste);
+   // }
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
     
     while( 1 )
     {
@@ -76,6 +104,7 @@ void main (void)
         {
             T0_start(1000);
         
+<<<<<<< HEAD
             temporizar( &tempo[0], 0 );
             temporizar( &tempo[1], 10 );
             temporizar( &tempo[2], 20 );
@@ -93,6 +122,16 @@ void main (void)
             EEPROM_write(0,tempo[0].min );
             EEPROM_write(1,tempo[0].hor );
             EEPROM_write(2,tempo[0].dia );
+=======
+            temporizar( &tempo[0] );
+            temporizar( &tempo[1] );
+            temporizar( &tempo[2] );
+            temporizar( &tempo[3] );
+        
+            lcd_num(0, 0, tempo[0].hor, 2);
+            lcd_num(0, 3, tempo[0].min, 2);
+            EEPROM_write(0, tempo[0].min );
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
             
             lcd_num(0, 11, tempo[1].min, 2);
             lcd_num(0, 14, tempo[1].seg, 2);

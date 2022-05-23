@@ -2544,6 +2544,15 @@ void T2_play( void );
 unsigned int T2_status( void );
 # 12 "tempo.c" 2
 # 1 "./eeprom.h" 1
+<<<<<<< HEAD
+=======
+
+
+
+char EEPROM_read( unsigned char addr );
+void EEPROM_write( unsigned char addr, unsigned char data );
+# 13 "tempo.c" 2
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 
 
