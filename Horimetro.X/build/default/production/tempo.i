@@ -2513,7 +2513,8 @@ struct temporizadorT
     int dia;
 };
 
-void temporizar( struct temporizadorT * t );
+
+void temporizar( struct temporizadorT * t, unsigned char adrs );
 void habTemporizador( struct temporizadorT * t, unsigned char h );
 void resetTemporizador( struct temporizadorT * t );
 # 11 "tempo.c" 2
@@ -2543,6 +2544,15 @@ void T2_play( void );
 unsigned int T2_status( void );
 # 12 "tempo.c" 2
 # 1 "./eeprom.h" 1
+<<<<<<< HEAD
+=======
+
+
+
+char EEPROM_read( unsigned char addr );
+void EEPROM_write( unsigned char addr, unsigned char data );
+# 13 "tempo.c" 2
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 
 
@@ -2550,7 +2560,7 @@ char EEPROM_read( unsigned char addr );
 void EEPROM_write( unsigned char addr, unsigned char data );
 # 13 "tempo.c" 2
 
-void temporizar( struct temporizadorT * t )
+void temporizar0( struct temporizadorT * t )
 {
     if( t->hab )
     {
@@ -2565,6 +2575,35 @@ void temporizar( struct temporizadorT * t )
                 if(t->hor == 0)
                 {
                     t->dia++;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+void temporizar( struct temporizadorT * t, unsigned char adrs )
+{
+    if( t->hab )
+    {
+        t->seg = ++(t->seg) % 60;
+        if( t->seg == 0 )
+        {
+            t->min = ++(t->min) % 60;
+            EEPROM_write( adrs+0, t->min );
+            if( t->min == 0 )
+            {
+                t->hor = ++(t->hor) % 24;
+                EEPROM_write( adrs+1, t->hor );
+                if(t->hor == 0)
+                {
+                    (t->dia)++;
+                    EEPROM_write( adrs+2, t->dia % 256 );
+                    EEPROM_write( adrs+3, t->dia / 256 );
                 }
             }
         }

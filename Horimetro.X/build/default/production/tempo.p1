@@ -3,6 +3,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./tempo.h: 5: {
 [s S138 `uc 1 `uc 1 `uc 1 `uc 1 `i 1 ]
 [n S138 temporizadorT hab seg min hor dia ]
+"5 ./eeprom.h
+[; ;./eeprom.h: 5: void EEPROM_write( unsigned char addr, unsigned char data );
+[v _EEPROM_write `(v ~T0 @X0 0 ef2`uc`uc ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -238,6 +241,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "14 tempo.c
+<<<<<<< HEAD
+[; ;tempo.c: 14: void temporizar0( struct temporizadorT * t )
+[v _temporizar0 `(v ~T0 @X0 1 ef1`*S138 ]
+"15
+[; ;tempo.c: 15: {
+{
+[e :U _temporizar0 ]
+"14
+[; ;tempo.c: 14: void temporizar0( struct temporizadorT * t )
+[v _t `*S138 ~T0 @X0 1 r1 ]
+"15
+[; ;tempo.c: 15: {
+=======
 [; ;tempo.c: 14: void temporizar( struct temporizadorT * t )
 [v _temporizar `(v ~T0 @X0 1 ef1`*S138 ]
 "15
@@ -249,6 +265,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _t `*S138 ~T0 @X0 1 r1 ]
 "15
 [; ;tempo.c: 15: {
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 [f ]
 "16
 [; ;tempo.c: 16:     if( t->hab )
@@ -306,6 +323,142 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;tempo.c: 33: }
 [e :UE 139 ]
 }
+<<<<<<< HEAD
+"40
+[; ;tempo.c: 40: void temporizar( struct temporizadorT * t, unsigned char adrs )
+[v _temporizar `(v ~T0 @X0 1 ef2`*S138`uc ]
+"41
+[; ;tempo.c: 41: {
+{
+[e :U _temporizar ]
+"40
+[; ;tempo.c: 40: void temporizar( struct temporizadorT * t, unsigned char adrs )
+[v _t `*S138 ~T0 @X0 1 r1 ]
+[v _adrs `uc ~T0 @X0 1 r2 ]
+"41
+[; ;tempo.c: 41: {
+[f ]
+"42
+[; ;tempo.c: 42:     if( t->hab )
+[e $ ! != -> . *U _t 0 `i -> 0 `i 145  ]
+"43
+[; ;tempo.c: 43:     {
+{
+"44
+[; ;tempo.c: 44:         t->seg = ++(t->seg) % 60;
+[e = . *U _t 1 -> % -> =+ . *U _t 1 -> -> 1 `i `uc `i -> 60 `i `uc ]
+"45
+[; ;tempo.c: 45:         if( t->seg == 0 )
+[e $ ! == -> . *U _t 1 `i -> 0 `i 146  ]
+"46
+[; ;tempo.c: 46:         {
+{
+"47
+[; ;tempo.c: 47:             t->min = ++(t->min) % 60;
+[e = . *U _t 2 -> % -> =+ . *U _t 2 -> -> 1 `i `uc `i -> 60 `i `uc ]
+"48
+[; ;tempo.c: 48:             EEPROM_write( adrs+0, t->min );
+[e ( _EEPROM_write (2 , -> + -> _adrs `i -> 0 `i `uc -> . *U _t 2 `uc ]
+"49
+[; ;tempo.c: 49:             if( t->min == 0 )
+[e $ ! == -> . *U _t 2 `i -> 0 `i 147  ]
+"50
+[; ;tempo.c: 50:             {
+{
+"51
+[; ;tempo.c: 51:                 t->hor = ++(t->hor) % 24;
+[e = . *U _t 3 -> % -> =+ . *U _t 3 -> -> 1 `i `uc `i -> 24 `i `uc ]
+"52
+[; ;tempo.c: 52:                 EEPROM_write( adrs+1, t->hor );
+[e ( _EEPROM_write (2 , -> + -> _adrs `i -> 1 `i `uc -> . *U _t 3 `uc ]
+"53
+[; ;tempo.c: 53:                 if(t->hor == 0)
+[e $ ! == -> . *U _t 3 `i -> 0 `i 148  ]
+"54
+[; ;tempo.c: 54:                 {
+{
+"55
+[; ;tempo.c: 55:                     (t->dia)++;
+[e ++ . *U _t 4 -> 1 `i ]
+"56
+[; ;tempo.c: 56:                     EEPROM_write( adrs+2, t->dia % 256 );
+[e ( _EEPROM_write (2 , -> + -> _adrs `i -> 2 `i `uc -> % . *U _t 4 -> 256 `i `uc ]
+"57
+[; ;tempo.c: 57:                     EEPROM_write( adrs+3, t->dia / 256 );
+[e ( _EEPROM_write (2 , -> + -> _adrs `i -> 3 `i `uc -> / . *U _t 4 -> 256 `i `uc ]
+"58
+[; ;tempo.c: 58:                 }
+}
+[e :U 148 ]
+"59
+[; ;tempo.c: 59:             }
+}
+[e :U 147 ]
+"60
+[; ;tempo.c: 60:         }
+}
+[e :U 146 ]
+"61
+[; ;tempo.c: 61:     }
+}
+[e :U 145 ]
+"62
+[; ;tempo.c: 62: }
+[e :UE 144 ]
+}
+"65
+[; ;tempo.c: 65: void habTemporizador( struct temporizadorT * t, unsigned char h )
+[v _habTemporizador `(v ~T0 @X0 1 ef2`*S138`uc ]
+"66
+[; ;tempo.c: 66: {
+{
+[e :U _habTemporizador ]
+"65
+[; ;tempo.c: 65: void habTemporizador( struct temporizadorT * t, unsigned char h )
+[v _t `*S138 ~T0 @X0 1 r1 ]
+[v _h `uc ~T0 @X0 1 r2 ]
+"66
+[; ;tempo.c: 66: {
+[f ]
+"67
+[; ;tempo.c: 67:     t->hab = h;
+[e = . *U _t 0 -> _h `uc ]
+"68
+[; ;tempo.c: 68: }
+[e :UE 149 ]
+}
+"70
+[; ;tempo.c: 70: void resetTemporizador( struct temporizadorT * t )
+[v _resetTemporizador `(v ~T0 @X0 1 ef1`*S138 ]
+"71
+[; ;tempo.c: 71: {
+{
+[e :U _resetTemporizador ]
+"70
+[; ;tempo.c: 70: void resetTemporizador( struct temporizadorT * t )
+[v _t `*S138 ~T0 @X0 1 r1 ]
+"71
+[; ;tempo.c: 71: {
+[f ]
+"72
+[; ;tempo.c: 72:     t->hab = 0;
+[e = . *U _t 0 -> -> 0 `i `uc ]
+"73
+[; ;tempo.c: 73:     t->seg = 0;
+[e = . *U _t 1 -> -> 0 `i `uc ]
+"74
+[; ;tempo.c: 74:     t->min = 0;
+[e = . *U _t 2 -> -> 0 `i `uc ]
+"75
+[; ;tempo.c: 75:     t->hor = 0;
+[e = . *U _t 3 -> -> 0 `i `uc ]
+"76
+[; ;tempo.c: 76:     t->dia = 0;
+[e = . *U _t 4 -> 0 `i ]
+"77
+[; ;tempo.c: 77: }
+[e :UE 150 ]
+=======
 "36
 [; ;tempo.c: 36: void habTemporizador( struct temporizadorT * t, unsigned char h )
 [v _habTemporizador `(v ~T0 @X0 1 ef2`*S138`uc ]
@@ -358,4 +511,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 "48
 [; ;tempo.c: 48: }
 [e :UE 145 ]
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 }

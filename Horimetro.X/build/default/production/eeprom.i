@@ -2492,6 +2492,16 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
 # 2 "eeprom.c" 2
+<<<<<<< HEAD
+# 1 "./teclado.h" 1
+
+
+
+void teclado_init( void );
+unsigned char teclado( void );
+# 3 "eeprom.c" 2
+=======
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 char EEPROM_read( unsigned char addr )
 {

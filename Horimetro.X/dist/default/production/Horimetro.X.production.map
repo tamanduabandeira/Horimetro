@@ -5,7 +5,11 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.00\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\Horimetro.X.production.sym \
   --cmf=dist/default/production\Horimetro.X.production.cmf -z -Q16F887 \
+<<<<<<< HEAD
+  -oC:\Users\211934~1.CFP\AppData\Local\Temp\s8qo.2 \
+=======
   -oC:\Users\211934~1.CFP\AppData\Local\Temp\sa1c.2 \
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
   -Mdist/default/production/Horimetro.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0110h-016fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +22,11 @@ Linker command line:
   -pfunctab=ENTRY -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
+<<<<<<< HEAD
+  -DENTRY=2 -k C:\Users\211934~1.CFP\AppData\Local\Temp\s8qo.o \
+=======
   -DENTRY=2 -k C:\Users\211934~1.CFP\AppData\Local\Temp\sa1c.o \
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
   dist/default/production\Horimetro.X.production.o 
 
 Object code version is 3.11
@@ -28,11 +36,54 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
+<<<<<<< HEAD
+C:\Users\211934~1.CFP\AppData\Local\Temp\s8qo.o
+=======
 C:\Users\211934~1.CFP\AppData\Local\Temp\sa1c.o
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
                 end_init                              C        C        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2     400E       0
 dist/default/production\Horimetro.X.production.o
+<<<<<<< HEAD
+                cinit                                 F        F       19        8       0
+                intentry                              4        4        8        8       0
+                text27                              FEE      FEE       12     1FDC       0
+                text26                              7CA      7CA       14      EDE       0
+                text25                              FCE      FCE       10     1F9C       0
+                text24                              718      718       2C        8       0
+                text23                              7F1      7F1        F      EDE       0
+                text22                              FDE      FDE       10     1FBC       0
+                text21                              F9C      F9C        A     1F38       0
+                text20                              F83      F83        8     1F06       0
+                text19                              FA6      FA6        A     1F4C       0
+                text18                              FB0      FB0        A     1F60       0
+                text17                              FBA      FBA        A     1F74       0
+                text16                              FC4      FC4        A     1F88       0
+                text15                              F93      F93        9     1F26       0
+                text14                              79F      79F       17      EDE       0
+                text13                              524      524       7C        8       0
+                text12                              676      676       3F        8       0
+                text11                              5A0      5A0       73        8       0
+                text10                              613      613       63        8       0
+                text9                               6EC      6EC       2C        8       0
+                text8                               7DE      7DE       13      EDE       0
+                text7                               358      358       EE        8       0
+                text6                               6B5      6B5       37        8       0
+                text5                               788      788       17      EDE       0
+                text4                               F7C      F7C        7     1EF8       0
+                text3                               7B6      7B6       14      EDE       0
+                text2                               76F      76F       19      EDE       0
+                text1                               446      446       DE        8       0
+                maintext                             28       28      330        8       0
+                cstackBANK0                          40       40       15       20       1
+                cstackCOMMON                         70       70        A       70       1
+                clrtext                             F8B      F8B        8     1F16       0
+                bssBANK0                             20       20       20       20       1
+                dataCOMMON                           7A       7A        2       70       1
+                strings                             744      744       2B      E88       0
+                idataCOMMON                         F7A      F7A        2     1EF4       0
+=======
                 cinit                                 F        F       1A        8       0
                 intentry                              4        4        8        8       0
                 text26                              5EA      5EA       12      AF8       0
@@ -70,12 +121,48 @@ dist/default/production\Horimetro.X.production.o
                 bssCOMMON                            7B       7B        1       70       1
                 strings                             555      555       27      AAA       0
                 idataCOMMON                         67D      67D        2      AF8       0
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              C        C        3         0
+<<<<<<< HEAD
+                cinit                                 F        F       19         0
+                intentry                              4        4        8         0
+                reset_vec                             0        0        3         0
+                text27                              FEE      FEE       12         0
+                text26                              7CA      7CA       14         0
+                text25                              FCE      FCE       10         0
+                text24                              718      718       2C         0
+                text23                              7F1      7F1        F         0
+                text22                              FDE      FDE       10         0
+                text21                              F9C      F9C        A         0
+                text20                              F83      F83        8         0
+                text19                              FA6      FA6        A         0
+                text18                              FB0      FB0        A         0
+                text17                              FBA      FBA        A         0
+                text16                              FC4      FC4        A         0
+                text15                              F93      F93        9         0
+                text14                              79F      79F       17         0
+                text13                              524      524       7C         0
+                text12                              676      676       3F         0
+                text11                              5A0      5A0       73         0
+                text10                              613      613       63         0
+                text9                               6EC      6EC       2C         0
+                text8                               7DE      7DE       13         0
+                text7                               358      358       EE         0
+                text6                               6B5      6B5       37         0
+                text5                               788      788       17         0
+                text4                               F7C      F7C        7         0
+                text3                               7B6      7B6       14         0
+                text2                               76F      76F       19         0
+                text1                               446      446       DE         0
+                maintext                             28       28      330         0
+                clrtext                             F8B      F8B        8         0
+                idataCOMMON                         F7A      F7A        2         0
+=======
                 cinit                                 F        F       1A         0
                 intentry                              4        4        8         0
                 reset_vec                             0        0        3         0
@@ -108,24 +195,34 @@ TOTAL           Name                               Link     Load   Length     Sp
                 maintext                             29       29      18A         0
                 clrtext                             666      666        8         0
                 idataCOMMON                         67D      67D        2         0
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
         CLASS   STRCODE        
 
         CLASS   STRING         
+<<<<<<< HEAD
+                strings                             744      744       2B         0
+=======
                 strings                             555      555       27         0
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
         CLASS   CONST          
 
         CLASS   ENTRY          
 
         CLASS   COMMON         
+<<<<<<< HEAD
+                cstackCOMMON                         70       70        A         1
+                dataCOMMON                           7A       7A        2         1
+=======
                 cstackCOMMON                         70       70        9         1
                 dataCOMMON                           79       79        2         1
                 bssCOMMON                            7B       7B        1         1
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
         CLASS   BANK0          
-                cstackBANK0                          3F       3F       14         1
-                bssBANK0                             20       20       1F         1
+                cstackBANK0                          40       40       15         1
+                bssBANK0                             20       20       20         1
 
         CLASS   BANK1          
 
@@ -158,22 +255,55 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
+<<<<<<< HEAD
+                intentry                       000004  000740  000744         8       0  CODE        2
+                bssBANK0                       000020  000035  000055        20       1  BANK0       1
+                cstackCOMMON                   000070  00000C  00007C        70       1  COMMON      1
+                strings                        000744  00002B  00076F       E88       0  STRING      2
+                text2                          00076F  000091  000800       EDE       0  CODE        2
+                idataCOMMON                    000F7A  000002  000F7C      1EF4       0  CODE        2
+                text4                          000F7C  000007  000F83      1EF8       0  CODE        2
+                text20                         000F83  000008  000F8B      1F06       0  CODE        2
+                clrtext                        000F8B  000008  000F93      1F16       0  CODE        2
+                text15                         000F93  000009  000F9C      1F26       0  CODE        2
+                text21                         000F9C  00000A  000FA6      1F38       0  CODE        2
+                text19                         000FA6  00000A  000FB0      1F4C       0  CODE        2
+                text18                         000FB0  00000A  000FBA      1F60       0  CODE        2
+                text17                         000FBA  00000A  000FC4      1F74       0  CODE        2
+                text16                         000FC4  00000A  000FCE      1F88       0  CODE        2
+                text25                         000FCE  000010  000FDE      1F9C       0  CODE        2
+                text22                         000FDE  000010  000FEE      1FBC       0  CODE        2
+                text27                         000FEE  000012  001000      1FDC       0  CODE        2
+=======
                 intentry                       000004  000551  000555         8       0  CODE        2
                 bssBANK0                       000020  000033  000053        20       1  BANK0       1
                 cstackCOMMON                   000070  00000C  00007C        70       1  COMMON      1
                 strings                        000555  000027  00057C       AAA       0  STRING      2
                 text21                         00057C  000103  00067F       AF8       0  CODE        2
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
                 config                         002007  000002  002009      400E       0  CONFIG      2
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            0053-006F             1D           1
+        BANK0            0055-006F             1B           1
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
         CODE             0003-0003              1           2
+<<<<<<< HEAD
+                         0800-0F79            77A
+                         1000-1FFF            800
+        COMMON           007C-007D              2           1
+        CONST            0003-0003              1           2
+                         0800-0F79            100
+                         1000-1FFF            100
+        EEDATA           2100-21FF            100           2
+        ENTRY            0003-0003              1           2
+                         0800-0F79            100
+                         1000-1FFF            100
+=======
                          067F-1FFF            800
         COMMON           007C-007D              2           1
         CONST            0003-0003              1           2
@@ -181,8 +311,9 @@ UNUSED ADDRESS RANGES
         EEDATA           2100-21FF            100           2
         ENTRY            0003-0003              1           2
                          067F-1FFF            100
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
         IDLOC            2000-2003              4           2
-        RAM              0053-006F             1D           1
+        RAM              0055-006F             1B           1
                          00A0-00EF             50
                          0110-016F             60
                          0190-01EF             60
@@ -192,9 +323,17 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
         STRCODE          0003-0003              1           2
+<<<<<<< HEAD
+                         0800-0F79            77A
+                         1000-1FFF           1000
+        STRING           0003-0003              1           2
+                         0800-0F79            100
+                         1000-1FFF            100
+=======
                          067F-1FFF           1981
         STRING           0003-0003              1           2
                          067F-1FFF            100
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
                                   Symbol Table
 
@@ -202,8 +341,13 @@ UNUSED ADDRESS RANGES
 ?___awdiv                   cstackCOMMON 0072
 ?___awmod                   cstackCOMMON 0072
 EEPROM_read@addr            cstackCOMMON 0072
+<<<<<<< HEAD
+EEPROM_write@addr           cstackCOMMON 0078
+EEPROM_write@data           cstackCOMMON 0077
+=======
 EEPROM_write@addr           cstackCOMMON 0073
 EEPROM_write@data           cstackCOMMON 0072
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 T0_start@c                  cstackCOMMON 0072
 _ANSEL                      (abs)        0188
 _ANSELH                     (abs)        0189
@@ -212,8 +356,13 @@ _EEADRH                     (abs)        010F
 _EECON1bits                 (abs)        018C
 _EECON2                     (abs)        018D
 _EEDAT                      (abs)        010C
+<<<<<<< HEAD
+_EEPROM_read                text23       07F1
+_EEPROM_write               text2        076F
+=======
 _EEPROM_read                text22       061C
 _EEPROM_write               text21       057C
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 _INTCONbits                 (abs)        000B
 _OPTION_REGbits             (abs)        0081
 _PIE1bits                   (abs)        008C
@@ -223,6 +372,18 @@ _PORTB                      (abs)        0006
 _PORTD                      (abs)        0008
 _PORTDbits                  (abs)        0008
 _PR2                        (abs)        0092
+<<<<<<< HEAD
+_T0_init                    text22       0FDE
+_T0_int                     text27       0FEE
+_T0_start                   text21       0F9C
+_T0_status                  text20       0F83
+_T0count                    bssBANK0     0024
+_T1CONbits                  (abs)        0010
+_T1_int                     text26       07CA
+_T1count                    bssBANK0     0022
+_T2CONbits                  (abs)        0012
+_T2_int                     text25       0FCE
+=======
 _T0_init                    text20       05FC
 _T0_int                     text26       05EA
 _T0_start                   text19       0653
@@ -233,6 +394,7 @@ _T1_int                     text25       05C3
 _T1count                    bssBANK0     0022
 _T2CONbits                  (abs)        0012
 _T2_int                     text24       060C
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 _T2count                    bssBANK0     0020
 _TMR0                       (abs)        0001
 _TMR1H                      (abs)        000F
@@ -260,8 +422,12 @@ __Hbank1                    bank1        0000
 __Hbank2                    bank2        0000
 __Hbank3                    bank3        0000
 __HbssBANK0                 bssBANK0     0000
+<<<<<<< HEAD
+__Hcinit                    cinit        0028
+=======
 __HbssCOMMON                bssCOMMON    0000
 __Hcinit                    cinit        0029
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 __Hclrtext                  clrtext      0000
 __Hcode                     code         0000
 __Hcommon                   common       0000
@@ -297,7 +463,6 @@ __Lbank1                    bank1        0000
 __Lbank2                    bank2        0000
 __Lbank3                    bank3        0000
 __LbssBANK0                 bssBANK0     0000
-__LbssCOMMON                bssCOMMON    0000
 __Lcinit                    cinit        000F
 __Lclrtext                  clrtext      0000
 __Lcode                     code         0000
@@ -332,6 +497,15 @@ __S0                        (abs)        2009
 __S1                        (abs)        007C
 __S2                        (abs)        0000
 __S3                        (abs)        0000
+<<<<<<< HEAD
+___awdiv                    text11       05A0
+___awdiv@counter            cstackBANK0  0040
+___awdiv@dividend           cstackCOMMON 0074
+___awdiv@divisor            cstackCOMMON 0072
+___awdiv@quotient           cstackBANK0  0042
+___awdiv@sign               cstackBANK0  0041
+___awmod                    text10       0613
+=======
 ___awdiv                    text8        03AD
 ___awdiv@counter            cstackBANK0  003F
 ___awdiv@dividend           cstackCOMMON 0074
@@ -339,6 +513,7 @@ ___awdiv@divisor            cstackCOMMON 0072
 ___awdiv@quotient           cstackBANK0  0041
 ___awdiv@sign               cstackBANK0  0040
 ___awmod                    text7        0420
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 ___awmod@counter            cstackCOMMON 0077
 ___awmod@dividend           cstackCOMMON 0074
 ___awmod@divisor            cstackCOMMON 0072
@@ -346,6 +521,75 @@ ___awmod@sign               cstackCOMMON 0078
 ___int_sp                   stack        0000
 ___latbits                  (abs)        0002
 ___sp                       stack        0000
+<<<<<<< HEAD
+__end_of_EEPROM_read        text23       0800
+__end_of_EEPROM_write       text2        0788
+__end_of_T0_init            text22       0FEE
+__end_of_T0_int             text27       1000
+__end_of_T0_start           text21       0FA6
+__end_of_T0_status          text20       0F8B
+__end_of_T1_int             text26       07DE
+__end_of_T2_int             text25       0FDE
+__end_of___awdiv            text11       0613
+__end_of___awmod            text10       0676
+__end_of__initialization    cinit        0024
+__end_of__stringtab         strings      074A
+__end_of_b0                 text19       0FB0
+__end_of_b1                 text18       0FBA
+__end_of_b2                 text17       0FC4
+__end_of_b3                 text16       0FCE
+__end_of_botao_init         text4        0F83
+__end_of_delay              text14       07B6
+__end_of_habTemporizador    text15       0F9C
+__end_of_isr                text24       0744
+__end_of_lcd_dataReg        text9        0718
+__end_of_lcd_init           text12       06B5
+__end_of_lcd_instReg        text13       05A0
+__end_of_lcd_lincol         text8        07F1
+__end_of_lcd_num            text7        0446
+__end_of_lcd_print          text6        06EC
+__end_of_main               maintext     0358
+__end_of_resetTemporizador  text5        079F
+__end_of_tecladoMatriz      strings      075A
+__end_of_teclado_init       text3        07CA
+__end_of_temporizar         text1        0524
+__initialization            cinit        000F
+__pbssBANK0                 bssBANK0     0020
+__pcstackBANK0              cstackBANK0  0040
+__pcstackCOMMON             cstackCOMMON 0070
+__pdataCOMMON               dataCOMMON   007A
+__pidataCOMMON              idataCOMMON  0F7A
+__pintentry                 intentry     0004
+__pmaintext                 maintext     0028
+__pstrings                  strings      0744
+__ptext1                    text1        0446
+__ptext10                   text10       0613
+__ptext11                   text11       05A0
+__ptext12                   text12       0676
+__ptext13                   text13       0524
+__ptext14                   text14       079F
+__ptext15                   text15       0F93
+__ptext16                   text16       0FC4
+__ptext17                   text17       0FBA
+__ptext18                   text18       0FB0
+__ptext19                   text19       0FA6
+__ptext2                    text2        076F
+__ptext20                   text20       0F83
+__ptext21                   text21       0F9C
+__ptext22                   text22       0FDE
+__ptext23                   text23       07F1
+__ptext24                   text24       0718
+__ptext25                   text25       0FCE
+__ptext26                   text26       07CA
+__ptext27                   text27       0FEE
+__ptext3                    text3        07B6
+__ptext4                    text4        0F7C
+__ptext5                    text5        0788
+__ptext6                    text6        06B5
+__ptext7                    text7        0358
+__ptext8                    text8        07DE
+__ptext9                    text9        06EC
+=======
 __end_of_EEPROM_read        text22       062B
 __end_of_EEPROM_write       text21       0595
 __end_of_T0_init            text20       060C
@@ -412,6 +656,7 @@ __ptext6                    text6        04FD
 __ptext7                    text7        0420
 __ptext8                    text8        03AD
 __ptext9                    text9        0483
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 __size_of_EEPROM_read       (abs)        0000
 __size_of_EEPROM_write      (abs)        0000
 __size_of_T0_init           (abs)        0000
@@ -438,7 +683,40 @@ __size_of_lcd_num           (abs)        0000
 __size_of_lcd_print         (abs)        0000
 __size_of_main              (abs)        0000
 __size_of_resetTemporizador (abs)        0000
+__size_of_teclado_init      (abs)        0000
 __size_of_temporizar        (abs)        0000
+<<<<<<< HEAD
+__stringbase                strings      0749
+__stringtab                 strings      0744
+_b0                         text19       0FA6
+_b0Anterior                 dataCOMMON   007B
+_b1                         text18       0FB0
+_b1Anterior                 dataCOMMON   007A
+_b2                         text17       0FBA
+_b2Anterior                 bssBANK0     0027
+_b3                         text16       0FC4
+_b3Anterior                 bssBANK0     0026
+_botao_init                 text4        0F7C
+_delay                      text14       079F
+_habTemporizador            text15       0F93
+_isr                        text24       0718
+_lcd_dataReg                text9        06EC
+_lcd_init                   text12       0676
+_lcd_instReg                text13       0524
+_lcd_lincol                 text8        07DE
+_lcd_num                    text7        0358
+_lcd_print                  text6        06B5
+_main                       maintext     0028
+_resetTemporizador          text5        0788
+_tecladoMatriz              strings      074A
+_teclado_init               text3        07B6
+_tempo                      bssBANK0     0028
+_temporizar                 text1        0446
+btemp                       (abs)        007E
+clear_ram0                  clrtext      0F8B
+delay@t                     cstackCOMMON 0072
+end_of_initialization       cinit        0024
+=======
 __stringbase                strings      055A
 __stringtab                 strings      0555
 _b0                         text17       0649
@@ -468,6 +746,7 @@ btemp                       (abs)        007E
 clear_ram0                  clrtext      0666
 delay@t                     cstackCOMMON 0072
 end_of_initialization       cinit        0025
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 habTemporizador@h           cstackCOMMON 0072
 habTemporizador@t           cstackCOMMON 0074
 interrupt_function          intentry     0004
@@ -481,17 +760,18 @@ lcd_dataReg@d               cstackCOMMON 0074
 lcd_instReg@i               cstackCOMMON 0074
 lcd_lincol@col              cstackCOMMON 0075
 lcd_lincol@lin              cstackCOMMON 0077
-lcd_num@col                 cstackBANK0  0043
-lcd_num@div                 cstackBANK0  004D
-lcd_num@lin                 cstackBANK0  004A
-lcd_num@num                 cstackBANK0  0044
-lcd_num@sinal               cstackBANK0  004C
-lcd_num@size                cstackBANK0  004B
-lcd_num@tam                 cstackBANK0  0046
-lcd_print@col               cstackBANK0  003F
+lcd_num@col                 cstackBANK0  0044
+lcd_num@div                 cstackBANK0  004E
+lcd_num@lin                 cstackBANK0  004B
+lcd_num@num                 cstackBANK0  0045
+lcd_num@sinal               cstackBANK0  004D
+lcd_num@size                cstackBANK0  004C
+lcd_num@tam                 cstackBANK0  0047
+lcd_print@col               cstackCOMMON 0078
 lcd_print@lin               cstackBANK0  0042
 lcd_print@pos               cstackBANK0  0041
-lcd_print@str               cstackBANK0  0040
+lcd_print@str               cstackCOMMON 0079
+main@i                      cstackBANK0  0054
 resetTemporizador@t         cstackCOMMON 0072
 reset_vec                   reset_vec    0000
 saved_w                     (abs)        007E
@@ -499,7 +779,8 @@ stackhi                     (abs)        0000
 stacklo                     (abs)        0000
 start                       init         000C
 start_initialization        cinit        000F
-temporizar@t                cstackBANK0  0043
+temporizar@adrs             cstackBANK0  0044
+temporizar@t                cstackCOMMON 0079
 wtemp0                      (abs)        007E
 
 
@@ -507,11 +788,15 @@ FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
+<<<<<<< HEAD
+		line 21 in file "main.c"
+=======
 		line 20 in file "main.c"
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-		None
+  i               1   20[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -522,10 +807,10 @@ FUNCTION INFORMATION:
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
       Params:         0       0       0       0       0
-      Locals:         0       0       0       0       0
+      Locals:         0       1       0       0       0
       Temps:          0       4       0       0       0
-      Totals:         0       4       0       0       0
-Total ram usage:        4 bytes
+      Totals:         0       5       0       0       0
+Total ram usage:        5 bytes
  Hardware stack levels required when called:    5
  This function calls:
 		_EEPROM_read
@@ -538,11 +823,13 @@ Total ram usage:        4 bytes
 		_b2
 		_b3
 		_botao_init
+		_delay
 		_habTemporizador
 		_lcd_init
 		_lcd_num
 		_lcd_print
 		_resetTemporizador
+		_teclado_init
 		_temporizar
  This function is called by:
 		Startup code after reset
@@ -551,12 +838,17 @@ Total ram usage:        4 bytes
 
  *************** function _temporizar *****************
  Defined at:
+<<<<<<< HEAD
+		line 40 in file "tempo.c"
+=======
 		line 14 in file "tempo.c"
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
  Parameters:    Size  Location     Type
   t               1    wreg     PTR struct temporizadorT
 		 -> tempo(24), 
+  adrs            1    4[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  t               1    4[BANK0 ] PTR struct temporizadorT
+  t               1    9[COMMON] PTR struct temporizadorT
 		 -> tempo(24), 
  Return value:  Size  Location     Type
                   1    wreg      void 
@@ -567,23 +859,122 @@ Total ram usage:        4 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       0       0       0       0
-      Locals:         0       1       0       0       0
+      Params:         0       1       0       0       0
+      Locals:         1       0       0       0       0
       Temps:          0       4       0       0       0
-      Totals:         0       5       0       0       0
-Total ram usage:        5 bytes
+      Totals:         1       5       0       0       0
+Total ram usage:        6 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    3
  This function calls:
+		_EEPROM_write
+		___awdiv
 		___awmod
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
+ *************** function _EEPROM_write *****************
+ Defined at:
+		line 13 in file "eeprom.c"
+ Parameters:    Size  Location     Type
+  addr            1    wreg     unsigned char 
+  data            1    7[COMMON] unsigned char 
+ Auto vars:     Size  Location     Type
+  addr            1    8[COMMON] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         1       0       0       0       0
+      Locals:         1       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         2       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+		_temporizar
+ This function uses a non-reentrant model
+
+
+ *************** function _teclado_init *****************
+ Defined at:
+		line 11 in file "teclado.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_botao_init
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _botao_init *****************
+ Defined at:
+		line 11 in file "botao.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+      Params:         0       0       0       0       0
+      Locals:         0       0       0       0       0
+      Temps:          0       0       0       0       0
+      Totals:         0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+		_teclado_init
+ This function uses a non-reentrant model
+
+
  *************** function _resetTemporizador *****************
  Defined at:
+<<<<<<< HEAD
+		line 70 in file "tempo.c"
+=======
 		line 41 in file "tempo.c"
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
  Parameters:    Size  Location     Type
   t               1    wreg     PTR struct temporizadorT
 		 -> tempo(24), 
@@ -618,12 +1009,13 @@ Total ram usage:        1 bytes
 		line 158 in file "lcd.c"
  Parameters:    Size  Location     Type
   lin             1    wreg     unsigned char 
-  col             1    0[BANK0 ] unsigned char 
-  str             1    1[BANK0 ] PTR const unsigned char 
-		 -> STR_2(17), STR_1(17), 
+  col             1    8[COMMON] unsigned char 
+  str             1    9[COMMON] PTR const unsigned char 
+		 -> STR_8(2), STR_7(2), STR_6(2), STR_5(2), 
+		 -> STR_4(2), STR_3(2), STR_2(17), STR_1(17), 
  Auto vars:     Size  Location     Type
-  lin             1    3[BANK0 ] unsigned char 
-  pos             1    2[BANK0 ] unsigned char 
+  lin             1    2[BANK0 ] unsigned char 
+  pos             1    1[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -633,10 +1025,10 @@ Total ram usage:        1 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-      Params:         0       2       0       0       0
+      Params:         2       0       0       0       0
       Locals:         0       2       0       0       0
-      Temps:          1       0       0       0       0
-      Totals:         1       4       0       0       0
+      Temps:          0       1       0       0       0
+      Totals:         2       3       0       0       0
 Total ram usage:        5 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    4
@@ -780,6 +1172,7 @@ Total ram usage:        7 bytes
  This function is called by:
 		_lcd_num
 		_temporizar
+		_temporizar0
  This function uses a non-reentrant model
 
 
@@ -813,6 +1206,7 @@ Total ram usage:        9 bytes
 		Nothing
  This function is called by:
 		_lcd_num
+		_temporizar
  This function uses a non-reentrant model
 
 
@@ -905,13 +1299,18 @@ Total ram usage:        3 bytes
  This function calls:
 		Nothing
  This function is called by:
+		_main
 		_lcd_init
  This function uses a non-reentrant model
 
 
  *************** function _habTemporizador *****************
  Defined at:
+<<<<<<< HEAD
+		line 65 in file "tempo.c"
+=======
 		line 36 in file "tempo.c"
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
  Parameters:    Size  Location     Type
   t               1    wreg     PTR struct temporizadorT
 		 -> tempo(24), 
@@ -942,17 +1341,17 @@ Total ram usage:        3 bytes
  This function uses a non-reentrant model
 
 
- *************** function _botao_init *****************
+ *************** function _b3 *****************
  Defined at:
-		line 9 in file "botao.c"
+		line 128 in file "botao.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  1    wreg      void 
+                  1    wreg      unsigned char 
  Registers used:
-		None
+		wreg, status,0
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -973,6 +1372,8 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
+<<<<<<< HEAD
+=======
  *************** function _b3 *****************
  Defined at:
 		line 126 in file "botao.c"
@@ -1003,9 +1404,10 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
  *************** function _b2 *****************
  Defined at:
-		line 92 in file "botao.c"
+		line 94 in file "botao.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1035,7 +1437,7 @@ Total ram usage:        0 bytes
 
  *************** function _b1 *****************
  Defined at:
-		line 58 in file "botao.c"
+		line 60 in file "botao.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1065,7 +1467,7 @@ Total ram usage:        0 bytes
 
  *************** function _b0 *****************
  Defined at:
-		line 20 in file "botao.c"
+		line 22 in file "botao.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1183,6 +1585,11 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
+<<<<<<< HEAD
+ *************** function _EEPROM_read *****************
+ Defined at:
+		line 4 in file "eeprom.c"
+=======
  *************** function _EEPROM_write *****************
  Defined at:
 		line 12 in file "eeprom.c"
@@ -1217,6 +1624,7 @@ Total ram usage:        2 bytes
  *************** function _EEPROM_read *****************
  Defined at:
 		line 3 in file "eeprom.c"
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
  Parameters:    Size  Location     Type
   addr            1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -1368,21 +1776,42 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 timers.c
+<<<<<<< HEAD
+		_T0_status     		CODE           	0F83	0000	9
+		_T0_start      		CODE           	0F9C	0000	11
+		_T0_int        		CODE           	0FEE	0000	19
+		_T1_int        		CODE           	07CA	0000	21
+		_T0_init       		CODE           	0FDE	0000	17
+		_T2_int        		CODE           	0FCE	0000	17
+=======
 		_T0_status     		CODE           	066E	0000	9
 		_T0_start      		CODE           	0653	0000	11
 		_T0_int        		CODE           	05EA	0000	19
 		_T1_int        		CODE           	05C3	0000	21
 		_T0_init       		CODE           	05FC	0000	17
 		_T2_int        		CODE           	060C	0000	17
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 timers.c estimated size: 94
 
 delay.c
+<<<<<<< HEAD
+		_delay         		CODE           	079F	0000	24
+=======
 		_delay         		CODE           	05AC	0000	24
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 delay.c estimated size: 24
 
 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awmod.c
+<<<<<<< HEAD
+		___awmod       		CODE           	0613	0000	100
+
+C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awmod.c estimated size: 100
+
+teclado.c
+		_teclado_init  		CODE           	07B6	0000	21
+=======
 		___awmod       		CODE           	0420	0000	100
 
 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awmod.c estimated size: 100
@@ -1391,8 +1820,22 @@ tempo.c
 		_habTemporizador		CODE           	065D	0000	10
 		_temporizar    		CODE           	02A1	0000	145
 		_resetTemporizador		CODE           	0595	0000	24
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
-tempo.c estimated size: 179
+teclado.c estimated size: 21
+
+tempo.c
+		_habTemporizador		CODE           	0F93	0000	10
+		_temporizar    		CODE           	0446	0000	223
+		_resetTemporizador		CODE           	0788	0000	24
+
+tempo.c estimated size: 257
+
+eeprom.c
+		_EEPROM_read   		CODE           	07F1	0000	16
+		_EEPROM_write  		CODE           	076F	0000	26
+
+eeprom.c estimated size: 42
 
 eeprom.c
 		_EEPROM_read   		CODE           	061C	0000	16
@@ -1401,16 +1844,48 @@ eeprom.c
 eeprom.c estimated size: 42
 
 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c
+<<<<<<< HEAD
+		___awdiv       		CODE           	05A0	0000	116
+=======
 		___awdiv       		CODE           	03AD	0000	116
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\awdiv.c estimated size: 116
 
 interrupt.c
+<<<<<<< HEAD
+		_isr           		CODE           	0718	0000	45
+=======
 		_isr           		CODE           	0529	0000	45
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 interrupt.c estimated size: 45
 
 shared
+<<<<<<< HEAD
+		__stringtab    		STRING         	0744	0000	7
+		__initialization		CODE           	000F	0000	22
+		_tecladoMatriz 		STRING         	074A	0000	17
+
+shared estimated size: 46
+
+lcd.c
+		_lcd_lincol    		CODE           	07DE	0000	20
+		_lcd_dataReg   		CODE           	06EC	0000	45
+		_lcd_print     		CODE           	06B5	0000	56
+		_lcd_instReg   		CODE           	0524	0000	125
+		_lcd_init      		CODE           	0676	0000	64
+		_lcd_num       		CODE           	0358	0000	239
+
+lcd.c estimated size: 549
+
+botao.c
+		_b0            		CODE           	0FA6	0000	11
+		_b1            		CODE           	0FB0	0000	11
+		_b2            		CODE           	0FBA	0000	11
+		_b3            		CODE           	0FC4	0000	11
+		_botao_init    		CODE           	0F7C	0000	8
+=======
 		__stringtab    		STRING         	0555	0000	7
 		__initialization		CODE           	000F	0000	23
 		_tecladoMatriz 		STRING         	055B	0000	17
@@ -1433,11 +1908,18 @@ botao.c
 		_b2            		CODE           	0635	0000	11
 		_b3            		CODE           	062B	0000	11
 		_botao_init    		CODE           	0676	0000	8
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 botao.c estimated size: 52
 
 main.c
+<<<<<<< HEAD
+		_main          		CODE           	0028	0000	817
+
+main.c estimated size: 817
+=======
 		_main          		CODE           	0029	0000	395
 
 main.c estimated size: 395
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 

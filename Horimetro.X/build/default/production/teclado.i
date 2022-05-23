@@ -2522,6 +2522,19 @@ char b3_borda( void );
 
 void delay( unsigned int t );
 # 4 "teclado.c" 2
+<<<<<<< HEAD
+# 1 "./lcd.h" 1
+
+
+
+void lcd_init( void );
+void lcd_clr( void );
+void lcd_print( unsigned char lin, unsigned char col, const char * str );
+void lcd_num( unsigned char lin, unsigned char col,
+                    int num, unsigned char tam );
+# 5 "teclado.c" 2
+=======
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 
 
@@ -2541,7 +2554,11 @@ void teclado_init( void )
 const char tecladoMatriz[4][4] = { {'1','2','3','A'},
                                     {'4','5','6','B'},
                                     {'7','8','9','C'},
+<<<<<<< HEAD
+                                    {'*','0','#','D'} };
+=======
                                     {'^','v','<','>'} };
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 
 char teclado( void )
 {
@@ -2563,11 +2580,19 @@ char teclado( void )
     {
         if( b0_bordaDescida() )
         {
+<<<<<<< HEAD
+            aux = '*';
+        }
+        else if ( b1_bordaDescida() )
+        {
+            aux = '0';
+=======
             aux = '^';
         }
         else if ( b1_bordaDescida() )
         {
             aux = 'v';
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
         }
     }
     return( aux );

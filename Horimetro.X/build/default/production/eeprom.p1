@@ -271,6 +271,98 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
+<<<<<<< HEAD
+"4 eeprom.c
+[; ;eeprom.c: 4: char EEPROM_read( unsigned char addr )
+[v _EEPROM_read `(uc ~T0 @X0 1 ef1`uc ]
+"5
+[; ;eeprom.c: 5: {
+{
+[e :U _EEPROM_read ]
+"4
+[; ;eeprom.c: 4: char EEPROM_read( unsigned char addr )
+[v _addr `uc ~T0 @X0 1 r1 ]
+"5
+[; ;eeprom.c: 5: {
+[f ]
+"6
+[; ;eeprom.c: 6:     EEADRH = 0;
+[e = _EEADRH -> -> 0 `i `uc ]
+"7
+[; ;eeprom.c: 7:     EEADR = addr;
+[e = _EEADR _addr ]
+"8
+[; ;eeprom.c: 8:     EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
+"9
+[; ;eeprom.c: 9:     EECON1bits.RD = 1;
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+"10
+[; ;eeprom.c: 10:     return( EEDAT );
+[e ) -> _EEDAT `uc ]
+[e $UE 138  ]
+"11
+[; ;eeprom.c: 11: }
+[e :UE 138 ]
+}
+"13
+[; ;eeprom.c: 13: void EEPROM_write( unsigned char addr, unsigned char data )
+[v _EEPROM_write `(v ~T0 @X0 1 ef2`uc`uc ]
+"14
+[; ;eeprom.c: 14: {
+{
+[e :U _EEPROM_write ]
+"13
+[; ;eeprom.c: 13: void EEPROM_write( unsigned char addr, unsigned char data )
+[v _addr `uc ~T0 @X0 1 r1 ]
+[v _data `uc ~T0 @X0 1 r2 ]
+"14
+[; ;eeprom.c: 14: {
+[f ]
+"15
+[; ;eeprom.c: 15:     INTCONbits.GIE = 0;
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+"16
+[; ;eeprom.c: 16:     EEADR = addr;
+[e = _EEADR _addr ]
+"17
+[; ;eeprom.c: 17:     EEDAT = data;
+[e = _EEDAT _data ]
+"18
+[; ;eeprom.c: 18:     EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 5 -> -> 0 `i `uc ]
+"19
+[; ;eeprom.c: 19:     EECON1bits.WREN = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"20
+[; ;eeprom.c: 20:     EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"21
+[; ;eeprom.c: 21:     EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"22
+[; ;eeprom.c: 22:     EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"23
+[; ;eeprom.c: 23:     while( EECON1bits.WR )
+[e $U 140  ]
+[e :U 141 ]
+"24
+[; ;eeprom.c: 24:         ;
+[e :U 140 ]
+"23
+[; ;eeprom.c: 23:     while( EECON1bits.WR )
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 141  ]
+[e :U 142 ]
+"25
+[; ;eeprom.c: 25:     EECON1bits.WREN = 0;
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+"26
+[; ;eeprom.c: 26:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"27
+[; ;eeprom.c: 27: }
+=======
 "3 eeprom.c
 [; ;eeprom.c: 3: char EEPROM_read( unsigned char addr )
 [v _EEPROM_read `(uc ~T0 @X0 1 ef1`uc ]
@@ -361,5 +453,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "26
 [; ;eeprom.c: 26: }
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
 [e :UE 139 ]
 }

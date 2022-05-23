@@ -1,3 +1,4 @@
+
 #include <xc.h>
 
 #define B0      !PORTAbits.RA0
@@ -6,6 +7,7 @@
 #define B3      !PORTAbits.RA3
 
 
+ 
 void botao_init( void )
 {
     TRISAbits.TRISA0=  1;

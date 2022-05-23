@@ -10,8 +10,13 @@
       <itemPath>lcd.h</itemPath>
       <itemPath>tempo.h</itemPath>
       <itemPath>botao.h</itemPath>
+<<<<<<< HEAD
+      <itemPath>eeprom.h</itemPath>
+      <itemPath>teclado.h</itemPath>
+=======
       <itemPath>teclado.h</itemPath>
       <itemPath>eeprom.h</itemPath>
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -27,8 +32,13 @@
       <itemPath>lcd.c</itemPath>
       <itemPath>tempo.c</itemPath>
       <itemPath>botao.c</itemPath>
+<<<<<<< HEAD
+      <itemPath>eeprom.c</itemPath>
+      <itemPath>teclado.c</itemPath>
+=======
       <itemPath>teclado.c</itemPath>
       <itemPath>eeprom.c</itemPath>
+>>>>>>> ab6b716bf61b999fd6ecb4cc8babc5c5259ca237
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

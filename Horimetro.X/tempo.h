@@ -10,8 +10,10 @@ struct temporizadorT
     int  dia;
 };
 
-void temporizar( struct temporizadorT * t );
+//void temporizar( struct temporizadorT * t );
+void temporizar( struct temporizadorT * t, unsigned char adrs );
 void habTemporizador( struct temporizadorT * t, unsigned char h );
 void resetTemporizador( struct temporizadorT * t );
+
 
 #endif
