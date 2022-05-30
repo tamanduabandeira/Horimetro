@@ -8,4 +8,4 @@
 * Rian Mendes Lopes
 
 Para saber mais sobre o projeto, confira:
-https://github.com/tamanduabandeira/Horimetro.wiki.git
+https://github.com/tamanduabandeira/Horimetro/wiki
